@@ -1,0 +1,77 @@
+#!/bin/bash
+
+OUTDEV=
+NETTOYE=0
+EXTENSIONS='aux log dvi ps toc'
+
+# ------------------------------------------------------------------------------
+while getopts ":mc" option
+do
+    case $option in
+	m ) OUTDEV=' 1>/dev/null 2>&1 ' ;;
+	c ) NETTOYE=1 ;;
+	? ) echo 'Usage: ltx2pdf [-m] [-c] monfichier[.tex]'
+	    echo ' -m : rendre la sortie muette (messages de latex, dvips,ps2pdf)'
+	    echo ' -c : nettoyer les fichiers auxilliaires'
+	    exit 101 ;;
+    esac
+done
+shift $(($OPTIND -1))
+
+# ------------------------------------------------------------------------------
+# Préfixe du fichier, l`extension tex peut-être omise dans l'appel mais elle est
+# nécessaire dans le nom du fichier.
+PREFIXE=${1%.*}
+
+if ! [ -f $PREFIXE.tex ]
+then
+    echo "Le fichier $PREFIXE.tex est introuvable !"
+    exit 100
+fi
+
+# ------------------------------------------------------------------------------
+# Compilation latex
+echo "Compilation latex..."
+eval $2 $5 $PREFIXE.tex $OUTDEV
+# latex $5 $PREFIXE.tex $OUTDEV
+ERREUR_LATEX=$?
+if [ $ERREUR_LATEX != 0 ]
+then
+    echo "Erreur à la compilation latex : $ERREUR_LATEX"
+    exit $ERREUR_LATEX
+fi
+
+# ------------------------------------------------------------------------------
+# Conversion dvi -> ps
+echo "Transformation dvi -> ps..."
+eval $3 $PREFIXE.dvi -o $PREFIXE.ps $OUTDEV
+ERREUR_DVIPS=$?
+if [ $ERREUR_DVIPS != 0 ]
+then
+    echo "Erreur dans la transformation dvi -> ps : $ERREUR_DVIPS"
+    exit  $ERREUR_DVIPS
+fi
+
+
+# ------------------------------------------------------------------------------
+# Conversion ps -> pdf
+echo "Transformation ps -> pdf..."
+eval $4 $PREFIXE.ps $OUTDEV
+ERREUR_PS2PDF=$?
+if [ $ERREUR_PS2PDF != 0 ]
+then
+    echo "Erreur dans la transformation ps -> pdf : $ERREUR_PS2PDF"
+    exit $ERREUR_PS2PDF
+fi
+
+
+# ------------------------------------------------------------------------------
+# Nettoyage
+if [ $NETTOYE == 1 ]
+then
+    echo "Nettoyage..."
+    for ext in $EXTENSIONS
+    do
+	rm -f $PREFIXE.$ext
+    done
+fi
