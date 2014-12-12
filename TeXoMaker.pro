@@ -1,15 +1,26 @@
 DEPENDPATH = include ui sources
 INCLUDEPATH = include
+
+macx:{
 INCLUDEPATH += /usr/local/include/poppler/qt5
 INCLUDEPATH += /usr/local/include/quazip
-!win32 { LIBS += -L/usr/local/lib/ -lpoppler-qt5 }
-!win32 { LIBS += -L/usr/local/lib/ -lquazip }
-unix:!macx { LIBS+= -lquazip }
-win32:INCLUDEPATH += include/poppler/qt4
-win32:INCLUDEPATH += include/quazip
-win32:LIBS += "$$_PRO_FILE_PWD_/lib/libpoppler-qt4.dll"
-win32:LIBS += "$$_PRO_FILE_PWD_/lib/win32/quazip.dll"
-win32:INCLUDEPATH += $$[QT_INSTALL_PREFIX]/src/3rdparty/zlib
+LIBS += -L/usr/local/lib/ -lpoppler-qt5
+LIBS += -L/usr/local/lib/ -lquazip
+}
+
+unix:!macx{
+INCLUDEPATH += /usr/include/poppler/qt5
+INCLUDEPATH += /usr/include/quazip
+LIBS+= -lquazip-qt5 -lpoppler-qt5
+}
+
+win32:{
+INCLUDEPATH += include/poppler/qt4
+INCLUDEPATH += include/quazip
+LIBS += "$$_PRO_FILE_PWD_/lib/libpoppler-qt4.dll"
+LIBS += "$$_PRO_FILE_PWD_/lib/win32/quazip.dll"
+INCLUDEPATH += $$[QT_INSTALL_PREFIX]/src/3rdparty/zlib
+}
 
 # Numéros de version
 DEFINES += MAJOR=2
@@ -21,7 +32,8 @@ win32:build_nr.commands = $$_PRO_FILE_PWD_/setVersion.bat
 build_nr.depends = FORCE
 QMAKE_EXTRA_TARGETS += build_nr
 PRE_TARGETDEPS += build_nr
-UI_DIR = $$_PRO_FILE_PWD_/ui/include
+
+# Fichiers sources
 HEADERS =  include/xmldomhandler.h \
     include/version.h \
     include/tableview.h \
@@ -63,13 +75,6 @@ SOURCES =  sources/xmldomhandler.cpp \
     sources/generalsettingsdialog.cpp \
     sources/advancedfilter.cpp
 RESOURCES = ressources.qrc
-DESTDIR = bin
-TARGET = TeXoMaker
-macx:ICON = TeXoMaker.icns
-win32:RC_FILE += ressources.rc
-TEMPLATE = app
-CONFIG += app_bundle \
-    thread x86_64
 TRANSLATIONS += translations/texomaker_fr.ts
 FORMS += ui/dirprefdialog.ui \
     ui/affichedialog.ui \
@@ -79,12 +84,24 @@ FORMS += ui/dirprefdialog.ui \
     ui/propertydialog.ui \
     ui/generalsettingsdialog.ui \
     ui/advancedfilter.ui
+
+# Configuration générale
+QT += widgets xml network
+DESTDIR = bin
+TARGET = TeXoMaker
+macx:ICON = TeXoMaker.icns
+win32:RC_FILE += ressources.rc
+TEMPLATE = app
+CONFIG += app_bundle \
+    thread x86_64
+
+# Fichiers objets temporaires
 MOC_DIR = tmp
 OBJECTS_DIR = tmp
 RCC_DIR = tmp
+UI_DIR = $$_PRO_FILE_PWD_/ui/include
 
-QT += widgets xml network
-
+# Installation
 macx {
 target.path += /Applications
 ltx2pdf.path = /Applications/TeXoMaker.app/Contents/Resources
