@@ -387,20 +387,20 @@ void MainWindow::checkUpdate()
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
     connect(manager, SIGNAL(finished(QNetworkReply*)),
             this, SLOT(httpDone(QNetworkReply*)));
-
     manager->get(QNetworkRequest(QUrl("texomaker.les-domlols.com/version.txt")));
 }
 
 void MainWindow::httpDone(QNetworkReply* reply)
 {
-  /*  QString lastVersion = http->readAll().trimmed();
+    QByteArray bytes = reply->readAll();  // bytes
+    QString string(bytes);
 
-    if ((lastVersion!=Preferences::curVersion)&&(!error))
+ //   if ((lastVersion!=Preferences::curVersion)&&(!error))
         QMessageBox::information(this, QObject::tr("New version of TeXoMaker"),
                                  QObject::tr("<center>Version %1 of TeXoMaker is available.<br><br>"
                                              "You can download it on the <br><br><a href='http://texomaker.les-domlols.com/index.php/downloads'>TeXoMaker website"
-                                             "</a><center>").arg(lastVersion));
-*/
+                                             "</a><center>").arg(string));
+
 }
 
 
