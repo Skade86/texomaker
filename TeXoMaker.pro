@@ -23,7 +23,7 @@ win32:build_nr.commands = $$_PRO_FILE_PWD_/setVersion.bat
 build_nr.depends = FORCE
 QMAKE_EXTRA_TARGETS += build_nr
 PRE_TARGETDEPS += build_nr
-
+UI_DIR = $$_PRO_FILE_PWD_/ui/include
 HEADERS =  include/xmldomhandler.h \
     include/version.h \
     include/tableview.h \
@@ -84,7 +84,7 @@ FORMS += ui/dirprefdialog.ui \
 MOC_DIR = tmp
 OBJECTS_DIR = tmp
 RCC_DIR = tmp
-UI_HEADERS_DIR = ui/include
+
 QT += widgets xml network
 
 macx {

@@ -1481,7 +1481,7 @@ void MainWindow::changeAllXmlPaths(QString xmlFile,QString newPath)
     // Remplacement des filePath par newPath
     QDomNodeList pathDomList = doc.elementsByTagName("exo");
 
-    for (uint i=0;i<pathDomList.length(); ++i)
+    for (int i=0;i<pathDomList.length(); ++i)
     {
         QDomNode exoChild = pathDomList.item(i).firstChild();
 
