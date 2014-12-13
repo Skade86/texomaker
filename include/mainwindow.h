@@ -142,7 +142,8 @@ private slots:
     //! Met à jour le système MV (lors d'un changement de base par exemple)
     void initializeModelView();
 
-    void httpDone(QNetworkReply* reply);
+    void updateReplyFinished(QNetworkReply* reply);
+
 
 private:
 

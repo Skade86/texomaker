@@ -291,6 +291,7 @@ void MainWindow::createMenus()
 void MainWindow::createToolBars()
 {
     fileToolBar = addToolBar(tr("Tools"));
+    fileToolBar->setObjectName("Tools");
     fileToolBar->addAction(addAct);
     fileToolBar->addAction(removeExoAct);
     fileToolBar->addAction(updateAct);
@@ -386,21 +387,25 @@ void MainWindow::checkUpdate()
 {
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
     connect(manager, SIGNAL(finished(QNetworkReply*)),
-            this, SLOT(httpDone(QNetworkReply*)));
-    manager->get(QNetworkRequest(QUrl("texomaker.les-domlols.com/version.txt")));
+            this, SLOT(updateReplyFinished(QNetworkReply*)));
+    manager->get(QNetworkRequest(QUrl("http://texomaker.les-domlols.com/version.txt")));
+
 }
 
-void MainWindow::httpDone(QNetworkReply* reply)
+void MainWindow::updateReplyFinished(QNetworkReply* reply)
 {
     QByteArray bytes = reply->readAll();  // bytes
-    QString string(bytes);
-
- //   if ((lastVersion!=Preferences::curVersion)&&(!error))
+    QString lastVersion(bytes);
+    if (lastVersion.isEmpty()) {
+        QMessageBox::warning(this, QObject::tr("Version update"),QObject::tr("Problème de connexion au serveur"));
+        reply->deleteLater();
+        return; }
+    if ((lastVersion!=Preferences::curVersion))
         QMessageBox::information(this, QObject::tr("New version of TeXoMaker"),
                                  QObject::tr("<center>Version %1 of TeXoMaker is available.<br><br>"
                                              "You can download it on the <br><br><a href='http://texomaker.les-domlols.com/index.php/downloads'>TeXoMaker website"
-                                             "</a><center>").arg(string));
-
+                                             "</a><center>").arg(lastVersion));
+    reply->deleteLater();
 }
 
 
