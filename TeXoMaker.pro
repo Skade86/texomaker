@@ -1,6 +1,3 @@
-DEPENDPATH = include ui sources
-INCLUDEPATH = include
-
 macx:{
 INCLUDEPATH += /usr/local/include/poppler/qt5
 INCLUDEPATH += /usr/local/include/quazip
