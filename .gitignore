@@ -68,3 +68,8 @@ ui/include/ui_headerdialog.h
 ui/include/ui_pdflatexlogdialog.h
 
 ui/include/ui_propertydialog.h
+bin/TeXoMaker.exe
+Makefile.Debug
+Makefile.Release
+object_script.TeXoMaker.Debug
+object_script.TeXoMaker.Release

@@ -15,11 +15,10 @@ LIBS+= -lquazip-qt5 -lpoppler-qt5
 }
 
 win32:{
-INCLUDEPATH += include/poppler/qt4
+INCLUDEPATH += include/poppler/qt5
 INCLUDEPATH += include/quazip
-LIBS += "$$_PRO_FILE_PWD_/lib/libpoppler-qt4.dll"
-LIBS += "$$_PRO_FILE_PWD_/lib/win32/quazip.dll"
-INCLUDEPATH += $$[QT_INSTALL_PREFIX]/src/3rdparty/zlib
+LIBS += "$$_PRO_FILE_PWD_/lib/libpoppler-qt5.dll"
+LIBS += "$$_PRO_FILE_PWD_/lib/quazip.dll"
 }
 
 # Numéros de version
