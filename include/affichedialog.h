@@ -20,7 +20,7 @@ class DocumentWidget;
 /*!
 Cette classe gère l'affichage des pdf de preview des exercices. La méthode publique \a  loadImageFile(QString exoFile)
 est appelée par la fenêtre principale à chaque fois que l'utilisateur sélectionne un nouvelle exercice dans la liste.
-La classe utilise la librairie poppler-qt4 pour gérer les pdf. 
+La classe utilise la librairie poppler-qt5 pour gérer les pdf.
 */
 class AfficheDialog : public QWidget, public Ui::AfficheDialog
 {

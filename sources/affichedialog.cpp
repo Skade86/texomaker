@@ -44,7 +44,7 @@ void AfficheDialog::loadImageFile(QString exoFile)
     pageSpinBox->setMaximum(documentWidget->document()->numPages());
     pageSpinBox->setValue(1);
     scaleComboBox->setEnabled(true);
-    documentWidget->setScale(scaleFactors[2]);
+    documentWidget->setScale(scaleFactors[scaleComboBox->currentIndex()]);
 }
 
 void AfficheDialog::scaleDocument(int index)
