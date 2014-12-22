@@ -8,7 +8,7 @@ AfficheDialog::AfficheDialog()
 {
     setupUi(this);
     scaleFactors << 0.25 << 0.5 << 0.75 << 1. << 1.25 << 1.5 << 2. << 3. << 4.;
-    documentWidget = new DocumentWidget();
+    documentWidget = new DocumentWidget(this);
     scrollArea->setWidget(documentWidget);
 
     connect(pageSpinBox, SIGNAL(valueChanged(int)),
@@ -44,7 +44,7 @@ void AfficheDialog::loadImageFile(QString exoFile)
     pageSpinBox->setMaximum(documentWidget->document()->numPages());
     pageSpinBox->setValue(1);
     scaleComboBox->setEnabled(true);
-    documentWidget->setScale(scaleFactors[2]);
+    documentWidget->setScale(scaleFactors[scaleComboBox->currentIndex()]);
 }
 
 void AfficheDialog::scaleDocument(int index)

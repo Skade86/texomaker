@@ -19,8 +19,6 @@ public:
     qreal scale() const;
 
 public slots:
-    QRectF searchBackwards(const QString &text);
-    QRectF searchForwards(const QString &text);
     bool setDocument(const QString &filePath);
     void setPage(int page = -1);
     void setScale(qreal scale);
@@ -32,17 +30,15 @@ protected:
 
 signals:
     void pageChanged(int currentPage);
-    void textSelected(const QString &text);
 
 private:
-    void selectedText(const QRectF &rect);
     void showPage(int page = -1);
 
+    QWidget *parent;
     Poppler::Document *doc;
     int currentPage;
     QPoint dragPosition;
     QRubberBand *rubberBand;
-    QRectF searchLocation;
     qreal scaleFactor;
 };
 
