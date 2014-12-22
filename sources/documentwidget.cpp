@@ -5,6 +5,7 @@
 DocumentWidget::DocumentWidget(QWidget *parent)
     : QLabel(parent)
 {
+    parent=parent;
     currentPage = -1;
     doc = 0;
     rubberBand = 0;
@@ -77,9 +78,7 @@ void DocumentWidget::showPage(int page)
         emit pageChanged(page);
     }
 
-    QImage image = doc->page(currentPage)
-                      ->renderToImage(scaleFactor * physicalDpiX(), scaleFactor * physicalDpiY());
-
+    QImage image = doc->page(currentPage)->renderToImage(scale()*physicalDpiX(),scale()*physicalDpiY());
     setPixmap(QPixmap::fromImage(image));
 }
 
@@ -98,7 +97,6 @@ bool DocumentWidget::setDocument(const QString &filePath)
         delete oldDocument;
         doc->setRenderHint(Poppler::Document::Antialiasing);
         doc->setRenderHint(Poppler::Document::TextAntialiasing);
-//        searchLocation = QRectF();
         currentPage = -1;
         setPage(1);
     }

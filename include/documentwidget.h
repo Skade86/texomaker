@@ -34,6 +34,7 @@ signals:
 private:
     void showPage(int page = -1);
 
+    QWidget *parent;
     Poppler::Document *doc;
     int currentPage;
     QPoint dragPosition;
