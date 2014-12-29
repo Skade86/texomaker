@@ -8,9 +8,9 @@
 #include "mpthread.h"
 #include "exosmodel.h"
 #include "preferences.h"
-#include "affichedialog.h"
+#include "viewer.h"
 
-Importer::Importer( QStringList texFiles,bool iso,QDomDocument *doc,ExosModel *model,AfficheDialog *affiche,bool update) : QWidget()
+Importer::Importer( QStringList texFiles,bool iso,QDomDocument *doc,ExosModel *model,Viewer *affiche,bool update) : QWidget()
 {
 	fileList = texFiles;
 	useIso = iso;

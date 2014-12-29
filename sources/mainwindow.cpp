@@ -9,7 +9,7 @@
 #include "generalsettingsdialog.h"
 #include "importer.h"
 #include "xmldomhandler.h"
-#include "affichedialog.h"
+#include "viewer.h"
 #include "exosmodel.h"
 #include "exosheet.h"
 #include "preferences.h"
@@ -142,7 +142,7 @@ void MainWindow::onAdvancedClosed()
 
 void MainWindow::createAffiche()
 {
-    afficheDialog = new AfficheDialog;
+    viewer = new Viewer;
 }
 
 void MainWindow::createLayout()
@@ -170,7 +170,7 @@ void MainWindow::createLayout()
     leftSplitter->setStretchFactor(1,1);
     mainSplitter = new QSplitter(Qt::Horizontal);
     mainSplitter->addWidget(leftSplitter);
-    mainSplitter->addWidget(afficheDialog);
+    mainSplitter->addWidget(viewer);
     mainSplitter->setStretchFactor(1,1);
     setCentralWidget(mainSplitter);
 #ifdef Q_WS_MACX
@@ -229,7 +229,7 @@ void MainWindow::createActions()
 
     generalSettingsAct = new QAction(QIcon(":/images/settings.png"),tr("General Settings"), this);
     generalSettingsAct->setShortcut(tr("Ctrl+G"));
-    generalSettingsAct->setStatusTip(tr("Open the général settings box"));
+    generalSettingsAct->setStatusTip(tr("Open the general settings box"));
     generalSettingsAct->setMenuRole(QAction::PreferencesRole);
     connect(generalSettingsAct, SIGNAL(triggered()), this, SLOT(generalSettings()));
 
@@ -460,7 +460,7 @@ void MainWindow::suppressExo(bool update)
         model->removeRows(id,1,QModelIndex());
         updateStatusBar();
         if (model->rowCount(QModelIndex())==0) {
-            afficheDialog->loadImageFile(QString());
+            viewer->loadImageFile(QString());
             return;
         }
     }
@@ -505,7 +505,7 @@ void MainWindow::activateExoView()
 
     if (!curFilePath.isEmpty())
     {
-        afficheDialog->loadImageFile(curFilePath);
+        viewer->loadImageFile(curFilePath);
     }
     //    else afficheDialog->imageLabel->setText(tr("Click on + to import new exercises"));
 
@@ -547,14 +547,14 @@ void MainWindow::import(QStringList files2import)
         if (files.isEmpty()) return;
     }
     currentImportPath = QFileInfo(files.at(0)).absolutePath();
-    importObject = new Importer(files,Preferences::p_getUseIso(),&xmlDom,model,afficheDialog,false);
+    importObject = new Importer(files,Preferences::p_getUseIso(),&xmlDom,model,viewer,false);
     connect(importObject,SIGNAL(fileImported(const QString &)),this,SLOT(updateImported(const QString &)));
     importObject->importFiles();
 }
 
 void MainWindow::updateImported(const QString & fileName)
 {
-    afficheDialog->loadImageFile(fileName);
+    viewer->loadImageFile(fileName);
 
     // Recherche de la colonne du header contenant "filepath"
     int pathCol=0;
@@ -600,7 +600,7 @@ void MainWindow::updateFile()
         //        afficheDialog->curImage=QImage();
         suppressExo(true);
         files << curFilePath;
-        importObject = new Importer(files,Preferences::p_getUseIso(),&xmlDom,model,afficheDialog,false);
+        importObject = new Importer(files,Preferences::p_getUseIso(),&xmlDom,model,viewer,false);
         connect(importObject,SIGNAL(fileImported(const QString &)),this,SLOT(updateImported(const QString &)));
         importObject->importFiles();
         return;
@@ -638,7 +638,7 @@ void MainWindow::createSheet()
             ,this,SLOT(sheetCreated(const QString &,const QString &)));
 
     mainSplitter->addWidget(exoSheet);
-    afficheDialog->scaleComboBox->setCurrentIndex(1);
+ //   viewer->scaleComboBox->setCurrentIndex(1);
     exoSheet->nameEdit->setFocus();
     connect(exosTableView,SIGNAL(doubleClicked(const QModelIndex &)),this,SLOT(addExoSheet(const QModelIndex &)));
 }
@@ -648,8 +648,8 @@ void MainWindow::onExoSheetClose()
     exoSheet->close();
     disconnect(exosTableView,SIGNAL(doubleClicked(const QModelIndex &)),0,0);
     createSheetAct->setEnabled(true);
-    afficheDialog->update();
-    afficheDialog->scaleComboBox->setCurrentIndex(3);
+    viewer->update();
+ //   viewer->scaleComboBox->setCurrentIndex(3);
     activateExoView();
 }
 
@@ -752,7 +752,7 @@ void MainWindow::createDb()
                                                     QDir::homePath()+QDir::separator()+"untittled.xml","xml Files (*.xml)");
 
     if (!Preferences::p_getDbfile().isEmpty()) {
-        afficheDialog->loadImageFile(QString());
+        viewer->loadImageFile(QString());
         statusLabel->setText(tr("Aucun exercice dans la base"));
     }
 
@@ -825,7 +825,7 @@ void MainWindow::loadNewDb(QString dbFile)
     }
     else fileName=dbFile;
 
-    afficheDialog->loadImageFile(QString());
+    viewer->loadImageFile(QString());
     currentDBPath=QFileInfo(fileName).absolutePath();
 
     if (testDbFile(fileName))
@@ -955,7 +955,7 @@ void MainWindow::writeSettings()
     settings.setValue("size", size());
     settings.setValue("geom",geometry());
     settings.setValue("state",saveState());
-    settings.setValue("AfficheSize", afficheDialog->size());
+    settings.setValue("AfficheSize", viewer->size());
     settings.setValue("mainSplitter", mainSplitter->saveState());
     settings.setValue("leftSplitter", leftSplitter->saveState());
     settings.setValue("openAtLaunch",Preferences::p_getOpenAtLaunch());

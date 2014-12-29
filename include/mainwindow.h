@@ -20,7 +20,7 @@ class DirPrefDialog;
 class GeneralSettingsDialog;
 class Importer;
 class XmlDomHandler;
-class AfficheDialog;
+class Viewer;
 class ExosModel;
 class ExoSheet;
 class PropertyDialog;
@@ -181,7 +181,7 @@ private:
     /*!
          Objet de la classe \a AfficheDialog gérant l'affichages des aperçus des exercices
          */
-    AfficheDialog *afficheDialog;
+    Viewer *viewer;
 
     PropertyDialog *propertyDialog;
 

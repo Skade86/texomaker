@@ -9,7 +9,7 @@
 class ExosModel;
 class QDomDocument;
 class XmlDomHandler;
-class AfficheDialog;
+class Viewer;
 
 //! Classe qui gère l'importation des exos : création des aperçus pdf via pdflatex, des métadonnées, 
 
@@ -30,7 +30,7 @@ public:
 	un booléen qui est vrai si l'utilisation de l'encodage ISO-8859-15 est demandé, un pointeur sur l'arbre Dom courant,
 	Le nom du fichier XML, et un pointeur sur le modèle courant.
 */
-	Importer(QStringList texFiles,bool iso,QDomDocument *doc,ExosModel *model,AfficheDialog *affiche,bool update);
+    Importer(QStringList texFiles,bool iso,QDomDocument *doc,ExosModel *model,Viewer *affiche,bool update);
 
 //! Fonction publique appelée par MainWindow qui va effectuer le travail d'importation.
 	void importFiles();
@@ -115,7 +115,7 @@ private:
 	ExosModel *localModel;
 	
 //! Pointeur local sur l'affichage
-	AfficheDialog * localAffiche;
+    Viewer * localAffiche;
 	
 
 //! Liste contenant les indices des exos de newExosList qui contiennent un ou des fichiers metapost

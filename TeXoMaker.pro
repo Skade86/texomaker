@@ -46,13 +46,12 @@ HEADERS =  include/xmldomhandler.h \
     include/headerdialog.h \
     include/exosmodel.h \
     include/exosheet.h \
-    include/documentwidget.h \
     include/dirprefdialog.h \
-    include/affichedialog.h \
     include/zipthread.h \
     include/unzipthread.h \
     include/generalsettingsdialog.h \
-    include/advancedfilter.h
+    include/advancedfilter.h \
+    include/viewer.h
 SOURCES =  sources/xmldomhandler.cpp \
     sources/tableview.cpp \
     sources/propertydialog.cpp \
@@ -66,23 +65,22 @@ SOURCES =  sources/xmldomhandler.cpp \
     sources/headerdialog.cpp \
     sources/exosmodel.cpp \
     sources/exosheet.cpp \
-    sources/documentwidget.cpp \
     sources/dirprefdialog.cpp \
-    sources/affichedialog.cpp \
     sources/zipthread.cpp \
     sources/unzipthread.cpp \
     sources/generalsettingsdialog.cpp \
-    sources/advancedfilter.cpp
+    sources/advancedfilter.cpp \
+    sources/viewer.cpp
 RESOURCES = ressources.qrc
 TRANSLATIONS += translations/texomaker_fr.ts
 FORMS += ui/dirprefdialog.ui \
-    ui/affichedialog.ui \
     ui/pdflatexlogdialog.ui \
     ui/exosheet.ui \
     ui/headerdialog.ui \
     ui/propertydialog.ui \
     ui/generalsettingsdialog.ui \
-    ui/advancedfilter.ui
+    ui/advancedfilter.ui \
+    ui/viewer.ui
 
 
 include(install.pri)

@@ -1,7 +1,6 @@
 #include "preferences.h"
 
-QString Preferences::curVersion="2.2";
-
+QString Preferences::curVersion=QString(QObject::tr("%1.%2").arg(MAJOR).arg(MINOR));
 QString Preferences::sqliteDbPath="/Users/gwenael/Documents/Developpement/Qt/TeXoMaker/DB/";
 QString Preferences::dbfile=QString();
 QString Preferences::ltx2pdf=QString();

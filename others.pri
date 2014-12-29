@@ -2,7 +2,7 @@
 MOC_DIR = tmp
 OBJECTS_DIR = tmp
 RCC_DIR = tmp
-UI_DIR = $$_PRO_FILE_PWD_/ui/include
+UI_DIR = tmp
 
 
 OTHER_FILES += \
