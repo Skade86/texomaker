@@ -40,19 +40,21 @@ void GeneralSettingsDialog::testBin(QString bin)
 {
     if (Preferences::p_getBin(bin).isEmpty())
     {
-#ifdef Q_WS_MACX
-        if (bin == "ps2pdf")
+#ifdef Q_OS_MAC
+        if ((bin == "ps2pdf")&&(QFile(QString("/usr/local/bin/"+bin)).exists()))
         {
-            Preferences::p_setBin(bin,"/usr/bin/"+bin);
+            Preferences::p_setBin(bin,"/usr/local/bin/"+bin);
         }
-        else Preferences::p_setBin(bin,"/usr/texbin/"+bin);
+        else if (QFile(QString("/usr/texbin/"+bin)).exists()) {
+            Preferences::p_setBin(bin,"/usr/texbin/"+bin);  }
 #endif
 
-#ifdef Q_WS_X11
-        Preferences::p_setBin(bin,"/usr/bin/"+bin);
+#ifdef Q_OS_LINUX
+        if (QFile(QString("/usr/bin/"+bin)).exists()) {
+            Preferences::p_setBin(bin,"/usr/bin/"+bin); }
 #endif
 
-#ifdef Q_WIN
+#ifdef Q_OS_WIN
         Preferences::p_setBin(bin,bin);
 #endif
     }

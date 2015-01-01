@@ -89,12 +89,14 @@ void Viewer::previousPageClicked() {
 }
 
 void Viewer::onButtonInClicked() {
+    if (image.width()==0) return;
     scaleFact+=0.1;
     image = pdfPage->renderToImage(scaleFact*physicalDpiX(),scaleFact*physicalDpiY());
     myItem->setPixmap(QPixmap::fromImage(image));
 }
 
 void Viewer::onButtonOutClicked() {
+    if (image.width()==0) return;
     scaleFact-=0.1;
     image = pdfPage->renderToImage(scaleFact*physicalDpiX(),scaleFact*physicalDpiY());
     myItem->setPixmap(QPixmap::fromImage(image));
