@@ -91,3 +91,5 @@ tmp/ui_pdflatexlogdialog.h
 tmp/ui_propertydialog.h
 
 tmp/ui_viewer.h
+
+bin/TeXoMaker
