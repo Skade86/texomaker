@@ -142,7 +142,7 @@ void MainWindow::onAdvancedClosed()
 
 void MainWindow::createAffiche()
 {
-    viewer = new Viewer;
+    viewer = new Viewer(this);
 }
 
 void MainWindow::createLayout()
@@ -899,6 +899,8 @@ void MainWindow::initializeModelView()
 
 bool MainWindow::loadLastDb()
 {
+    if (Preferences::p_getOpenAtLaunch()==false) return false;
+
     //	Récupère des valeurs de variables enregistrés à  chaque fermeture du programme
     QSettings settings("Domlol","TeXoMaker");
 

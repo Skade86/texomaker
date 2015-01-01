@@ -55,7 +55,7 @@ void Viewer::loadImageFile(QString exoFile)
 
     if (QFileInfo(pdfFile).exists()) {
         document = Poppler::Document::load(pdfFile);
-        document->setRenderBackend(Poppler::Document::SplashBackend);
+  //      document->setRenderBackend(Poppler::Document::SplashBackend);
         document->setRenderHint(Poppler::Document::Antialiasing,true);
         document->setRenderHint(Poppler::Document::TextAntialiasing,true);
         numPages=document->numPages();
@@ -101,7 +101,10 @@ void Viewer::onButtonOutClicked() {
 }
 
 void Viewer::onButtonFitClicked() {
+
+    if (image.width()==0) return;
     scaleFact=scaleFact*(this->width())/(image.width());
+    qFatal("Image Width : %d",image.width());
     image = pdfPage->renderToImage(scaleFact*physicalDpiX(),scaleFact*physicalDpiY());
     myItem->setPixmap(QPixmap::fromImage(image));
 }

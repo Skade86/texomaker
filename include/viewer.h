@@ -2,6 +2,8 @@
 #define VIEWER_H
 
 #include <QWidget>
+
+#include <QDebug>
 #include "ui_viewer.h"
 #include "poppler-qt5.h"
 
