@@ -19,7 +19,7 @@ void MpThread::run()
 	// makempx, nécessaire à mpost.
 	int j;
 	
-#ifndef Q_WS_WIN
+#ifndef Q_OS_WIN
 	QStringList env = QProcess::systemEnvironment();
 	j = env.indexOf(QRegExp("^PATH=(.*)"));
 	int limit = env.at(j).indexOf("=");

@@ -93,7 +93,7 @@ void MainWindow::setLtxPath()
     QString appDirName = appDir.dirName();
     QString curPath = appDir.path();
 
-#ifdef Q_WS_MACX
+#ifdef Q_OS_MAC
 
     if (appDirName=="MacOS")
     {
@@ -108,8 +108,8 @@ void MainWindow::setLtxPath()
     }
 #endif
 
-#ifndef Q_WS_MACX
-#ifdef Q_WS_WIN
+#ifndef Q_OS_MAC
+#ifdef Q_OS_WIN
     Preferences::p_setLtx2pdf(curPath+"/ltx2pdf.bat");
 #else
     Preferences::p_setLtx2pdf(curPath+"/./ltx2pdf");
@@ -173,7 +173,7 @@ void MainWindow::createLayout()
     mainSplitter->addWidget(viewer);
     mainSplitter->setStretchFactor(1,1);
     setCentralWidget(mainSplitter);
-#ifdef Q_WS_MACX
+#ifdef Q_OS_MAC
     setUnifiedTitleAndToolBarOnMac(true);
 #endif
     setWindowIcon(QIcon(":/images/TeXoMaker.png"));
@@ -396,10 +396,7 @@ void MainWindow::updateReplyFinished(QNetworkReply* reply)
 {
     QByteArray bytes = reply->readAll();  // bytes
     QString lastVersion(bytes);
-    if (lastVersion.isEmpty()) {
-        QMessageBox::warning(this, QObject::tr("Version update"),QObject::tr("Problème de connexion au serveur"));
-        reply->deleteLater();
-        return; }
+    if (lastVersion.isEmpty()) return;
     if ((lastVersion!=Preferences::curVersion))
         QMessageBox::information(this, QObject::tr("New version of TeXoMaker"),
                                  QObject::tr("<center>Version %1 of TeXoMaker is available.<br><br>"

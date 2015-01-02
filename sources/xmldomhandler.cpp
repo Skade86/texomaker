@@ -168,7 +168,7 @@ int XmlDomHandler::removeExoDom(QStringList exoCars)
 	QDomElement root = doc->documentElement();
 	QDomNodeList titleDomList = doc->elementsByTagName(exoCars.at(0));
 	
-	for (uint i = 0; i < titleDomList.length(); ++i)
+    for (int i = 0; i < titleDomList.length(); ++i)
 			{
 				QDomNode item = titleDomList.item(i);
 				QString curTitle = item.toElement().text();
@@ -250,7 +250,7 @@ void XmlDomHandler::incDbsize()
 int XmlDomHandler::searchExoPath(QString path)
 {
 	QDomNodeList pathDomList = doc->elementsByTagName("filepath");
-	for (uint i = 0; i < pathDomList.length(); ++i)
+    for (int i = 0; i < pathDomList.length(); ++i)
 			{
 				QDomNode item = pathDomList.item(i);
 				QString curPath = item.toElement().text();
@@ -265,7 +265,7 @@ QString XmlDomHandler::getExoMeta(QString path,QString meta)
 	
 	QDomNodeList pathDomList = doc->elementsByTagName("filepath");
 	
-	for (uint i=0;i<pathDomList.length(); ++i)
+    for (int i=0;i<pathDomList.length(); ++i)
 	{
 		QDomNode item = pathDomList.item(i);
 		QString curPath = item.toElement().text();
@@ -292,7 +292,7 @@ QStringList XmlDomHandler::getFigList(QString path)
 	QDomNodeList pathDomList = doc->elementsByTagName("filepath");
 	QDomNode item;
 	QDomElement exoNode;
-	for (uint i = 0; i < pathDomList.length(); ++i)
+    for (int i = 0; i < pathDomList.length(); ++i)
 	{
 		item = pathDomList.item(i);
 		QString curPath = item.toElement().text();
@@ -306,14 +306,14 @@ QStringList XmlDomHandler::getFigList(QString path)
 	
 	figList << "nomp";
 	
-	for (uint i = 0; i < figNodes.length(); ++i)
+    for (int i = 0; i < figNodes.length(); ++i)
 	{
 		item = figNodes.item(i);
 		if (!item.toElement().text().isEmpty()) figList << item.toElement().text();
 	}
 	
 	QString mpFig;
-	for (uint i = 0; i < mpNodes.length(); ++i)
+    for (int i = 0; i < mpNodes.length(); ++i)
 	{
 		item = mpNodes.item(i);
 		mpFig= item.toElement().text();
@@ -375,7 +375,7 @@ void  XmlDomHandler::removeExoMeta(QString metaName)
 
     QDomNodeList pathDomList = doc->elementsByTagName("exo");
 
-    for (uint i=0;i<pathDomList.length(); ++i)
+    for (int i=0;i<pathDomList.length(); ++i)
     {
         QDomNode exoChild = pathDomList.item(i).firstChild();
 
@@ -401,7 +401,7 @@ QStringList XmlDomHandler::checkXmlIntegrity()
 	
 	QDomNodeList pathDomList = doc->elementsByTagName("filepath");
 	
-	for (uint i = 0; i < pathDomList.length(); ++i)
+    for (int i = 0; i < pathDomList.length(); ++i)
 			{
 				QDomNode item = pathDomList.item(i);
 				QString curExo = item.toElement().text();
@@ -420,7 +420,7 @@ void XmlDomHandler::updateExo(QMap<QString,QString> datas)
 {
 	QDomNodeList pathDomList = doc->elementsByTagName("filepath");
 	
-	for (uint i = 0; i < pathDomList.length(); ++i)
+    for (int i = 0; i < pathDomList.length(); ++i)
 			{
 				QDomNode item = pathDomList.item(i);
 				QString curPath = item.toElement().text();
