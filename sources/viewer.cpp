@@ -58,6 +58,7 @@ void Viewer::loadImageFile(QString exoFile)
         document->setRenderHint(Poppler::Document::Antialiasing,true);
         document->setRenderHint(Poppler::Document::TextAntialiasing,true);
         document->setRenderHint(Poppler::Document::TextHinting,true);
+        document->setRenderHint(Poppler::Document::TextSlightHinting,true);
         numPages=document->numPages();
         currentPage=0;
         updatePagesButtons();
