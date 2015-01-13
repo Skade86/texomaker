@@ -57,6 +57,7 @@ void Viewer::loadImageFile(QString exoFile)
         document = Poppler::Document::load(pdfFile);
         document->setRenderHint(Poppler::Document::Antialiasing,true);
         document->setRenderHint(Poppler::Document::TextAntialiasing,true);
+        document->setRenderHint(Poppler::Document::TextHinting,true);
         numPages=document->numPages();
         currentPage=0;
         updatePagesButtons();

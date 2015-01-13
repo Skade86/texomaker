@@ -20,7 +20,7 @@ LIBS +=  -L/usr/local/lib/ -lquazip
 unix:!macx{
 INCLUDEPATH += /usr/include/poppler/qt5
 INCLUDEPATH += /usr/include/quazip
-LIBS+= -lquazip-qt5 -lpoppler-qt5
+LIBS+= -lquazip -lpoppler-qt5
 }
 
 win32:{
