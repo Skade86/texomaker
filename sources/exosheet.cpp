@@ -14,17 +14,17 @@ ExoSheet::ExoSheet( QWidget * parent,bool useIso,XmlDomHandler *handler)
 	exoSheetList.clear();
 	listWidget->clear();
 	domHandler = handler;
-        favoritesBox->addItem(tr("Don't use a favorite"));
-        favoritesBox->addItems(Preferences::p_getSheetBookmarks());
-        favoritesBox->setCurrentIndex(0);
-        commentEdit->selectAll();
-        existingSheetOpened = false;
-        dateLabel->setText("New sheet");
-        revLabel->setNum(0);
-        headerEdit->setText(Preferences::p_getSheetHeader());
-        exoEdit->setText(Preferences::p_getSheetExo());
-        betweenEdit->setText(Preferences::p_getSheetBetween());
-        footerEdit->setText(Preferences::p_getSheetFooter());
+    favoritesBox->addItem(tr("Don't use a favorite"));
+    favoritesBox->addItems(Preferences::p_getSheetBookmarks());
+    favoritesBox->setCurrentIndex(0);
+    commentEdit->selectAll();
+    existingSheetOpened = false;
+    dateLabel->setText("New sheet");
+    revLabel->setNum(0);
+    headerEdit->setText(Preferences::p_getSheetHeader());
+    exoEdit->setText(Preferences::p_getSheetExo());
+    betweenEdit->setText(Preferences::p_getSheetBetween());
+    footerEdit->setText(Preferences::p_getSheetFooter());
 }
 
 void ExoSheet::on_openButton_clicked()
@@ -357,6 +357,8 @@ void ExoSheet::on_browseButton_clicked()
     if (!dirName.isEmpty()) 
     	{
     		outputDir = dirName;
+            sheetPathLine->setText(dirName);
+
     	}
 }
 

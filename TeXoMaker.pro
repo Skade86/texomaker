@@ -82,6 +82,5 @@ FORMS += ui/dirprefdialog.ui \
     ui/advancedfilter.ui \
     ui/viewer.ui
 
-
 include(install.pri)
 include(others.pri)

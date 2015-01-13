@@ -18,7 +18,6 @@ AdvancedFilter::AdvancedFilter(QWidget *parent) :
 
 }
 
-
 void AdvancedFilter::onFilterButtonClicked()
 {
     QStringList filterList;
