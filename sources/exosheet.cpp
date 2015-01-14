@@ -14,7 +14,7 @@ ExoSheet::ExoSheet( QWidget * parent,bool useIso,XmlDomHandler *handler)
 	exoSheetList.clear();
 	listWidget->clear();
 	domHandler = handler;
-    favoritesBox->addItem(tr("Don't use a favorite"));
+    favoritesBox->addItem(tr("Favorites"));
     favoritesBox->addItems(Preferences::p_getSheetBookmarks());
     favoritesBox->setCurrentIndex(0);
     commentEdit->selectAll();
@@ -203,7 +203,7 @@ void ExoSheet::on_createButton_clicked()
 	// On commence par vérifier que le nom et le répertoire de la feuille ont été définis
         if (outputFile.isEmpty()) outputFile = nameEdit->text();
         if (outputDir.isEmpty()) {
-        if (favoritesBox->currentText() == tr("Don't use a favorite")) {
+        if (favoritesBox->currentText() == tr("Favorites")) {
 
             if (outputDir.isEmpty() || outputFile.isEmpty()) {
                     QMessageBox::warning(this, QObject::tr("Error"),QObject::tr("Please choose a destination directory and a file name !"));

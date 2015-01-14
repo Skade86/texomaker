@@ -40,16 +40,6 @@
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_2">
             <item>
-             <widget class="QLabel" name="label_4">
-              <property name="text">
-               <string>Favorites :</string>
-              </property>
-              <property name="buddy">
-               <cstring>favoritesBox</cstring>
-              </property>
-             </widget>
-            </item>
-            <item>
              <widget class="QComboBox" name="favoritesBox"/>
             </item>
            </layout>
