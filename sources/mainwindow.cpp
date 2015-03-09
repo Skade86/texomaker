@@ -159,7 +159,7 @@ void MainWindow::createLayout()
     topLeftLayout = new QHBoxLayout;
     topLeftLayout->addWidget(simpleFilterLabel);
     topLeftLayout->addWidget(simpleFilterLine);
-    topLeftLayout->addWidget(advancedFilterButton);
+    //topLeftLayout->addWidget(advancedFilterButton);
     simpleFilterLabel->setBuddy(simpleFilterLine);
     leftLayout->addLayout(topLeftLayout);
     leftLayout->addWidget(exosTableView);
@@ -388,7 +388,7 @@ void MainWindow::checkUpdate()
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
     connect(manager, SIGNAL(finished(QNetworkReply*)),
             this, SLOT(updateReplyFinished(QNetworkReply*)));
-    manager->get(QNetworkRequest(QUrl("http://texomaker.les-domlols.com/version.txt")));
+    manager->get(QNetworkRequest(QUrl("http://178.33.180.1/version.txt")));
 
 }
 
@@ -400,7 +400,7 @@ void MainWindow::updateReplyFinished(QNetworkReply* reply)
     if ((lastVersion!=Preferences::curVersion))
         QMessageBox::information(this, QObject::tr("New version of TeXoMaker"),
                                  QObject::tr("<center>Version %1 of TeXoMaker is available.<br><br>"
-                                             "You can download it on the <br><br><a href='http://texomaker.les-domlols.com/index.php/downloads'>TeXoMaker website"
+                                             "You can download it on the <br><br><a href='https://github.com/Domlol/texomaker'>TeXoMaker website"
                                              "</a><center>").arg(lastVersion));
     reply->deleteLater();
 }
@@ -708,12 +708,12 @@ void MainWindow::about()
     QMessageBox::about(this, tr("About TeXoMaker"),
                        tr("<center>This is <b>TeXoMaker</b> version %3<br>"
                           "Builded : %1<br>"
-                          "<b>TeXoMaker</b> has been developped by <br><a href='mailto:gcleon@les-domlols.com'>Gwena&euml;l Cl&eacute;on</a><br>using <b>Qt version %2</b><br></center>").arg(QDate::currentDate().toString("d MMMM yyyy")).arg(qVersion()).arg(version_no));
+                          "<b>TeXoMaker</b> has been developped by <br><a href='mailto:texomaker@gmail.com'>Gwena&euml;l Cl&eacute;on</a><br>using <b>Qt version %2</b><br></center>").arg(QDate::currentDate().toString("d MMMM yyyy")).arg(qVersion()).arg(version_no));
 }
 
 void MainWindow::manualCalled()
 {
-    QString urlStr = "http://texomaker.les-domlols.com/index.php/tutoriel";
+    QString urlStr = "https://github.com/Domlol/texomaker";
     QDesktopServices::openUrl(QUrl(urlStr));
 }
 

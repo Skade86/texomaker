@@ -801,11 +801,6 @@ p, li { white-space: pre-wrap; }
         <translation>%1 exercice va être supprimé de la base !</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="709"/>
-        <source>&lt;center&gt;This is &lt;b&gt;TeXoMaker&lt;/b&gt; version %3&lt;br&gt;Builded : %1&lt;br&gt;&lt;b&gt;TeXoMaker&lt;/b&gt; has been developped by &lt;br&gt;&lt;a href=&apos;mailto:gcleon@les-domlols.com&apos;&gt;Gwena&amp;euml;l Cl&amp;eacute;on&lt;/a&gt;&lt;br&gt;using &lt;b&gt;Qt version %2&lt;/b&gt;&lt;br&gt;&lt;/center&gt;</source>
-        <translation></translation>
-    </message>
-    <message>
         <location filename="../sources/mainwindow.cpp" line="1284"/>
         <source>The current database will be saved. 
  It means that all exercises (including figures) will be copied in a single directory.
@@ -841,14 +836,18 @@ Ce fichier sera prêt à être à nouveau importé (sur une autre machine par ex
         <translation>Choisir un nom de fichier</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="125"/>
         <source>Advanced...</source>
-        <translation>Avancé...</translation>
+        <translation type="vanished">Avancé...</translation>
     </message>
     <message>
         <location filename="../sources/mainwindow.cpp" line="188"/>
         <source>&amp;Add an exercise</source>
         <translation>&amp;Ajouter des exercices</translation>
+    </message>
+    <message>
+        <location filename="../sources/mainwindow.cpp" line="709"/>
+        <source>&lt;center&gt;This is &lt;b&gt;TeXoMaker&lt;/b&gt; version %3&lt;br&gt;Builded : %1&lt;br&gt;&lt;b&gt;TeXoMaker&lt;/b&gt; has been developped by &lt;br&gt;&lt;a href=&apos;mailto:texomaker@gmail.com&apos;&gt;Gwena&amp;euml;l Cl&amp;eacute;on&lt;/a&gt;&lt;br&gt;using &lt;b&gt;Qt version %2&lt;/b&gt;&lt;br&gt;&lt;/center&gt;</source>
+        <translation>&lt;center&gt;&lt;b&gt;TeXoMaker&lt;/b&gt; version %3&lt;br&gt;Compilé le : %1&lt;br&gt;&lt;b&gt;TeXoMaker&lt;/b&gt; est développé par &lt;br&gt;&lt;a href=&apos;mailto:texomaker@gmail.com&apos;&gt;Gwena&amp;euml;l Cl&amp;eacute;on&lt;/a&gt;&lt;br&gt; et utilise &lt;b&gt;Qt version %2&lt;/b&gt;&lt;br&gt;&lt;/center&gt;</translation>
     </message>
     <message>
         <location filename="../sources/mainwindow.cpp" line="753"/>
@@ -1109,9 +1108,13 @@ S&apos;il vous plaît corrigez cela avant de cliquer à nouveau sur &quot;Accept
         <translation>Nouvelle version de TeXoMaker</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="402"/>
         <source>&lt;center&gt;Version %1 of TeXoMaker is available.&lt;br&gt;&lt;br&gt;You can download it on the &lt;br&gt;&lt;br&gt;&lt;a href=&apos;http://texomaker.les-domlols.com/index.php/downloads&apos;&gt;TeXoMaker website&lt;/a&gt;&lt;center&gt;</source>
-        <translation>&lt;center&gt;La version %1 de TeXoMaker est disponible.&lt;br&gt;&lt;br&gt;Vous pouvez la télécharger sur le &lt;br&gt;&lt;br&gt;&lt;a href=&apos;http://texomaker.les-domlols.com/index.php/downloads&apos;&gt;site de TeXoMaker.&lt;/a&gt;&lt;center&gt;</translation>
+        <translation type="vanished">&lt;center&gt;La version %1 de TeXoMaker est disponible.&lt;br&gt;&lt;br&gt;Vous pouvez la télécharger sur le &lt;br&gt;&lt;br&gt;&lt;a href=&apos;http://texomaker.les-domlols.com/index.php/downloads&apos;&gt;site de TeXoMaker.&lt;/a&gt;&lt;center&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/mainwindow.cpp" line="402"/>
+        <source>&lt;center&gt;Version %1 of TeXoMaker is available.&lt;br&gt;&lt;br&gt;You can download it on the &lt;br&gt;&lt;br&gt;&lt;a href=&apos;https://github.com/Domlol/texomaker&apos;&gt;TeXoMaker website&lt;/a&gt;&lt;center&gt;</source>
+        <translation>&lt;center&gt;La version %1 of TeXoMaker est disponible.&lt;br&gt;&lt;br&gt;Vous pouvez la télécharger sur la &lt;br&gt;&lt;br&gt;&lt;a href=&apos;https://github.com/Domlol/texomaker&apos;&gt;page GitHub de TeXoMaker&lt;/a&gt;&lt;center&gt;</translation>
     </message>
     <message>
         <location filename="../sources/mainwindow.cpp" line="523"/>
