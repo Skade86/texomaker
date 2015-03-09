@@ -122,8 +122,8 @@ void MainWindow::createFilter()
 {
     simpleFilterLabel = new QLabel(tr("Filter :"));
     simpleFilterLine = new QLineEdit;
-    advancedFilterButton = new QPushButton(tr("Advanced..."));
-    connect(advancedFilterButton,SIGNAL(clicked()),this,SLOT(onAdvancedFilterClicked()));
+   // advancedFilterButton = new QPushButton(tr("Advanced..."));
+   // connect(advancedFilterButton,SIGNAL(clicked()),this,SLOT(onAdvancedFilterClicked()));
 }
 
 void MainWindow::onAdvancedFilterClicked()
