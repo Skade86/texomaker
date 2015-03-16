@@ -403,8 +403,9 @@ void MainWindow::updateReplyFinished(QNetworkReply* reply)
     if ((lastVersion==curVersion)) return;
 
     QMessageBox::information(this, QObject::tr("New version of TeXoMaker"),
-                                 QObject::tr("<center>Version %1 de TeXoMaker is available.<br><br>"
-                                             "You can download it on the <br><br><a href='https://github.com/Domlol/texomaker'>TeXoMaker website"
+                                 QObject::tr("<center>Version %1 of TeXoMaker is available.<br><br>"
+                                             "You can download it on the <br><br><a href='https://github.com/Domlol/texomaker/releases/latest'>"
+                                             "TeXoMaker website"
                                              "</a><center>").arg(lastVersion));
     reply->deleteLater();
 }
