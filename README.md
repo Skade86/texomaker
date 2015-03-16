@@ -11,18 +11,25 @@ Installation sous Linux
 apt-get install libpoppler-qt5-dev qt5-default libquazip0-dev
 ```
 
-### Système Fedora
+Dans le répertoire de texomaker :
+
 ```
-yum install libpoppler-qt5-dev qt5-default libquazip0-dev
+qmake
+make
 ```
 
-### Compilation
+L'exécutable est dans le répertoire bin
+
+### Système Fedora
+```
+yum install poppler-qt5-devel qt5-qtbase quazip-devel
+```
 
 Dans le répertoire de texomaker :
 
 ```
+qmake-qt5
 make
-qmake
 ```
 
 L'exécutable est dans le répertoire bin
