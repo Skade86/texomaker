@@ -395,11 +395,15 @@ void MainWindow::checkUpdate()
 void MainWindow::updateReplyFinished(QNetworkReply* reply)
 {
     QByteArray bytes = reply->readAll();  // bytes
+    bytes=bytes.trimmed();
     QString lastVersion(bytes);
+    QString curVersion=Preferences::curVersion.trimmed();
+
     if (lastVersion.isEmpty()) return;
-    if ((lastVersion!=Preferences::curVersion))
-        QMessageBox::information(this, QObject::tr("New version of TeXoMaker"),
-                                 QObject::tr("<center>Version %1 of TeXoMaker is available.<br><br>"
+    if ((lastVersion==curVersion)) return;
+
+    QMessageBox::information(this, QObject::tr("New version of TeXoMaker"),
+                                 QObject::tr("<center>Version %1 de TeXoMaker is available.<br><br>"
                                              "You can download it on the <br><br><a href='https://github.com/Domlol/texomaker'>TeXoMaker website"
                                              "</a><center>").arg(lastVersion));
     reply->deleteLater();
