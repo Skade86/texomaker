@@ -1,4 +1,4 @@
-texomaker
+TeXoMaker
 =========
 
 Gestion de listes d'exercices sous LaTeX
@@ -20,7 +20,7 @@ make
 
 L'exécutable est dans le répertoire bin
 
-### Système Fedora
+### Sous Fedora
 ```
 yum install poppler-qt5-devel qt5-qtbase quazip-devel
 ```
@@ -33,5 +33,18 @@ make
 ```
 
 L'exécutable est dans le répertoire bin
+
+### Sous Mageia
+
+```
+urpmi poppler-qt5-devel quazip-devel lib64qt5network-devel lib64qt5widgets-devel 
+```
+
+puis dans le répertoire des sources de texomaker: 
+
+```
+/usr/lib64/qt5/bin/qmake 
+make
+```
 
 
