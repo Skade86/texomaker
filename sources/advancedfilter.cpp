@@ -1,5 +1,6 @@
 #include "advancedfilter.h"
 
+
 AdvancedFilter::AdvancedFilter(QWidget *parent) :
     QDockWidget(parent)
 {
