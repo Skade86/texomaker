@@ -331,12 +331,12 @@ QString ExoSheet::replaceMeta(QString path,QString str)
 	while(index!=-1)
 	{
 	index = str.indexOf("%@",fromIndex);
-    QMessageBox::warning(0, QObject::tr("Error"),QObject::tr("index : %1").arg(index));
+  //  QMessageBox::warning(0, QObject::tr("Error"),QObject::tr("index : %1").arg(index));
 	if (index==-1) return str;
 	toIndex = str.indexOf("@",index+2);
 	if (toIndex==-1) return str;
 	text = str.mid(index+2,toIndex-index-2).trimmed();
-    QMessageBox::warning(0, QObject::tr("Error"),QObject::tr("index : %1\ntoIndex : %2\ntext : %3").arg(index).arg(toIndex).arg(text));
+  //  QMessageBox::warning(0, QObject::tr("Error"),QObject::tr("index : %1\ntoIndex : %2\ntext : %3").arg(index).arg(toIndex).arg(text));
 	newText = domHandler->getExoMeta(path,text);
     int lenOld=QString("%@"+text+"@").size();
     int lenNew=newText.size();
