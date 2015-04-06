@@ -9,6 +9,11 @@ DirPrefDialog::DirPrefDialog(QWidget * parent,XmlDomHandler * domHandler,int row
 {
     setupUi(this);
 
+    QTabBar* curTab = new QTabBar();
+    curTab = prefTab->tabBar();
+    curTab -> moveTab(0,2);
+
+    prefTab->setCurrentIndex(0);
     metaAdded=0;
 
     if (!Preferences::p_getPreamble().isEmpty()) instructionEdit->setPlainText(Preferences::p_getPreamble());
@@ -284,7 +289,8 @@ void DirPrefDialog::on_okButton_clicked()
     }
     else  Preferences::p_setCompiler("pdflatex");
 
-    if (metaAdded>0) updateMetaDatas();
+   // if (metaAdded>0) updateMetaDatas();
+    updateMetaDatas();
     emit aboutToClose();
     close();
 }

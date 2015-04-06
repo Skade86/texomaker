@@ -35,9 +35,8 @@
 <context>
     <name>DirPrefDialog</name>
     <message>
-        <location filename="../ui/dirprefdialog.ui" line="30"/>
         <source>General</source>
-        <translation>Compilation</translation>
+        <translation type="vanished">Compilation</translation>
     </message>
     <message>
         <location filename="../ui/dirprefdialog.ui" line="41"/>
@@ -55,7 +54,6 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/dirprefdialog.ui" line="171"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -63,7 +61,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Lucida Grande&apos;;&quot;&gt;You can here change some of the metadata types. Some are fixed :&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Lucida Grande&apos;; font-weight:600; font-style:italic;&quot;&gt; figure&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Lucida Grande&apos;;&quot;&gt; and &lt;/span&gt;&lt;span style=&quot; font-family:&apos;Lucida Grande&apos;; font-weight:600; font-style:italic;&quot;&gt;metapost&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Lucida Grande&apos;;&quot;&gt;. Some are automatically included : &lt;/span&gt;&lt;span style=&quot; font-family:&apos;Lucida Grande&apos;; font-weight:600; font-style:italic;&quot;&gt;filepath&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Lucida Grande&apos;;&quot;&gt; and &lt;/span&gt;&lt;span style=&quot; font-family:&apos;Lucida Grande&apos;; font-weight:600; font-style:italic;&quot;&gt;importdate&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Lucida Grande&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Lucida Grande&apos;;&quot;&gt;The others can be changed. You can also choose which ones will appear in the exercises list, and in which order they will be sorted.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Lucida Grande&apos;;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
+        <translation type="vanished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
 &lt;HTML&gt;
 &lt;HEAD&gt;
 	&lt;META HTTP-EQUIV=&quot;CONTENT-TYPE&quot; CONTENT=&quot;text/html; charset=utf-8&quot;&gt;
@@ -115,9 +113,25 @@ p, li { white-space: pre-wrap; }
         <translation>Métadonnées</translation>
     </message>
     <message>
+        <location filename="../ui/dirprefdialog.ui" line="30"/>
+        <source>Compilation options</source>
+        <translation>Options de compilation</translation>
+    </message>
+    <message>
         <location filename="../ui/dirprefdialog.ui" line="130"/>
         <source>LaTeX Compilation options</source>
         <translation>Options de compilation LaTeX</translation>
+    </message>
+    <message>
+        <location filename="../ui/dirprefdialog.ui" line="171"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;.Helvetica Neue DeskInterface&apos;; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Lucida Grande&apos;;&quot;&gt;You can here change some of the metadata types. Some are fixed :&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Lucida Grande&apos;; font-weight:600; font-style:italic;&quot;&gt; figure&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Lucida Grande&apos;;&quot;&gt; and &lt;/span&gt;&lt;span style=&quot; font-family:&apos;Lucida Grande&apos;; font-weight:600; font-style:italic;&quot;&gt;metapost&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Lucida Grande&apos;;&quot;&gt;. Some are automatically included : &lt;/span&gt;&lt;span style=&quot; font-family:&apos;Lucida Grande&apos;; font-weight:600; font-style:italic;&quot;&gt;filepath&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Lucida Grande&apos;;&quot;&gt; and &lt;/span&gt;&lt;span style=&quot; font-family:&apos;Lucida Grande&apos;; font-weight:600; font-style:italic;&quot;&gt;importdate&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Lucida Grande&apos;;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Lucida Grande&apos;;&quot;&gt;The others can be changed. You can also choose which ones will appear in the exercises list, and in which order they will be sorted.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Lucida Grande&apos;;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/dirprefdialog.ui" line="205"/>
@@ -224,7 +238,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../sources/exosheet.cpp" line="47"/>
-        <location filename="../sources/exosheet.cpp" line="374"/>
+        <location filename="../sources/exosheet.cpp" line="377"/>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
@@ -248,7 +262,7 @@ p, li { white-space: pre-wrap; }
         <translation>Exercices manquants</translation>
     </message>
     <message>
-        <location filename="../sources/exosheet.cpp" line="352"/>
+        <location filename="../sources/exosheet.cpp" line="355"/>
         <source>Open Directory</source>
         <translation>Ouvrir le répertoire</translation>
     </message>
@@ -391,7 +405,7 @@ p, li { white-space: pre-wrap; }
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../sources/exosheet.cpp" line="375"/>
+        <location filename="../sources/exosheet.cpp" line="378"/>
         <source>Cannot create file %1:
 %2.</source>
         <translation>Impossible de créer le fichier %1:
@@ -644,12 +658,12 @@ p, li { white-space: pre-wrap; }
         <translation>Outils</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="707"/>
+        <location filename="../sources/mainwindow.cpp" line="712"/>
         <source>%1.%2 build %3</source>
         <translation>%1.%2 compilation %3</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="708"/>
+        <location filename="../sources/mainwindow.cpp" line="713"/>
         <source>About TeXoMaker</source>
         <translation>À propos de TeXoMaker</translation>
     </message>
@@ -669,8 +683,8 @@ p, li { white-space: pre-wrap; }
         <translation>Mettre à jour l&apos;exercice courant</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="422"/>
-        <location filename="../sources/mainwindow.cpp" line="978"/>
+        <location filename="../sources/mainwindow.cpp" line="427"/>
+        <location filename="../sources/mainwindow.cpp" line="983"/>
         <source>Do you confirm this action ?</source>
         <translation>Vous confirmez ?</translation>
     </message>
@@ -791,17 +805,17 @@ p, li { white-space: pre-wrap; }
         <translation>%1 exercices dans la base</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="419"/>
+        <location filename="../sources/mainwindow.cpp" line="424"/>
         <source>%1 exercises are going to be removed from the database !</source>
         <translation>%1 exercices vont être supprimés de la base !</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="420"/>
+        <location filename="../sources/mainwindow.cpp" line="425"/>
         <source>%1 exercise is going to be removed from the database !</source>
         <translation>%1 exercice va être supprimé de la base !</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="1284"/>
+        <location filename="../sources/mainwindow.cpp" line="1289"/>
         <source>The current database will be saved. 
  It means that all exercises (including figures) will be copied in a single directory.
  The XML database file will be also copied.
@@ -811,27 +825,27 @@ Tout les exercices et les figures vont être copiés dans un unique fichier d&ap
 Ce fichier sera prêt à être à nouveau importé (sur une autre machine par exemple).</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="1285"/>
+        <location filename="../sources/mainwindow.cpp" line="1290"/>
         <source>Click Ok to choose the directory where you want to save the database.</source>
         <translation>Choisir le répertoire où sauvegarder la base courante.</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="1293"/>
+        <location filename="../sources/mainwindow.cpp" line="1298"/>
         <source>Choose a directory</source>
         <translation>Choisir un répertoire</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="1327"/>
+        <location filename="../sources/mainwindow.cpp" line="1332"/>
         <source>Base successfully saved</source>
         <translation>Base sauvegardée avec succès</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="1426"/>
+        <location filename="../sources/mainwindow.cpp" line="1431"/>
         <source>Choose a tom file</source>
         <translation>Choisir un fichier &quot;*.tom&quot;</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="748"/>
+        <location filename="../sources/mainwindow.cpp" line="753"/>
         <source>Choose a file name</source>
         <translation>Choisir un nom de fichier</translation>
     </message>
@@ -845,68 +859,68 @@ Ce fichier sera prêt à être à nouveau importé (sur une autre machine par ex
         <translation>&amp;Ajouter des exercices</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="709"/>
+        <location filename="../sources/mainwindow.cpp" line="714"/>
         <source>&lt;center&gt;This is &lt;b&gt;TeXoMaker&lt;/b&gt; version %3&lt;br&gt;Builded : %1&lt;br&gt;&lt;b&gt;TeXoMaker&lt;/b&gt; has been developped by &lt;br&gt;&lt;a href=&apos;mailto:texomaker@gmail.com&apos;&gt;Gwena&amp;euml;l Cl&amp;eacute;on&lt;/a&gt;&lt;br&gt;using &lt;b&gt;Qt version %2&lt;/b&gt;&lt;br&gt;&lt;/center&gt;</source>
         <translation>&lt;center&gt;&lt;b&gt;TeXoMaker&lt;/b&gt; version %3&lt;br&gt;Compilé le : %1&lt;br&gt;&lt;b&gt;TeXoMaker&lt;/b&gt; est développé par &lt;br&gt;&lt;a href=&apos;mailto:texomaker@gmail.com&apos;&gt;Gwena&amp;euml;l Cl&amp;eacute;on&lt;/a&gt;&lt;br&gt; et utilise &lt;b&gt;Qt version %2&lt;/b&gt;&lt;br&gt;&lt;/center&gt;</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="753"/>
+        <location filename="../sources/mainwindow.cpp" line="758"/>
         <source>Aucun exercice dans la base</source>
         <translation>Aucun exercice dans la base</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="761"/>
-        <location filename="../sources/mainwindow.cpp" line="843"/>
-        <location filename="../sources/mainwindow.cpp" line="1008"/>
+        <location filename="../sources/mainwindow.cpp" line="766"/>
+        <location filename="../sources/mainwindow.cpp" line="848"/>
+        <location filename="../sources/mainwindow.cpp" line="1013"/>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="762"/>
+        <location filename="../sources/mainwindow.cpp" line="767"/>
         <source>Cannot create file %1:
 %2.</source>
         <translation>Impossible de créer le fichier  %1:%2.</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="820"/>
+        <location filename="../sources/mainwindow.cpp" line="825"/>
         <source>Open TeXoMaker database file</source>
         <translation>Ouvrir un fichier de donnée TeXoMaker</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="820"/>
+        <location filename="../sources/mainwindow.cpp" line="825"/>
         <source>TeXoMaker files (*.xml)</source>
         <translation>Fichiers TeXoMaker (*.xml)</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="844"/>
-        <location filename="../sources/mainwindow.cpp" line="1009"/>
+        <location filename="../sources/mainwindow.cpp" line="849"/>
+        <location filename="../sources/mainwindow.cpp" line="1014"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Impossible de lire le fichier %1 :
 %2.</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="976"/>
+        <location filename="../sources/mainwindow.cpp" line="981"/>
         <source>The exercise base will be upgraded to 2.0 format et won&apos;t be able to be read by previous versions of TeXoMaker.</source>
         <translation>La base d&apos;exercice va être mise à niveau vers le format 2.0 et ne sera plus lisible par les anciennes versions de TeXoMaker.</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="1256"/>
+        <location filename="../sources/mainwindow.cpp" line="1261"/>
         <source>The exercise database has the following problems : &lt;ul&gt;</source>
         <translation>La base de donnée a rencontré le problème suivant : &lt;ul&gt;</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="1263"/>
+        <location filename="../sources/mainwindow.cpp" line="1268"/>
         <source>&lt;li&gt;Exercise &lt;b&gt;%1&lt;/b&gt; has no preview, please update the exercise by clicking the &lt;i&gt;Update the exercise&lt;/i&gt; button.&lt;/li&gt;</source>
         <translation>&lt;li&gt;L&apos;exercice &lt;b&gt;%1&lt;/b&gt; n&apos;a pas d&apos;aperçu, mettez à jour l&apos;exercice en cliquant sur le bouton &lt;i&gt;Mettre à jour l&apos;exercice.&lt;/i&gt;&lt;/li&gt;</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="1264"/>
+        <location filename="../sources/mainwindow.cpp" line="1269"/>
         <source>&lt;li&gt;Exercise &lt;b&gt;%1&lt;/b&gt; has moved. Please put the latex file in the original directory, or remove it and reimport it elsewhere.&lt;/li&gt;</source>
         <translation>&lt;li&gt;L&apos;exercice &lt;b&gt;%1&lt;/b&gt; n&apos;a pas été trouvé. Si le fichier a été déplacé, replacez-le à sa place originale; dans les autre cas, supprimez-le de la base, et réimportez-le éventuellement.&lt;/li&gt;</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="1267"/>
+        <location filename="../sources/mainwindow.cpp" line="1272"/>
         <source>&lt;/ul&gt;</source>
         <translation></translation>
     </message>
@@ -1048,18 +1062,18 @@ p, li { white-space: pre-wrap; }
         <translation>Choisissez au moins un exercice (en double-cliquant dans la liste de gauche) !</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="442"/>
+        <location filename="../sources/mainwindow.cpp" line="447"/>
         <source>Please select at least an exercise to remove !</source>
         <translation>Vous n&apos;avez sélectionné aucun exercice à supprimer !</translation>
     </message>
     <message>
-        <location filename="../sources/dirprefdialog.cpp" line="331"/>
+        <location filename="../sources/dirprefdialog.cpp" line="336"/>
         <location filename="../sources/exosheet.cpp" line="188"/>
         <location filename="../sources/exosheet.cpp" line="209"/>
         <location filename="../sources/exosheet.cpp" line="217"/>
-        <location filename="../sources/mainwindow.cpp" line="442"/>
-        <location filename="../sources/mainwindow.cpp" line="605"/>
-        <location filename="../sources/mainwindow.cpp" line="1268"/>
+        <location filename="../sources/mainwindow.cpp" line="447"/>
+        <location filename="../sources/mainwindow.cpp" line="610"/>
+        <location filename="../sources/mainwindow.cpp" line="1273"/>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
@@ -1069,20 +1083,20 @@ p, li { white-space: pre-wrap; }
         <translation>Choisissez s&apos;il vous plaît un répertoire de destination et un nom de fichier !</translation>
     </message>
     <message>
-        <location filename="../sources/exosheet.cpp" line="405"/>
+        <location filename="../sources/exosheet.cpp" line="408"/>
         <location filename="../sources/xmldomhandler.cpp" line="22"/>
         <source>DOM Parser</source>
         <translation>Parseur DOM</translation>
     </message>
     <message>
-        <location filename="../sources/exosheet.cpp" line="406"/>
+        <location filename="../sources/exosheet.cpp" line="409"/>
         <location filename="../sources/xmldomhandler.cpp" line="23"/>
         <source>Parse error at line %1, column %2:
 %3</source>
         <translation>Erreur de lecture du fichier de données à la ligne %1, colonne %2:%3</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="605"/>
+        <location filename="../sources/mainwindow.cpp" line="610"/>
         <source>Please select a file to update !</source>
         <translation>Sélectionner un exercice à mettre à jour !</translation>
     </message>
@@ -1092,7 +1106,7 @@ p, li { white-space: pre-wrap; }
         <translation>Sélectionner un exercice à supprimer de la feuille !</translation>
     </message>
     <message>
-        <location filename="../sources/dirprefdialog.cpp" line="331"/>
+        <location filename="../sources/dirprefdialog.cpp" line="336"/>
         <source>There is a problem with the order of the metadatas you have choosen : probably two differents metadatas associated to the same value.
 Please correct this before clicking &quot;Ok&quot;.</source>
         <translation>Il y a un problème avec l&apos;ordre des métadonnées choisies : il y a probablement deux métadonnées différentes associées au même chiffre.
@@ -1103,7 +1117,7 @@ S&apos;il vous plaît corrigez cela avant de cliquer à nouveau sur &quot;Accept
         <translation type="vanished">Mise à jour</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="401"/>
+        <location filename="../sources/mainwindow.cpp" line="405"/>
         <source>New version of TeXoMaker</source>
         <translation>Nouvelle version de TeXoMaker</translation>
     </message>
@@ -1112,22 +1126,26 @@ S&apos;il vous plaît corrigez cela avant de cliquer à nouveau sur &quot;Accept
         <translation type="vanished">&lt;center&gt;La version %1 de TeXoMaker est disponible.&lt;br&gt;&lt;br&gt;Vous pouvez la télécharger sur le &lt;br&gt;&lt;br&gt;&lt;a href=&apos;http://texomaker.les-domlols.com/index.php/downloads&apos;&gt;site de TeXoMaker.&lt;/a&gt;&lt;center&gt;</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="402"/>
         <source>&lt;center&gt;Version %1 of TeXoMaker is available.&lt;br&gt;&lt;br&gt;You can download it on the &lt;br&gt;&lt;br&gt;&lt;a href=&apos;https://github.com/Domlol/texomaker&apos;&gt;TeXoMaker website&lt;/a&gt;&lt;center&gt;</source>
-        <translation>&lt;center&gt;La version %1 of TeXoMaker est disponible.&lt;br&gt;&lt;br&gt;Vous pouvez la télécharger sur la &lt;br&gt;&lt;br&gt;&lt;a href=&apos;https://github.com/Domlol/texomaker&apos;&gt;page GitHub de TeXoMaker&lt;/a&gt;&lt;center&gt;</translation>
+        <translation type="vanished">&lt;center&gt;La version %1 of TeXoMaker est disponible.&lt;br&gt;&lt;br&gt;Vous pouvez la télécharger sur la &lt;br&gt;&lt;br&gt;&lt;a href=&apos;https://github.com/Domlol/texomaker&apos;&gt;page GitHub de TeXoMaker&lt;/a&gt;&lt;center&gt;</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="523"/>
+        <location filename="../sources/mainwindow.cpp" line="406"/>
+        <source>&lt;center&gt;Version %1 of TeXoMaker is available.&lt;br&gt;&lt;br&gt;You can download it on the &lt;br&gt;&lt;br&gt;&lt;a href=&apos;https://github.com/Domlol/texomaker/releases/latest&apos;&gt;TeXoMaker website&lt;/a&gt;&lt;center&gt;</source>
+        <translation>&lt;center&gt;La version %1 de TeXoMaker est disponible.&lt;br&gt;&lt;br&gt;Vous pouvez la télécharger sur le &lt;br&gt;&lt;br&gt;&lt;a href=&apos;https://github.com/Domlol/texomaker/releases/latest&apos;&gt;site&lt;/a&gt;&lt;center&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/mainwindow.cpp" line="528"/>
         <source>Warning</source>
         <translation>Attention</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="523"/>
+        <location filename="../sources/mainwindow.cpp" line="528"/>
         <source>Please load a database first !</source>
         <translation>Charger une base de donnée !</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="1327"/>
+        <location filename="../sources/mainwindow.cpp" line="1332"/>
         <source>Information</source>
         <translation>Information</translation>
     </message>

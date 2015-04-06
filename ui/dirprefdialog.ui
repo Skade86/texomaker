@@ -27,7 +27,7 @@
      </property>
      <widget class="QWidget" name="Compilation">
       <attribute name="title">
-       <string>General</string>
+       <string>Compilation options</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_7">
        <item>
@@ -171,7 +171,7 @@
           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'.Lucida Grande UI'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'.Helvetica Neue DeskInterface'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Lucida Grande';&quot;&gt;You can here change some of the metadata types. Some are fixed :&lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande'; font-weight:600; font-style:italic;&quot;&gt; figure&lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande';&quot;&gt; and &lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande'; font-weight:600; font-style:italic;&quot;&gt;metapost&lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande';&quot;&gt;. Some are automatically included : &lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande'; font-weight:600; font-style:italic;&quot;&gt;filepath&lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande';&quot;&gt; and &lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande'; font-weight:600; font-style:italic;&quot;&gt;importdate&lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande';&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Lucida Grande';&quot;&gt;The others can be changed. You can also choose which ones will appear in the exercises list, and in which order they will be sorted.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Lucida Grande';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
