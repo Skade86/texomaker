@@ -8,7 +8,7 @@ Installation sous Linux
 
 ### Systèmes basés sur Debian (Ubuntu, ...)
 ```
-apt-get install libpoppler-qt5-dev qt5-default libquazip0-dev
+apt-get install libpoppler-qt5-dev qt5-default libquazip0-dev g++
 ```
 
 Dans le répertoire de texomaker :
