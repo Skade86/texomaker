@@ -718,7 +718,7 @@ void MainWindow::about()
 
 void MainWindow::manualCalled()
 {
-    QString urlStr = "https://github.com/Domlol/texomaker";
+    QString urlStr = "https://github.com/Domlol/texomaker/wiki/TeXoMaker-Wiki";
     QDesktopServices::openUrl(QUrl(urlStr));
 }
 
