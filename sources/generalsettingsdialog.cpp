@@ -20,6 +20,7 @@ GeneralSettingsDialog::GeneralSettingsDialog(QWidget *parent) :
 
 	testBin("pdflatex");
     testBin("latex");
+    testBin("lualatex");
     testBin("dvips");
     testBin("ps2pdf");
     testBin("mpost");
@@ -28,6 +29,8 @@ GeneralSettingsDialog::GeneralSettingsDialog(QWidget *parent) :
     if (QFile(Preferences::p_getBin("pdflatex")).exists()) pdflatexCheck->setCheckState(Qt::Checked);
     latexEdit->setText(Preferences::p_getBin("latex"));
     if (QFile(Preferences::p_getBin("latex")).exists()) latexCheck->setCheckState(Qt::Checked);
+    lualatexEdit->setText(Preferences::p_getBin("lualatex"));
+    if (QFile(Preferences::p_getBin("lualatex")).exists()) lualatexCheck->setCheckState(Qt::Checked);
     dvipsEdit->setText(Preferences::p_getBin("dvips"));
     if (QFile(Preferences::p_getBin("dvips")).exists()) dvipsCheck->setCheckState(Qt::Checked);
     ps2pdfEdit->setText(Preferences::p_getBin("ps2pdf"));
@@ -72,6 +75,13 @@ void GeneralSettingsDialog::on_latexBrowser_clicked()
     QString changedBin =
         QFileDialog::getOpenFileName(this, tr("Choose file"));
     if (!changedBin.isEmpty()) latexEdit->setText(changedBin);
+}
+
+void GeneralSettingsDialog::on_lualatexBrowser_clicked()
+{
+    QString changedBin =
+        QFileDialog::getOpenFileName(this, tr("Choose file"));
+    if (!changedBin.isEmpty()) lualatexEdit->setText(changedBin);
 }
 
 void GeneralSettingsDialog::on_dvipsBrowser_clicked()

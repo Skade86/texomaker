@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>438</width>
-    <height>397</height>
+    <width>431</width>
+    <height>428</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>General settings</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_3">
+  <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <widget class="QGroupBox" name="groupBox_4">
      <property name="font">
@@ -117,145 +117,168 @@
      <property name="title">
       <string>Places</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
-       <layout class="QGridLayout" name="gridLayout">
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_3">
-          <property name="text">
-           <string>pdflatex</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLineEdit" name="pdflatexEdit"/>
-        </item>
-        <item row="0" column="2">
-         <widget class="QCheckBox" name="pdflatexCheck">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="3">
-         <widget class="QPushButton" name="pdflatexBrowser">
-          <property name="text">
-           <string>Browse...</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="label_4">
-          <property name="text">
-           <string>latex/tex</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLineEdit" name="latexEdit"/>
-        </item>
-        <item row="1" column="2">
-         <widget class="QCheckBox" name="latexCheck">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="3">
-         <widget class="QPushButton" name="latexBrowser">
-          <property name="text">
-           <string>Browse...</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="label_5">
-          <property name="text">
-           <string>dvips</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QLineEdit" name="dvipsEdit"/>
-        </item>
-        <item row="2" column="2">
-         <widget class="QCheckBox" name="dvipsCheck">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="3">
-         <widget class="QPushButton" name="dvipsBrowser">
-          <property name="text">
-           <string>Browse...</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="label_6">
-          <property name="text">
-           <string>ps2pdf</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="1">
-         <widget class="QLineEdit" name="ps2pdfEdit"/>
-        </item>
-        <item row="3" column="2">
-         <widget class="QCheckBox" name="ps2pdfCheck">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="3">
-         <widget class="QPushButton" name="ps2pdfBrowser">
-          <property name="text">
-           <string>Browse...</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="0">
-         <widget class="QLabel" name="label_7">
-          <property name="text">
-           <string>mpost</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="1">
-         <widget class="QLineEdit" name="mpostEdit"/>
-        </item>
-        <item row="4" column="2">
-         <widget class="QCheckBox" name="mpostCheck">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="3">
-         <widget class="QPushButton" name="mpostBrowser">
-          <property name="text">
-           <string>Browse...</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>pdflatex</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="pdflatexEdit"/>
+      </item>
+      <item row="0" column="2">
+       <widget class="QCheckBox" name="pdflatexCheck">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QPushButton" name="pdflatexBrowser">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>latex/tex</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="latexEdit"/>
+      </item>
+      <item row="1" column="2">
+       <widget class="QCheckBox" name="latexCheck">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QPushButton" name="latexBrowser">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_8">
+        <property name="text">
+         <string>lualatex</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="lualatexEdit"/>
+      </item>
+      <item row="2" column="2">
+       <widget class="QCheckBox" name="lualatexCheck">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3">
+       <widget class="QPushButton" name="lualatexBrowser">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>dvips</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="dvipsEdit"/>
+      </item>
+      <item row="3" column="2">
+       <widget class="QCheckBox" name="dvipsCheck">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="3">
+       <widget class="QPushButton" name="dvipsBrowser">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>ps2pdf</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="ps2pdfEdit"/>
+      </item>
+      <item row="4" column="2">
+       <widget class="QCheckBox" name="ps2pdfCheck">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="3">
+       <widget class="QPushButton" name="ps2pdfBrowser">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>mpost</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="mpostEdit"/>
+      </item>
+      <item row="5" column="2">
+       <widget class="QCheckBox" name="mpostCheck">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="3">
+       <widget class="QPushButton" name="mpostBrowser">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>

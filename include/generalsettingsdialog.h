@@ -21,6 +21,7 @@ private slots:
     void on_okButton_clicked();
     void on_pdflatexBrowser_clicked();
     void on_latexBrowser_clicked();
+    void on_lualatexBrowser_clicked();
     void on_dvipsBrowser_clicked();
     void on_ps2pdfBrowser_clicked();
     void on_mpostBrowser_clicked();

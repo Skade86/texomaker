@@ -23,13 +23,13 @@
       <string notr="true"/>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="Compilation">
       <attribute name="title">
        <string>Compilation options</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_7">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
         <widget class="QGroupBox" name="groupBox_2">
          <property name="font">
@@ -40,13 +40,13 @@
          <property name="title">
           <string>Compilation policy</string>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_3">
+         <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_20">
             <item>
              <widget class="QRadioButton" name="pdflatexRadio">
               <property name="text">
-               <string>Pdflatex</string>
+               <string>PdfLaTeX</string>
               </property>
               <property name="checked">
                <bool>false</bool>
@@ -73,12 +73,36 @@
             <item>
              <widget class="QRadioButton" name="latexRadio">
               <property name="text">
-               <string>Latex + Dvips +Ps2pdf</string>
+               <string>LaTeX + Dvips +Ps2pdf</string>
               </property>
              </widget>
             </item>
             <item>
              <spacer name="horizontalSpacer_42">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>228</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QRadioButton" name="lualatexRadio">
+              <property name="text">
+               <string>LuaLaTeX</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_43">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>

@@ -28,6 +28,10 @@ DirPrefDialog::DirPrefDialog(QWidget * parent,XmlDomHandler * domHandler,int row
     {
         texRadio->setChecked(true);
     }
+    else if (Preferences::p_getCompiler()=="lualatex")
+    {
+        lualatexRadio->setChecked(true);
+    }
     else pdflatexRadio->setChecked(true);
 
     beginDocEdit->setText(Preferences::p_getBeginDoc());
@@ -286,6 +290,10 @@ void DirPrefDialog::on_okButton_clicked()
     else if (texRadio->isChecked())
     {
         Preferences::p_setCompiler("tex");
+    }
+    else if (lualatexRadio->isChecked())
+    {
+        Preferences::p_setCompiler("lualatex");
     }
     else  Preferences::p_setCompiler("pdflatex");
 

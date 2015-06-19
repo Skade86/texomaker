@@ -924,7 +924,7 @@ void MainWindow::readSettings()
 //    QPoint pos = settings.value("pos", QPoint(200, 200)).toPoint();
 //    QSize size = settings.value("size", QSize(400, 400)).toSize();
  //   QRect geom = settings.value("geom",QRect()).toRect();
-    QSize AffSize = settings.value("AfficheSize").toSize();
+//    QSize AffSize = settings.value("AfficheSize").toSize();
     QByteArray state = settings.value("state",QByteArray()).toByteArray();
 
 
@@ -933,6 +933,7 @@ void MainWindow::readSettings()
     Preferences::p_setOpenAtLaunch(settings.value("openAtLaunch").toBool());
     Preferences::p_setBin("pdflatex",settings.value("pdflatex").toString());
     Preferences::p_setBin("latex",settings.value("latex").toString());
+    Preferences::p_setBin("lualatex",settings.value("lualatex").toString());
     Preferences::p_setBin("dvips",settings.value("dvips").toString());
     Preferences::p_setBin("mpost",settings.value("mpost").toString());
     Preferences::p_setBin("ps2pdf",settings.value("ps2pdf").toString());
@@ -969,6 +970,7 @@ void MainWindow::writeSettings()
     settings.setValue("currentDBPath",currentDBPath);
     settings.setValue("pdflatex",Preferences::p_getBin("pdflatex"));
     settings.setValue("latex",Preferences::p_getBin("latex"));
+    settings.setValue("lualatex",Preferences::p_getBin("lualatex"));
     settings.setValue("dvips",Preferences::p_getBin("dvips"));
     settings.setValue("mpost",Preferences::p_getBin("mpost"));
     settings.setValue("ps2pdf",Preferences::p_getBin("ps2pdf"));
@@ -1156,6 +1158,7 @@ void MainWindow::readMetaDb()
     if (domHandler->settingsNodeExists("Dvips")) {
     if (Preferences::p_getBin("pdflatex").isEmpty()) Preferences::p_setBin("pdflatex",domHandler->getSettings("Pdflatex").at(0));
     if (Preferences::p_getBin("latex").isEmpty()) Preferences::p_setBin("latex",domHandler->getSettings("Latex").at(0));
+    if (Preferences::p_getBin("lualatex").isEmpty()) Preferences::p_setBin("lualatex",domHandler->getSettings("Lualatex").at(0));
     if (Preferences::p_getBin("dvips").isEmpty()) Preferences::p_setBin("dvips",domHandler->getSettings("Dvips").at(0));
     if (Preferences::p_getBin("mpost").isEmpty()) Preferences::p_setBin("mpost",domHandler->getSettings("Mpost").at(0));
     if (Preferences::p_getBin("ps2pdf").isEmpty()) Preferences::p_setBin("ps2pdf",domHandler->getSettings("Ps2pdf").at(0));
