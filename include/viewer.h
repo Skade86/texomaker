@@ -52,9 +52,12 @@ private slots:
 
     void onButtonInClicked();
     void onButtonOutClicked();
-    void onButtonFitClicked();
     void nextPageClicked();
     void previousPageClicked();
+
+public slots:
+
+    void onButtonFitClicked();
 
 protected:
     virtual void resizeEvent(QResizeEvent * event);

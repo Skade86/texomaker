@@ -345,7 +345,7 @@ void MainWindow::createModelView()
     filterModel->setSortCaseSensitivity ( Qt::CaseInsensitive );
     filterModel->setSortLocaleAware ( true);
     filterModel->setFilterKeyColumn(-1);
-    QModelIndex rootIndex = filterModel->index(1, 0, QModelIndex());
+    //QModelIndex rootIndex = filterModel->index(1, 0, QModelIndex());
 
     exosTableView->setSortingEnabled(true);
     filterModel->sort(2,Qt::AscendingOrder);
@@ -895,6 +895,8 @@ void MainWindow::initializeModelView()
     removeExoAct->setEnabled(true);
     createSheetAct->setEnabled(true);
     editExoAct->setEnabled(true);
+
+    viewer->onButtonFitClicked();
 
     return;
 }

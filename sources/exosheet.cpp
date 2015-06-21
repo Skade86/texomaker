@@ -29,9 +29,12 @@ ExoSheet::ExoSheet( QWidget * parent,bool useIso,XmlDomHandler *handler)
 
 void ExoSheet::on_openButton_clicked()
 {
-    QString rootDir;
-    if (favoritesBox->currentIndex()==0) rootDir = QDir::homePath();
-    else rootDir = favoritesBox->currentText();
+    // Répertoire de départ soit racine, soit le QSetting, soit le Favori
+    QString rootDir = QDir::homePath();
+    QSettings settings("Domlol", "TeXoMaker-sheet");
+    QString dirSetting = settings.value("outputDir").toString();
+    if (!dirSetting.isEmpty()) rootDir = dirSetting;
+    if (favoritesBox->currentIndex()!=0) rootDir = favoritesBox->currentText();
 
     QString xmlFileName = QString();
     xmlFileName = QFileDialog::getOpenFileName(this, tr("Open File"),
@@ -165,6 +168,13 @@ void ExoSheet::on_upButton_clicked()
 {
     int curRow = listWidget->currentRow();
     if ((listWidget->count() == 0) || (curRow==0) )  return;
+
+    // On décale dans la liste des exos
+    QListWidgetItem * curItem = listWidget->item(curRow);
+    QString curTitle = curItem->data(Qt::DisplayRole).toString();   // Titre de l'exo courant
+    int curSheetListIndex = returnCurrentSheetListIndex(curTitle);
+    exoSheetList.move(curSheetListIndex,curSheetListIndex-1);
+
     QListWidgetItem * movedItem = listWidget->takeItem(curRow);
     listWidget->insertItem(curRow-1,movedItem);
     listWidget->setCurrentRow(curRow-1);
@@ -174,9 +184,28 @@ void ExoSheet::on_downButton_clicked()
 {
     int curRow = listWidget->currentRow();
     if ((listWidget->count() == 0) || (curRow==listWidget->count()-1))  return;
+
+    // On décale dans la liste des exos
+    QListWidgetItem * curItem = listWidget->item(curRow);
+    QString curTitle = curItem->data(Qt::DisplayRole).toString();   // Titre de l'exo courant
+    int curSheetListIndex = returnCurrentSheetListIndex(curTitle);
+    exoSheetList.move(curSheetListIndex,curSheetListIndex+1);
+
     QListWidgetItem * movedItem = listWidget->takeItem(curRow);
     listWidget->insertItem(curRow+1,movedItem);
     listWidget->setCurrentRow(curRow+1);
+}
+
+int ExoSheet::returnCurrentSheetListIndex(QString title)
+{
+    int index = 0;
+    for (int i=0;i<exoSheetList.size();i++) {
+        if (exoSheetList.at(i).at(0) == title) {
+            index=i;
+            break;
+        }
+    }
+    return index;
 }
 
 void ExoSheet::on_removeButton_clicked()
@@ -217,6 +246,7 @@ void ExoSheet::on_createButton_clicked()
             QMessageBox::warning(this, QObject::tr("Error"),QObject::tr("Please choose at least an exercise (by double-clicking on the left panel) !"));
             return;
         }
+    writeSettings();
 
         if (addBox->isChecked()) {
             if (favoritesBox->findText(outputDir) == -1) {
@@ -351,7 +381,12 @@ void ExoSheet::on_browseButton_clicked()
 {
 	// Cette méthode ouvre une fenêtre permettant de choisir le
 	// répertoire de sortie, outputDir
-        QString initialDir = QDir::homePath();
+    QSettings settings("Domlol", "TeXoMaker-sheet");
+    QString dirSetting = settings.value("outputDir").toString();
+    QString initialDir;
+    if (dirSetting.isEmpty()) initialDir = QDir::homePath();
+    else initialDir = dirSetting;
+
 	QString dirName = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
                                                      initialDir,
                                                      QFileDialog::ShowDirsOnly
@@ -580,3 +615,11 @@ QString ExoSheet::compileTexFile()
 	compileProcess.waitForFinished(-1);
 	return compileProcess.readAll();
 }
+
+void ExoSheet::writeSettings()
+{
+    QSettings settings("Domlol", "TeXoMaker-sheet");
+    settings.setValue("outputDir", outputDir);
+}
+
+
