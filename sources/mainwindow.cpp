@@ -388,7 +388,7 @@ void MainWindow::checkUpdate()
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
     connect(manager, SIGNAL(finished(QNetworkReply*)),
             this, SLOT(updateReplyFinished(QNetworkReply*)));
-    manager->get(QNetworkRequest(QUrl("http://178.33.180.1/version.txt")));
+    manager->get(QNetworkRequest(QUrl("http://www.freebyte.fr/version.txt")));
 
 }
 

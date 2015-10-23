@@ -1,5 +1,6 @@
 #include <QtCore>
 #include <QtWidgets>
+#include <QDebug>
 
 #include "importthread.h"
 #include "preferences.h"
@@ -17,6 +18,7 @@ void ImportThread::run()
 	if ((Preferences::p_getCompiler()=="latex")||(Preferences::p_getCompiler()=="tex"))
 	{
 		processBin=Preferences::p_getLtx2pdf();
+        qDebug() << processBin;
 	}
 	else processBin=Preferences::p_getBin(Preferences::p_getCompiler());
 	
@@ -49,12 +51,12 @@ void ImportThread::run()
 #ifdef Q_OS_WIN
 				args << QFileInfo(exoFile).baseName() + "-preview" << Preferences::p_getBin("latex") << Preferences::p_getBin("dvips") << Preferences::p_getBin("ps2pdf") << Preferences::p_getCompilationOptions();
 #else
-                              args << "-c" << tmpFileName << Preferences::p_getBin("latex") << Preferences::p_getBin("dvips") << Preferences::p_getBin("ps2pdf") << Preferences::p_getCompilationOptions();
+                args << "-c" << tmpFileName << Preferences::p_getBin("latex") << Preferences::p_getBin("dvips") << Preferences::p_getBin("ps2pdf") << Preferences::p_getCompilationOptions();
                 //             args << "-c" << tmpFileName << "latex" << "dvips" << "ps2pdf" << Preferences::p_getCompilationOptions();
 #endif
 			}
 			else args << Preferences::p_getCompilationOptions() << tmpFileName;
-	
+
 			// On exécute la compilation
 			compileProcess.start(processBin,args);
 			compileProcess.waitForFinished(-1);

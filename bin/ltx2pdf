@@ -1,26 +1,24 @@
 #!/bin/bash
 
 OUTDEV=
-NETTOYE=0
-EXTENSIONS='aux log dvi ps toc'
+NETTOYE=1
+EXTENSIONS='aux log dvi ps toc out'
 
 # ------------------------------------------------------------------------------
 while getopts ":mc" option
 do
     case $option in
 	m ) OUTDEV=' 1>/dev/null 2>&1 ' ;;
-	c ) NETTOYE=1 ;;
 	? ) echo 'Usage: ltx2pdf [-m] [-c] monfichier[.tex]'
 	    echo ' -m : rendre la sortie muette (messages de latex, dvips,ps2pdf)'
-	    echo ' -c : nettoyer les fichiers auxilliaires'
 	    exit 101 ;;
     esac
 done
 shift $(($OPTIND -1))
 
 # ------------------------------------------------------------------------------
-# Préfixe du fichier, l`extension tex peut-être omise dans l'appel mais elle est
-# nécessaire dans le nom du fichier.
+# PrÃ©fixe du fichier, l`extension tex peut-Ãªtre omise dans l'appel mais elle est
+# nÃ©cessaire dans le nom du fichier.
 PREFIXE=${1%.*}
 
 if ! [ -f $PREFIXE.tex ]
@@ -37,7 +35,7 @@ eval $2 $5 $PREFIXE.tex $OUTDEV
 ERREUR_LATEX=$?
 if [ $ERREUR_LATEX != 0 ]
 then
-    echo "Erreur à la compilation latex : $ERREUR_LATEX"
+    echo "Erreur Ã  la compilation latex : $ERREUR_LATEX"
     exit $ERREUR_LATEX
 fi
 
