@@ -1,6 +1,5 @@
 #include <QtCore>
 #include <QtWidgets>
-#include <QDebug>
 
 #include "importthread.h"
 #include "preferences.h"
@@ -18,7 +17,6 @@ void ImportThread::run()
 	if ((Preferences::p_getCompiler()=="latex")||(Preferences::p_getCompiler()=="tex"))
 	{
 		processBin=Preferences::p_getLtx2pdf();
-        qDebug() << processBin;
 	}
 	else processBin=Preferences::p_getBin(Preferences::p_getCompiler());
 	

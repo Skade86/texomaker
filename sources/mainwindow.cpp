@@ -2,6 +2,7 @@
 #include <QFont>
 #include <QtNetwork>
 #include <QtXml>
+#include <QDebug>
 
 #include "mainwindow.h"
 #include "tableview.h"
@@ -85,37 +86,45 @@ MainWindow::MainWindow()
 
     connect(simpleFilterLine,SIGNAL(textChanged ( const QString)),this,SLOT(applyFilter()));
 
+
 }
 
 void MainWindow::setLtxPath()
 {
-    QDir appDir = QDir::current();
-    QString appDirName = appDir.dirName();
-    QString curPath = appDir.path();
+    QString ltxPath = QCoreApplication::applicationDirPath();
 
 #ifdef Q_OS_MAC
-
-    if (appDirName=="MacOS")
-    {
+    QDir appDir;
+    appDir.cd(ltxPath);
+    appDir.cdUp();
+    ltxPath = appDir.absolutePath()+"/Resources/";
+    if (QFileInfo(ltxPath+"ltx2pdf").exists()) {
+        Preferences::p_setLtx2pdf(ltxPath+"./ltx2pdf");
+    }
+    else {
         appDir.cdUp();
-        if (appDir.dirName()=="Contents")
-        {
-            curPath = appDir.path();
-            Preferences::p_setLtx2pdf(curPath+"/Resources/./ltx2pdf");
-        }
-    } else {
-        Preferences::p_setLtx2pdf(curPath+"/TeXoMaker.app/Contents/Resources/./ltx2pdf");
+        appDir.cdUp();
+        ltxPath = appDir.absolutePath();
+        Preferences::p_setLtx2pdf(ltxPath+"./ltx2pdf");
     }
 #endif
 
-#ifndef Q_OS_MAC
 #ifdef Q_OS_WIN
-    Preferences::p_setLtx2pdf(curPath+"/ltx2pdf.bat");
-#else
-    Preferences::p_setLtx2pdf(curPath+"/./ltx2pdf");
+    Preferences::p_setLtx2pdf(ltxPath+"/ltx2pdf.bat");
 #endif
 
+#ifdef Q_OS_LINUX
+    Preferences::p_setLtx2pdf(ltxPath+"/./ltx2pdf");
 #endif
+
+    QFile ltx2pdf;
+
+#ifdef Q_OS_WIN
+    ltx2pdf.setFileName(ltxPath+"/ltx2pdf.bat");
+#else
+    ltx2pdf.setFileName(ltxPath+"/ltx2pdf");
+#endif
+    ltx2pdf.setPermissions(QFileDevice::ReadOwner|QFileDevice::WriteOwner|QFileDevice::ExeOwner|QFileDevice::ReadGroup|QFileDevice::ExeGroup|QFileDevice::ReadOther|QFileDevice::ExeOther);
 }
 
 void MainWindow::createFilter()
@@ -536,6 +545,7 @@ void MainWindow::editProperties()
 
 void MainWindow::import(QStringList files2import)
 {
+    QMessageBox::warning(this, QObject::tr("Warning"),QObject::tr("%1").arg(Preferences::p_getLtx2pdf()));
     QString curImportDir = QDir::homePath();
     if (!currentImportPath.isEmpty()) curImportDir = currentImportPath;
     QStringList files = files2import;

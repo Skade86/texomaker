@@ -18,9 +18,9 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF-8"));
  //   QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
 
-    QPixmap pixmap(":images/splash.png");
-    QSplashScreen splash(pixmap);
-    splash.show();
+    //QPixmap pixmap(":images/splash.png");
+    //QSplashScreen splash(pixmap);
+    //splash.show();
 	
     QLocale locale = QLocale::system();
 
@@ -39,6 +39,6 @@ int main(int argc, char *argv[])
     MainWindow mainWin;
     
     mainWin.show();
-    splash.finish(&mainWin);
+    //splash.finish(&mainWin);
     return app.exec();
 }
