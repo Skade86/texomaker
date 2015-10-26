@@ -545,7 +545,7 @@ void MainWindow::editProperties()
 
 void MainWindow::import(QStringList files2import)
 {
-    QMessageBox::warning(this, QObject::tr("Warning"),QObject::tr("%1").arg(Preferences::p_getLtx2pdf()));
+    //QMessageBox::warning(this, QObject::tr("Warning"),QObject::tr("%1").arg(Preferences::p_getLtx2pdf()));
     QString curImportDir = QDir::homePath();
     if (!currentImportPath.isEmpty()) curImportDir = currentImportPath;
     QStringList files = files2import;
