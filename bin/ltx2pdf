@@ -1,7 +1,7 @@
 #!/bin/bash
 
 OUTDEV=
-NETTOYE=1
+NETTOYE=0
 EXTENSIONS='aux log dvi ps toc out'
 
 # ------------------------------------------------------------------------------
@@ -9,6 +9,7 @@ while getopts ":mc" option
 do
     case $option in
 	m ) OUTDEV=' 1>/dev/null 2>&1 ' ;;
+	c ) NETTOYE=1 ;;
 	? ) echo 'Usage: ltx2pdf [-m] [-c] monfichier[.tex]'
 	    echo ' -m : rendre la sortie muette (messages de latex, dvips,ps2pdf)'
 	    exit 101 ;;
