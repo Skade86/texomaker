@@ -156,7 +156,7 @@ void Importer::createLatexFile(QString content, QString currentFile)
     return;
     
     QString exoText = Preferences::p_getPreamble() + "\n" + Preferences::p_getMacroFiles() + "\n";
-	if (metapostFigs) exoText += "\n\\DeclareGraphicsRule{*}{mps}{*}{}\n\n";
+//	if (metapostFigs) exoText += "\n\\DeclareGraphicsRule{*}{mps}{*}{}\n\n";
 	if (Preferences::p_getCompiler()=="tex") exoText += "\n"+content+"\n";
 	else exoText += "\n"+Preferences::p_getBeginDoc()+"\n" + content + "\n"+Preferences::p_getEndDoc()+"\n";
 //	else exoText += "\n\\begin{document}\n\\pagestyle{empty}\n" + content + "\n\\end{document}";
