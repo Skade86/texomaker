@@ -20,6 +20,8 @@ void ImportThread::run()
 		processBin=Preferences::p_getLtx2pdf();
 	}
 	else processBin=Preferences::p_getBin(Preferences::p_getCompiler());
+    QProcessEnvironment envt = QProcessEnvironment::systemEnvironment();
+    qDebug() << envt.toStringList();
 	
 #ifndef Q_OS_WIN
 	QStringList env = QProcess::systemEnvironment();

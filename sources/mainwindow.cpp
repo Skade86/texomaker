@@ -105,7 +105,7 @@ void MainWindow::setLtxPath()
         appDir.cdUp();
         appDir.cdUp();
         ltxPath = appDir.absolutePath();
-        Preferences::p_setLtx2pdf(ltxPath+"./ltx2pdf");
+        Preferences::p_setLtx2pdf(ltxPath+"/./ltx2pdf");
     }
 #endif
 
