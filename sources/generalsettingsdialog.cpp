@@ -110,6 +110,7 @@ void GeneralSettingsDialog::on_okButton_clicked()
 
     Preferences::p_setBin("pdflatex",pdflatexEdit->text());
     Preferences::p_setBin("latex",latexEdit->text());
+    Preferences::p_setBin("lualatex",lualatexEdit->text());
     Preferences::p_setBin("dvips",dvipsEdit->text());
     Preferences::p_setBin("ps2pdf",ps2pdfEdit->text());
     Preferences::p_setBin("mpost",mpostEdit->text());

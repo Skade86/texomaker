@@ -203,3 +203,7 @@ bin/TeXoMaker.app/Contents/PlugIns/imageformats/libqico.dylib
 bin/TeXoMaker.app/Contents/PlugIns/imageformats/libqjp2.dylib
 
 bin/TeXoMaker.app/Contents/Resources/ltx2pdf
+
+bin/.log
+
+TeXoMaker.pro.user.ef17b5e

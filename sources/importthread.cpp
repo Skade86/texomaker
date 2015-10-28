@@ -1,5 +1,6 @@
 #include <QtCore>
 #include <QtWidgets>
+#include <QDebug>
 
 #include "importthread.h"
 #include "preferences.h"
@@ -54,7 +55,7 @@ void ImportThread::run()
 #endif
 			}
 			else args << Preferences::p_getCompilationOptions() << tmpFileName;
-
+            qDebug() << args;
 			// On exécute la compilation
 			compileProcess.start(processBin,args);
 			compileProcess.waitForFinished(-1);
