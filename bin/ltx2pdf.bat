@@ -10,7 +10,7 @@ Set ps2pdfbin=%4%
 Set compileOptions=%5%
 
 echo Compilation latex
-%latexbin% %compileOptions% %texfile%
+%latexbin% "-interaction=nonstopmode" %texfile%
 
 echo Compilation dvips
 %dvipsbin% %dvifile% -o %psfile%
@@ -23,4 +23,5 @@ del %dvifile%
 del %psfile%
 del %1%.aux
 del %1%.log
+del %1%.out
 

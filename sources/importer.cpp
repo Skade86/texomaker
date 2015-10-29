@@ -1,5 +1,6 @@
 #include <QtWidgets>
 #include <QProcess>
+#include <QDebug>
 
 #include "importer.h"
 #include "xmldomhandler.h"
@@ -41,7 +42,7 @@ void Importer::importFiles()
 		if (QFileInfo(pdfFileName).exists()) QFile(pdfFileName).rename(pdfFileNameOld);
 			
 		// Quelques initialisations
-                fileContent.clear();
+        fileContent.clear();
 		containsMpFiles.clear();
 		metapostFigs=false;
      	
@@ -156,10 +157,8 @@ void Importer::createLatexFile(QString content, QString currentFile)
     return;
     
     QString exoText = Preferences::p_getPreamble() + "\n" + Preferences::p_getMacroFiles() + "\n";
-//	if (metapostFigs) exoText += "\n\\DeclareGraphicsRule{*}{mps}{*}{}\n\n";
 	if (Preferences::p_getCompiler()=="tex") exoText += "\n"+content+"\n";
 	else exoText += "\n"+Preferences::p_getBeginDoc()+"\n" + content + "\n"+Preferences::p_getEndDoc()+"\n";
-//	else exoText += "\n\\begin{document}\n\\pagestyle{empty}\n" + content + "\n\\end{document}";
     QTextStream out(&tmpFile);
     out.flush();
    	if (useIso) out.setCodec("ISO 8859-15");
@@ -190,6 +189,7 @@ void Importer::launchImportthread()
 
 void Importer::pdfSuccess(const QMap<QString,QString>  * currentFileMap)
 {	
+    qDebug() << "Success";
 	QMap<QString,QString> localExoMap = *currentFileMap;
 	QString currentFile = localExoMap.value("filepath");
 	QStringList extensions;
@@ -227,6 +227,7 @@ void Importer::mpostErrorOccured(const int &fileRef,const QString &error)
 
 void Importer::compileErrorOccured(const QString &currentFile,const QString &error)
 {
+    qDebug() << "Error";
 	PdflatexLogDialog *pdflatexLogDialog = new PdflatexLogDialog(this,currentFile,error);
 	pdflatexLogDialog->show();
 }

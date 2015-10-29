@@ -20,9 +20,12 @@ void ImportThread::run()
 		processBin=Preferences::p_getLtx2pdf();
 	}
 	else processBin=Preferences::p_getBin(Preferences::p_getCompiler());
+
+#ifdef Q_OS_WIN
     QProcessEnvironment envt = QProcessEnvironment::systemEnvironment();
-    qDebug() << envt.toStringList();
-	
+    compileProcess.setProcessEnvironment(envt);
+#endif
+
 #ifndef Q_OS_WIN
 	QStringList env = QProcess::systemEnvironment();
 	int j = env.indexOf(QRegExp("^PATH=(.*)"));
@@ -50,14 +53,15 @@ void ImportThread::run()
 			if ((Preferences::p_getCompiler()=="latex")||(Preferences::p_getCompiler()=="tex"))
 			{ 
 #ifdef Q_OS_WIN
-				args << QFileInfo(exoFile).baseName() + "-preview" << Preferences::p_getBin("latex") << Preferences::p_getBin("dvips") << Preferences::p_getBin("ps2pdf") << Preferences::p_getCompilationOptions();
+                args << QFileInfo(exoFile).baseName() + "-preview" << Preferences::p_getBin("latex") << Preferences::p_getBin("dvips") << Preferences::p_getBin("ps2pdf") << Preferences::p_getCompilationOptions();
+                // args << QFileInfo(exoFile).baseName() + "-preview" << "latex" << "dvips" << "ps2pdf" << Preferences::p_getCompilationOptions();
+                qDebug() << Preferences::p_getCompilationOptions();
 #else
                 args << "-c" << tmpFileName << Preferences::p_getBin("latex") << Preferences::p_getBin("dvips") << Preferences::p_getBin("ps2pdf") << Preferences::p_getCompilationOptions();
                 //             args << "-c" << tmpFileName << "latex" << "dvips" << "ps2pdf" << Preferences::p_getCompilationOptions();
 #endif
 			}
 			else args << Preferences::p_getCompilationOptions() << tmpFileName;
-            qDebug() << args;
 			// On exécute la compilation
 			compileProcess.start(processBin,args);
 			compileProcess.waitForFinished(-1);
