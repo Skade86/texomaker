@@ -42,6 +42,8 @@ class ImportThread : public QThread
 	
 	//! Liste locale des exercices à traiter
 	QList<QMap<QString,QString> > fileList;
+
+
 	
 };
 #endif

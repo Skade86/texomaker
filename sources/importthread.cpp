@@ -64,14 +64,16 @@ void ImportThread::run()
 			else args << Preferences::p_getCompilationOptions() << tmpFileName;
 			// On exécute la compilation
 			compileProcess.start(processBin,args);
-			compileProcess.waitForFinished(-1);
-			QString errorOutput = compileProcess.readAll();
+            compileProcess.waitForFinished(-1);
+            QString errorOutput = QString(compileProcess.readAllStandardOutput());
+
 			QString outName=QString();
 			outName = QFileInfo(exoFile).path() + QDir::separator()+ QFileInfo(exoFile).baseName()+"-preview.pdf";
-			
 			QFile outFile;
-			if (outFile.exists(outName)) {	emit exoTreated(exoMap);		} 
-				else emit errorOccured(exoFile,errorOutput);
+
+            if (outFile.exists(outName)) {	emit exoTreated(exoMap);		}
+                else emit errorOccured(exoFile,errorOutput);
+
 			exoMap->~QMap();
 		}
 }
