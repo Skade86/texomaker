@@ -189,12 +189,11 @@ void Importer::launchImportthread()
 
 void Importer::pdfSuccess(const QMap<QString,QString>  * currentFileMap)
 {	
-    qDebug() << "Success";
 	QMap<QString,QString> localExoMap = *currentFileMap;
 	QString currentFile = localExoMap.value("filepath");
 	QStringList extensions;
 	
-	extensions << ".log" << ".aux" << ".tex" << "-old.pdf";
+    extensions << ".log" << ".aux" << ".tex" << "-old.pdf" << ".out";
 	
 	QString trashFile;
 	
@@ -227,7 +226,6 @@ void Importer::mpostErrorOccured(const int &fileRef,const QString &error)
 
 void Importer::compileErrorOccured(const QString &currentFile,const QString &error)
 {
-    qDebug() << "Error";
 	PdflatexLogDialog *pdflatexLogDialog = new PdflatexLogDialog(this,currentFile,error);
 	pdflatexLogDialog->show();
 }

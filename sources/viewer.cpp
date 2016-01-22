@@ -27,7 +27,7 @@ Viewer::Viewer(QWidget *parent) :
     // Création de la QGraphicsView avec une image vide
     image = QImage();
     scene = new QGraphicsScene(this);
-    ui->pdfView->setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
+    ui->pdfView->setRenderHints(QPainter::TextAntialiasing | QPainter::SmoothPixmapTransform);
     ui->pdfView->setDragMode(QGraphicsView::ScrollHandDrag);
     ui->pdfView->setScene(scene);
     ui->pdfView->grabGesture(Qt::PanGesture);
@@ -58,7 +58,7 @@ void Viewer::loadImageFile(QString exoFile)
         document->setRenderHint(Poppler::Document::Antialiasing,true);
         document->setRenderHint(Poppler::Document::TextAntialiasing,true);
         document->setRenderHint(Poppler::Document::TextHinting,true);
-        document->setRenderHint(Poppler::Document::TextSlightHinting,true);
+        document->setRenderHint(Poppler::Document::ThinLineShape,true);
         numPages=document->numPages();
         currentPage=0;
         updatePagesButtons();
@@ -110,7 +110,7 @@ void Viewer::onButtonFitClicked() {
     myItem->setPixmap(QPixmap::fromImage(image));
 }
 
-void Viewer::resizeEvent(QResizeEvent *event) {
+void Viewer::resizeEvent(QResizeEvent *) {
     onButtonFitClicked();
 }
 

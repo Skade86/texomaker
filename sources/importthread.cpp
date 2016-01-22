@@ -64,9 +64,8 @@ void ImportThread::run()
 			else args << Preferences::p_getCompilationOptions() << tmpFileName;
 			// On exécute la compilation
 			compileProcess.start(processBin,args);
-            compileProcess.waitForFinished(-1);
+            bool error = compileProcess.waitForFinished(-1);
             QString errorOutput = QString(compileProcess.readAllStandardOutput());
-
 			QString outName=QString();
 			outName = QFileInfo(exoFile).path() + QDir::separator()+ QFileInfo(exoFile).baseName()+"-preview.pdf";
 			QFile outFile;

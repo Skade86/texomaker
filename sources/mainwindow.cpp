@@ -55,7 +55,7 @@ MainWindow::MainWindow()
     updateAct->setEnabled(false);
     removeExoAct->setEnabled(false);
     createSheetAct->setEnabled(false);
-
+    
     // Si on trouve une DB valide récente (et que l'option "open at Launch" est activée)
     bool test;
 
@@ -718,10 +718,11 @@ void MainWindow::about()
 {
     int version_major = MAJOR;
     int version_minor = MINOR;
+    int version_subminor = SUBMINOR;
     int version_build = BUILD;
-    QString version_no = tr("%1.%2 build %3").arg(version_major).arg(version_minor).arg(version_build);
+    QString version_no = tr("%1.%2.%3 build %4").arg(version_major).arg(version_minor).arg(version_subminor).arg(version_build);
     QMessageBox::about(this, tr("About TeXoMaker"),
-                       tr("<center>This is <b>TeXoMaker</b> version %3<br>"
+                        tr("<center>This is <b>TeXoMaker</b> version %3<br>"
                           "Builded : %1<br>"
                           "<b>TeXoMaker</b> has been developped by <br><a href='mailto:texomaker@gmail.com'>Gwena&euml;l Cl&eacute;on</a><br>using <b>Qt version %2</b><br></center>").arg(QDate::currentDate().toString("d MMMM yyyy")).arg(qVersion()).arg(version_no));
 }
@@ -754,9 +755,9 @@ void MainWindow::editExo()
     QDesktopServices::openUrl(QUrl(urlStr));
 }
 
+
 void MainWindow::createDb()
 {
-
     creation = true;
     //******** Création du fichier xml **********//
             // On récupère le nom du fichier à  créer
@@ -800,7 +801,7 @@ void MainWindow::createDb()
     // Construction de l'arbre DOM
     exos = readXmlDom();
 
-    Preferences::p_setCompilationOptions("-interaction=nonstopmode");
+    Preferences::p_setCompilationOptions("--halt-on-error");
     Preferences::p_setBeginDoc("\\begin{document}");
     Preferences::p_setEndDoc("\\end{document}");
 
