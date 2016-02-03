@@ -2,6 +2,7 @@
 DEFINES += MAJOR=3
 DEFINES += MINOR=1
 DEFINES += SUBMINOR=0
+
 !win32 {
 build_nr.commands = $$_PRO_FILE_PWD_/setVersion
 }

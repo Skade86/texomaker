@@ -706,7 +706,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../sources/mainwindow.cpp" line="201"/>
         <source>Save current database in a single folder.</source>
-        <translation>Sauvegarde la base courante dans un fichier unique.</translation>
+        <translation>Sauvegarde la base courante dans un répertoire unique.</translation>
     </message>
     <message>
         <location filename="../sources/mainwindow.cpp" line="204"/>
@@ -831,8 +831,9 @@ p, li { white-space: pre-wrap; }
  The XML database file will be also copied.
  This copy will be ready to be imported using the &quot;Import Base&quot; button.</source>
         <translation>La base courante va être sauvegardée.
-Tout les exercices et les figures vont être copiés dans un unique fichier d&apos;extension &quot;.tom&quot;.
-Ce fichier sera prêt à être à nouveau importé (sur une autre machine par exemple).</translation>
+Tout les exercices et les figures vont être copiés dans un unique répertoire.
+Les fichiers d&apos;entête personnels choisis dans les Préférences seront sauvegardés aussi.
+Ce répertoire sera prêt à être à nouveau importé (sur une autre machine par exemple).</translation>
     </message>
     <message>
         <location filename="../sources/mainwindow.cpp" line="1148"/>
