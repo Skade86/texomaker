@@ -130,12 +130,6 @@ private slots:
     //! Vérifie si la version actuelle est la dernière version
     void checkUpdate();
 
-    //! Slot lancé quand le dossier de sauvegarde a été zippé
-    void zipSuccess(const QString &dir);
-
-    //! Slot lancé quand le dossier de sauvegarde a été zippé
-    void unzipSuccess(const QString &tomFile);
-
     //! Appui sur les filtres avancés
     void onAdvancedFilterClicked();
 
@@ -253,18 +247,13 @@ private:
     QAction *editExoAct;
     QAction *saveBaseAct;
     QAction *importBaseAct;
+    QAction *checkUpdateAct;
     
     //! Lecture des préférences du programme (taille et positionnement de la fenêtre, ...
     void readSettings();
 
     //! Lecture des types de metadonnées dans le fichier de config de la database
     void readMetaDb();
-
-    //! Mise à jour 2.0 de la base xml (incluant des settings ds le fichier xml)
-    int upgradeBase();
-
-    //! Lis les données ds le vieux fichier
-    void readOldMetaDb();
 
     //! Chargement de la base de donnée en cours
     bool loadLastDb();

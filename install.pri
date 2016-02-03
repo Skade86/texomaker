@@ -1,12 +1,11 @@
 # Installation
 
-QMAKE_STRIP = echo
+# L'executable
+target.path += /usr/bin/
 
-unix:!macx {
-target.path += /usr/local/bin
-ltx2pdf.path = /usr/local/bin
+# Le script ltx2pdf
+ltx2pdf.path = /usr/bin/
 ltx2pdf.files = bin/ltx2pdf
-}
 
-!win32:INSTALLS += target ltx2pdf
+INSTALLS += target ltx2pdf
 

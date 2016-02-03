@@ -308,7 +308,7 @@ void ExoSheet::createTexFile(bool mpTest)
 	//*************Remplissage de sheetFileContent
 	
 	// On commence par le préambule et le \begin{document}
-	sheetFileContent = Preferences::p_getPreamble()+ "\n" + Preferences::p_getMacroFiles() + "\n";
+    sheetFileContent = Preferences::p_getPreamble()+ "\n";
 	
 	if (mpTest) sheetFileContent += "\n\\DeclareGraphicsRule{*}{mps}{*}{}\n\n";
 	

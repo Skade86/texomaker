@@ -21,7 +21,7 @@ class Preferences
 		static QString preamble;
 		
 		//! Inclusion de macros perso
-		static QString macroFiles;
+        static QStringList macroFiles;
 		
 		//! Compilateur utilisé : latex ou pdflatex
 		static QString compiler;
@@ -178,10 +178,10 @@ class Preferences
 		static void p_setCompilationOptions(QString str) { compilationOptions=str;	}
 		
 		//! Récupère la valeur de macroFiles
-		static QString p_getMacroFiles() { return macroFiles; }
+        static QStringList p_getMacroFiles() { return macroFiles; }
 		
 		//! Donne la valeur str à macroFiles
-		static void p_setMacroFiles(QString str) { macroFiles=str;	}
+        static void p_setMacroFiles(QStringList str) { macroFiles=str;	}
 
         //! Récupère la valeur de sheetBookmarks
         static QStringList p_getSheetBookmarks() { return sheetBookmarks; }

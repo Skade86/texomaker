@@ -156,7 +156,7 @@ void Importer::createLatexFile(QString content, QString currentFile)
     if (!tmpFile.open(QIODevice::WriteOnly | QIODevice::Text))
     return;
     
-    QString exoText = Preferences::p_getPreamble() + "\n" + Preferences::p_getMacroFiles() + "\n";
+    QString exoText = Preferences::p_getPreamble() + "\n";
 	if (Preferences::p_getCompiler()=="tex") exoText += "\n"+content+"\n";
 	else exoText += "\n"+Preferences::p_getBeginDoc()+"\n" + content + "\n"+Preferences::p_getEndDoc()+"\n";
     QTextStream out(&tmpFile);

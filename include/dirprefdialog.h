@@ -45,6 +45,8 @@ private slots:
 	void on_okButton_clicked();
 	void on_addButton_clicked();
 	void on_removeButton_clicked();
+    void on_addMacroFileButton_clicked();
+    void on_delMacroFileButton_clicked();
 	void updateMax(bool checked);
 	
 private:

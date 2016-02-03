@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>611</width>
-    <height>646</height>
+    <width>557</width>
+    <height>638</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -195,7 +195,7 @@
           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'.Helvetica Neue DeskInterface'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'.SF NS Text'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Lucida Grande';&quot;&gt;You can here change some of the metadata types. Some are fixed :&lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande'; font-weight:600; font-style:italic;&quot;&gt; figure&lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande';&quot;&gt; and &lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande'; font-weight:600; font-style:italic;&quot;&gt;metapost&lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande';&quot;&gt;. Some are automatically included : &lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande'; font-weight:600; font-style:italic;&quot;&gt;filepath&lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande';&quot;&gt; and &lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande'; font-weight:600; font-style:italic;&quot;&gt;importdate&lt;/span&gt;&lt;span style=&quot; font-family:'Lucida Grande';&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Lucida Grande';&quot;&gt;The others can be changed. You can also choose which ones will appear in the exercises list, and in which order they will be sorted.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Lucida Grande';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -454,7 +454,7 @@ p, li { white-space: pre-wrap; }
       <attribute name="title">
        <string>LaTeX preamble</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QVBoxLayout" name="verticalLayout_8">
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
@@ -495,6 +495,12 @@ p, li { white-space: pre-wrap; }
        </item>
        <item>
         <widget class="QTextEdit" name="instructionEdit">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <family>Lucida Grande</family>
@@ -523,7 +529,7 @@ p, li { white-space: pre-wrap; }
         </widget>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_7">
+        <layout class="QVBoxLayout" name="verticalLayout_7">
          <item>
           <widget class="QLabel" name="label_13">
            <property name="font">
@@ -531,56 +537,79 @@ p, li { white-space: pre-wrap; }
              <weight>75</weight>
              <italic>true</italic>
              <bold>true</bold>
-             <underline>true</underline>
+             <underline>false</underline>
             </font>
            </property>
            <property name="text">
-            <string>Inclusion of personal macro files :</string>
+            <string>Personal files : List here all personal files (.sty, .cls, .tex) necessary to compile. This will be used if you want to backup your database in a single directory. Use the buttons to add or remove a file location.</string>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::RichText</enum>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
          <item>
-          <spacer name="horizontalSpacer_6">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>268</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout">
+             <item>
+              <widget class="QPushButton" name="addMacroFileButton">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="focusPolicy">
+                <enum>Qt::NoFocus</enum>
+               </property>
+               <property name="toolTip">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ajouter un fichier personnel à la liste.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="../ressources.qrc">
+                 <normaloff>:/images/ajouter.png</normaloff>:/images/ajouter.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="delMacroFileButton">
+               <property name="focusPolicy">
+                <enum>Qt::NoFocus</enum>
+               </property>
+               <property name="toolTip">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enlever un fichier personnel de la liste.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="../ressources.qrc">
+                 <normaloff>:/images/del.png</normaloff>:/images/del.png</iconset>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QListWidget" name="macroFilesList">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>100</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
-       </item>
-       <item>
-        <widget class="QTextEdit" name="macroFilesEdit">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>51</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Lucida Grande</family>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-        </widget>
        </item>
        <item>
         <layout class="QGridLayout" name="gridLayout_2">

@@ -8,4 +8,5 @@ UI_DIR = tmp
 OTHER_FILES += \
     setVersion \
     setVersion.bat \
+    include/
     build_number

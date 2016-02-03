@@ -15,8 +15,6 @@
 #include "exosheet.h"
 #include "preferences.h"
 #include "propertydialog.h"
-#include "zipthread.h"
-#include "unzipthread.h"
 #include "version.h"
 #include "advancedfilter.h"
 
@@ -39,7 +37,7 @@ MainWindow::MainWindow()
     resize(0.85*screenRect.width(),0.85*screenRect.height());
     move(QPoint(0.05*screenRect.width(),0.05*screenRect.height()));
 
-    checkUpdate();
+    //checkUpdate();
 
     // Attribution de l'emplacement du script ltx2pdf
     setLtxPath();
@@ -266,6 +264,9 @@ void MainWindow::createActions()
     aboutQtAct = new QAction(tr("About &Qt"), this);
     aboutQtAct->setStatusTip(tr("Show the Qt library's About box"));
     connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
+
+    checkUpdateAct = new QAction(tr("Check TeXoMaker updates"),this);
+    connect(checkUpdateAct,SIGNAL(triggered()),this,SLOT(checkUpdate()));
 }
 
 
@@ -278,6 +279,7 @@ void MainWindow::createMenus()
     fileMenu->addAction(importBaseAct);
     fileMenu->addAction(generalSettingsAct);
     menuBar()->addSeparator();
+    fileMenu->addAction(checkUpdateAct);
     fileMenu->addAction(exitAct);
 
     toolMenu = menuBar()->addMenu(tr("&Base"));
@@ -727,7 +729,7 @@ void MainWindow::about()
     QMessageBox::about(this, tr("About TeXoMaker"),
                         tr("<center>This is <b>TeXoMaker</b> version %3<br>"
                           "Builded : %1<br>"
-                          "<b>TeXoMaker</b> has been developped by <br><a href='mailto:texomaker@gmail.com'>Gwena&euml;l Cl&eacute;on</a><br>using <b>Qt version %2</b><br></center>").arg(QDate::currentDate().toString("d MMMM yyyy")).arg(qVersion()).arg(version_no));
+                          "<b>TeXoMaker</b> has been developped by <br><a href='mailto:texomaker@freebyte.fr'>Gwena&euml;l Cl&eacute;on</a><br>using <b>Qt version %2</b><br></center>").arg(QDate::currentDate().toString("d MMMM yyyy")).arg(qVersion()).arg(version_no));
 }
 
 void MainWindow::manualCalled()
@@ -992,175 +994,12 @@ void MainWindow::writeSettings()
     settings.setValue("ps2pdf",Preferences::p_getBin("ps2pdf"));
 }
 
-int MainWindow::upgradeBase()
-{
-    // Fenêtre prévenant que l'on va mettre à  jour la base
-     QMessageBox msgBox;
-     msgBox.setText(tr("The exercise base will be upgraded to 2.0 format et won't be able"
-                                   " to be read by previous versions of TeXoMaker."));
-     msgBox.setInformativeText(tr("Do you confirm this action ?"));
-     msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
-     msgBox.setDefaultButton(QMessageBox::Ok);
-     int ret = msgBox.exec();
-
-     if (ret==QMessageBox::Cancel) {
-         return ret;
-     }
-
-
-    // On lit les infos sur l'ancien fichier
-    readOldMetaDb();
-    // On les écrit sur le nouveau
-    writeMetaDb();
-    // On supprime l'ancien fichier de config
-    QString cfgFileName = QFileInfo(Preferences::p_getDbfile()).absolutePath()+QDir::separator()+"."+QFileInfo(Preferences::p_getDbfile()).baseName();
-    QFile oldCfg(cfgFileName);
-    oldCfg.remove();
-
-    return ret;
-}
-
-void MainWindow::readOldMetaDb()
-{
-    QString cfgFileName = QFileInfo(Preferences::p_getDbfile()).absolutePath()+QDir::separator()+"."+QFileInfo(Preferences::p_getDbfile()).baseName();
-    QStringList metaList;
-    QStringList metaView;
-
-    QFile file(cfgFileName);
-    if (!file.open(QFile::ReadOnly | QFile::Text)) {
-        if (!cfgFileName.isEmpty()) QMessageBox::warning(this,tr("Error"),
-                                                         tr("Cannot read file %1:\n%2.")
-            .arg(cfgFileName)
-            .arg(file.errorString()));
-        return;
-    }
-
-    // Lecture de ce qu'il y a dans le fichier courant
-    QTextStream in(&file); // Création du flux
-    in.flush();
-
-    QString tmp;
-    QString tampon=QString();
-    bool after = false;
-
-    while (!in.atEnd())
-    {
-        tmp = in.readLine();
-
-        if (tmp=="%@Preamble") break;
-
-        if (tmp.trimmed() == "%@")
-        {
-            tmp = in.readLine();
-            after = true;
-        }
-
-        if (after) { metaView << tmp; }
-        else metaList << tmp;
-    }
-    Preferences::p_setMetaList(metaList);
-    Preferences::p_setMetaToView(metaView);
-
-    // Préambule
-    while (!in.atEnd())
-    {
-        tmp=in.readLine();
-        if (tmp=="%@MacroFiles") break;
-        tampon+=tmp+"\n";
-    }
-    Preferences::p_setPreamble(tampon.trimmed());
-    tampon.clear();
-
-    // MacroFiles
-    while (!in.atEnd())
-    {
-        tmp=in.readLine();
-        if (tmp=="%@Compilation stuff") break;
-        tampon+=tmp+"\n";
-    }
-    Preferences::p_setMacroFiles(tampon.trimmed());
-    tampon.clear();
-
-    // Compilation stuff
-    tmp=in.readLine();
-    if (tmp.trimmed().isEmpty()) tmp="pdflatex";
-    Preferences::p_setCompiler(tmp);
-    tmp=in.readLine();
-    if (tmp.trimmed().isEmpty()) tmp="-halt-on-error";
-    Preferences::p_setCompilationOptions(tmp);
-    tmp=in.readLine();
-    if (tmp.trimmed().isEmpty()) tmp="\\begin{document}";
-    Preferences::p_setBeginDoc(tmp);
-    tmp=in.readLine();
-    if (tmp.trimmed().isEmpty()) tmp="\\end{document}";
-    Preferences::p_setEndDoc(tmp);
-    in.readLine();
-
-    // Sheet header
-    while (!in.atEnd())
-    {
-        tmp=in.readLine();
-        if (tmp=="%@SheetExo") break;
-        tampon+=tmp+"\n";
-    }
-    Preferences::p_setSheetHeader(tampon.trimmed());
-    tampon.clear();
-
-    // Sheet exo
-    while (!in.atEnd())
-    {
-        tmp=in.readLine();
-        if (tmp=="%@SheetBetween") break;
-        tampon+=tmp+"\n";
-    }
-    Preferences::p_setSheetExo(tampon.trimmed());
-    tampon.clear();
-
-    // Sheet between
-    while (!in.atEnd())
-    {
-        tmp=in.readLine();
-        if (tmp=="%@SheetFooter") break;
-        tampon+=tmp+"\n";
-    }
-    Preferences::p_setSheetBetween(tampon.trimmed());
-    tampon.clear();
-
-    // Sheet footer
-    while (!in.atEnd())
-    {
-        tmp=in.readLine();
-        if (tmp=="%@SheetBookmarks") break;
-        tampon+=tmp+"\n";
-    }
-    Preferences::p_setSheetFooter(tampon.trimmed());
-
-    // Sheet bookmarks
-    QStringList tmpLst = QStringList();
-    while (!in.atEnd())
-    {
-        tmp=in.readLine();
-        tmpLst << tmp;
-    }
-    Preferences::p_setSheetBookmarks(tmpLst);
-
-    file.close();
-
-}
-
 void MainWindow::readMetaDb()
 {
-    // Eventuel upgrade de la base xml
-    QString cfgFileName = QFileInfo(Preferences::p_getDbfile()).absolutePath()+QDir::separator()+"."+QFileInfo(Preferences::p_getDbfile()).baseName();
-    if (QFileInfo(cfgFileName).exists()) {
-        int ret = upgradeBase();
-        if (ret==QMessageBox::Cancel) close();
-    }
-
     Preferences::p_setMetaList(domHandler->getSettings("MetadataList"));
     Preferences::p_setMetaToView(domHandler->getSettings("MetadataView"));
     Preferences::p_setPreamble(domHandler->getSettings("Preamble").at(0));
-    Preferences::p_setMacroFiles(domHandler->getSettings("MacroFiles").at(0));
+    Preferences::p_setMacroFiles(domHandler->getSettings("MacroFiles"));
     Preferences::p_setCompiler(domHandler->getSettings("Compiler").at(0));
     Preferences::p_setCompilationOptions(domHandler->getSettings("CompilationOptions").at(0));
     Preferences::p_setBeginDoc(domHandler->getSettings("BeginDoc").at(0));
@@ -1213,7 +1052,7 @@ void MainWindow::writeMetaDb()
     // Préparation du reste des préférences
 
     domHandler->writeSettings("Preamble",QStringList(Preferences::p_getPreamble()));
-    domHandler->writeSettings("MacroFiles",QStringList(Preferences::p_getMacroFiles()));
+    domHandler->writeSettings("MacroFiles",Preferences::p_getMacroFiles());
     domHandler->writeSettings("Compiler",QStringList(Preferences::p_getCompiler()));
     domHandler->writeSettings("CompilationOptions",QStringList(Preferences::p_getCompilationOptions()));
     domHandler->writeSettings("BeginDoc",QStringList(Preferences::p_getBeginDoc()));
@@ -1322,34 +1161,19 @@ void MainWindow::saveBase()
 
     QDir pathDir(savePath);
     pathDir.mkdir(dbName);
-    QString zipFile=savePath+QDir::separator()+dbName+".tom";
     savePath=savePath+QDir::separator()+dbName;
     QFile::copy(Preferences::p_getDbfile(),savePath+QDir::separator()+dbName+".xml");
     QStringList exosFileList = createExosDataList();
+    exosFileList += Preferences::p_getMacroFiles();
+
     for (int i=0;i<exosFileList.size();i++) {
         QFile::copy(exosFileList.at(i),savePath+QDir::separator()+QFileInfo(exosFileList.at(i)).fileName());
     }
     removeExosNode(savePath+QDir::separator()+dbName+".xml");
 
-    // On zippe le dossier en un fichier .tom
-    ZipThread *zipThread= new ZipThread(zipFile,savePath,this);
-    connect(zipThread,SIGNAL(finished()),zipThread,SLOT(deleteLater()));
-    connect(zipThread,SIGNAL(zipCreated(const QString &)),this,SLOT(zipSuccess(const QString &)));
-    zipThread->start();
+    QMessageBox::information(this, QObject::tr("Information"),tr("Base successfully saved"));
 }
 
-void MainWindow::zipSuccess(const QString &dir)
-{
-   QDir oldDir = QDir(dir);
-   oldDir.setFilter(QDir::NoDotAndDotDot | QDir::AllEntries);
-   foreach(QFileInfo fileInfo, oldDir.entryInfoList())
-   {
-       QFile::remove(fileInfo.filePath());
-   }
-   oldDir.cdUp();
-   oldDir.rmdir(dir);
-   QMessageBox::information(this, QObject::tr("Information"),tr("Base successfully saved"));
-}
 
 QStringList MainWindow::createExosDataList()
 {
@@ -1447,29 +1271,21 @@ void MainWindow::importBase()
 {
     QString tomFile;
     QString home = QDir::homePath();
-    tomFile = QFileDialog::getOpenFileName(this, tr("Choose a tom file"),
-                                                    home,
-                                       "Tom Files (*.tom)");
+    tomFile = QFileDialog::getExistingDirectory(this, tr("Choose a TeXoMaker directory"),
+                                                home,
+                                                QFileDialog::ShowDirsOnly
+                                                | QFileDialog::DontResolveSymlinks);
     if (tomFile.isEmpty()) return;
-    //QMessageBox::warning(this, QObject::tr("Error"),tomFile);
-    QString zipDir = QFileInfo(tomFile).absolutePath()+QDir::separator()+QFileInfo(tomFile).baseName();
-    QDir dir(zipDir);
-    if (!dir.exists()) {
-        dir.mkpath(".");
-    }
-    // On dézippe
-    UnzipThread *unzipThread= new UnzipThread(tomFile,zipDir,this);
-    connect(unzipThread,SIGNAL(finished()),unzipThread,SLOT(deleteLater()));
-    connect(unzipThread,SIGNAL(unzipCreated(const QString &)),this,SLOT(unzipSuccess(const QString &)));
-    unzipThread->start();
-}
 
-void MainWindow::unzipSuccess(const QString &tomFile)
-{
     // Récupération des chemins complet des fichiers xml et texlist.txt
     QDir tomDir=QDir(tomFile);
     QString baseFile=QFileInfo(tomFile+QDir::separator()+tomDir.dirName()).baseName();
     QString xmlFile=tomFile+QDir::separator()+baseFile+".xml";
+    if (!QFileInfo(xmlFile).exists()) {
+        QMessageBox::warning(this, QObject::tr("Import failed"),tr("The directory name has probably been changed .\n The directory must contain an xml file which must have the same name than the directory."));
+        return;
+    }
+
     QString texFile=tomFile+QDir::separator()+"texlist.txt";
 
     // On charge la base
@@ -1489,8 +1305,6 @@ void MainWindow::unzipSuccess(const QString &tomFile)
 
     // On les importe dans la base
     import(texFileList);
-
-//    QMessageBox::warning(this, QObject::tr("Error"),xmlFile);
 }
 
 void MainWindow::changeAllXmlPaths(QString xmlFile,QString newPath)

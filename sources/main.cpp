@@ -4,6 +4,7 @@
 #include <QMessageBox>
 #include <QSplashScreen>
 #include <QTextCodec>
+#include <QFontDatabase>
 
 #include "mainwindow.h"
 

@@ -17,7 +17,7 @@ DirPrefDialog::DirPrefDialog(QWidget * parent,XmlDomHandler * domHandler,int row
     metaAdded=0;
 
     if (!Preferences::p_getPreamble().isEmpty()) instructionEdit->setPlainText(Preferences::p_getPreamble());
-    macroFilesEdit->setPlainText(Preferences::p_getMacroFiles());
+    macroFilesList->addItems(Preferences::p_getMacroFiles());
 
 
     if (Preferences::p_getCompiler()=="latex")
@@ -274,10 +274,40 @@ void DirPrefDialog::on_removeButton_clicked()
     metaSize--;
 }
 
+// Ajoute un fichier perso à la liste
+void DirPrefDialog::on_addMacroFileButton_clicked()
+{
+    QString home = QDir::homePath();
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Choose a file to add"),
+                                                    home,tr("Latex files (*.*)"));
+    if (fileName.isEmpty()) return;
+    macroFilesList->addItem(fileName);
+
+}
+
+// Enlève le fichier perso sélectioné à la liste
+void DirPrefDialog::on_delMacroFileButton_clicked()
+{
+    QListWidgetItem * removedItem = macroFilesList->takeItem(macroFilesList->currentRow());
+
+    if (removedItem==0)
+    {
+        QMessageBox::warning(0, QObject::tr("Error"),QObject::tr("No file was selected to remove."));
+        return;
+    }
+
+}
+
 void DirPrefDialog::on_okButton_clicked()
 {
     Preferences::p_setPreamble(instructionEdit->toPlainText());
-    Preferences::p_setMacroFiles(macroFilesEdit->toPlainText());
+    QStringList macroStringList = QStringList();
+    for(int row = 0; row < macroFilesList->count(); row++)
+    {
+             QListWidgetItem *item = macroFilesList->item(row);
+             macroStringList << item->text();
+    }
+    Preferences::p_setMacroFiles(macroStringList);
 
     Preferences::p_setBeginDoc(beginDocEdit->text());
     Preferences::p_setEndDoc(endDocEdit->text());
