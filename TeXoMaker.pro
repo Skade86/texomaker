@@ -1,3 +1,7 @@
+# Variable indiquant un empaquetage .deb ou pas : Yes ou No
+
+DEBPACKING = No
+
 # Configuration générale
 QT += widgets xml network
 DESTDIR = bin
