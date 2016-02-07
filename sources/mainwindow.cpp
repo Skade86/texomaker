@@ -37,8 +37,6 @@ MainWindow::MainWindow()
     resize(0.85*screenRect.width(),0.85*screenRect.height());
     move(QPoint(0.05*screenRect.width(),0.05*screenRect.height()));
 
-    //checkUpdate();
-
     // Attribution de l'emplacement du script ltx2pdf
     setLtxPath();
 
@@ -50,6 +48,7 @@ MainWindow::MainWindow()
     settingsAct->setEnabled(false);
     addAct->setEnabled(false);
     propertiesAct->setEnabled(false);
+    editExoAct->setEnabled(false);
     updateAct->setEnabled(false);
     removeExoAct->setEnabled(false);
     createSheetAct->setEnabled(false);
@@ -73,11 +72,13 @@ MainWindow::MainWindow()
 
         settingsAct->setEnabled(true);
         addAct->setEnabled(true);
+
         propertiesAct->setEnabled(true);
         updateAct->setEnabled(true);
         removeExoAct->setEnabled(true);
         createSheetAct->setEnabled(true);
         editExoAct->setEnabled(true);
+
     }
 
     createStatusBar(test);
@@ -427,6 +428,12 @@ void MainWindow::updateReplyFinished(QNetworkReply* reply)
 
 void MainWindow::suppressExo(bool update)
 {
+    if (model->rowCount(QModelIndex())==0) {
+        QMessageBox::warning(this,tr("Warning"),
+                             tr("The database contains no exercise !"));
+        return;
+    }
+
     QModelIndexList curIndexList = selectionModel->selectedRows();
     QModelIndex curIndex;
     int curRow;
@@ -538,6 +545,12 @@ void MainWindow::activateExoView()
 
 void MainWindow::editProperties()
 {
+    if (model->rowCount(QModelIndex())==0) {
+        QMessageBox::warning(this,tr("Warning"),
+                             tr("The database contains no exercise !"));
+        return;
+    }
+
     if (Preferences::p_getDbfile().isEmpty()) {
         QMessageBox::warning(this, QObject::tr("Warning"),QObject::tr("Please load a database first !"));
         return;
@@ -595,6 +608,12 @@ void MainWindow::updateImported(const QString & fileName)
 
 void MainWindow::updateFile()
 {
+    if (model->rowCount(QModelIndex())==0) {
+        QMessageBox::warning(this,tr("Warning"),
+                             tr("The database contains no exercise !"));
+        return;
+    }
+
     QStringList files = QStringList();
     QModelIndex curIndex = exosTableView->currentIndex();
     int curRow = curIndex.row();
@@ -648,6 +667,12 @@ void MainWindow::settings()
 
 void MainWindow::createSheet()
 {	
+    if (model->rowCount(QModelIndex())==0) {
+        QMessageBox::warning(this,tr("Warning"),
+                             tr("The database contains no exercise !"));
+        return;
+    }
+
     createSheetAct->setEnabled(false);
     exoSheet = new ExoSheet(this,Preferences::p_getUseIso(),domHandler);
     connect(exoSheet->closeButton,SIGNAL(clicked()),this,SLOT(onExoSheetClose()));
@@ -740,6 +765,11 @@ void MainWindow::manualCalled()
 
 void MainWindow::editExo()
 {
+    if (model->rowCount(QModelIndex())==0) {
+        QMessageBox::warning(this,tr("Warning"),
+                             tr("The database contains no exercise !"));
+        return;
+    }
     QStringList files = QStringList();
     QModelIndex curIndex = exosTableView->currentIndex();
     int curRow = curIndex.row();
@@ -811,7 +841,7 @@ void MainWindow::createDb()
     Preferences::p_setEndDoc("\\end{document}");
 
     writeMetaDb();
-
+    statusLabel->setText(tr("Aucun exercice dans la base"));
     creation = false;
 
     DirPrefDialog *metaPref= new DirPrefDialog(this,0,0,true);
