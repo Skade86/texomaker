@@ -806,7 +806,7 @@ void MainWindow::createDb()
     // Construction de l'arbre DOM
     exos = readXmlDom();
 
-    Preferences::p_setCompilationOptions("--halt-on-error");
+    Preferences::p_setCompilationOptions("-interaction=nonstopmode");
     Preferences::p_setBeginDoc("\\begin{document}");
     Preferences::p_setEndDoc("\\end{document}");
 
