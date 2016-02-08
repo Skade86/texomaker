@@ -83,3 +83,8 @@ include(install.pri)
 }
 
 include(others.pri)
+
+unix:!macx{
+DISTFILES += \
+    texomaker.desktop
+}

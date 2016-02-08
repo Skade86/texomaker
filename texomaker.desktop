@@ -1,0 +1,15 @@
+[Desktop Entry]
+Categories=Office;Publishing;Qt;Latex
+Keywords=Editor;Latex;
+Exec=texomaker %F
+GenericName=LaTeX database management
+GenericName[fr]=Gestion d'exercices LaTeX
+Comment=LaTeX development environment
+Comment[fr]=Environnement de développement LaTeX
+Icon=TeXoMaker
+MimeType=text/x-tex;
+Name=TeXoMaker
+Name[fr]=TeXoMaker
+StartupNotify=false
+Terminal=false
+Type=Application
