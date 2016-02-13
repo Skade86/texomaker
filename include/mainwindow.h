@@ -24,6 +24,7 @@ class Viewer;
 class ExosModel;
 class ExoSheet;
 class PropertyDialog;
+class NewExoDialog;
 class QNetworkReply;
 class QPushButton;
 class AdvancedFilter;
@@ -170,6 +171,10 @@ private:
          sur cet arbre et sur le fichier xml.
          */
     XmlDomHandler * domHandler;
+
+    //! Classe pour le dialogue new exo
+
+    NewExoDialog * newexodialog;
     
     //!  Arbre Dom du fichier XML de données
     QDomDocument xmlDom;

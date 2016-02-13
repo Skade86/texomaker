@@ -49,7 +49,8 @@ HEADERS =  include/xmldomhandler.h \
     include/dirprefdialog.h \
     include/generalsettingsdialog.h \
     include/advancedfilter.h \
-    include/viewer.h
+    include/viewer.h \
+    include/newexodialog.h
 SOURCES =  sources/xmldomhandler.cpp \
     sources/tableview.cpp \
     sources/propertydialog.cpp \
@@ -66,7 +67,8 @@ SOURCES =  sources/xmldomhandler.cpp \
     sources/dirprefdialog.cpp \
     sources/generalsettingsdialog.cpp \
     sources/advancedfilter.cpp \
-    sources/viewer.cpp
+    sources/viewer.cpp \
+    sources/newexodialog.cpp
 RESOURCES = ressources.qrc
 TRANSLATIONS += translations/texomaker_fr.ts
 FORMS += ui/dirprefdialog.ui \
@@ -76,7 +78,8 @@ FORMS += ui/dirprefdialog.ui \
     ui/propertydialog.ui \
     ui/generalsettingsdialog.ui \
     ui/advancedfilter.ui \
-    ui/viewer.ui
+    ui/viewer.ui \
+    ui/newexodialog.ui
 
 unix:!macx{
 include(install.pri)

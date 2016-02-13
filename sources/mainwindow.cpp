@@ -7,6 +7,7 @@
 #include "mainwindow.h"
 #include "tableview.h"
 #include "dirprefdialog.h"
+#include "newexodialog.h"
 #include "generalsettingsdialog.h"
 #include "importer.h"
 #include "xmldomhandler.h"
@@ -829,6 +830,9 @@ void MainWindow::createExo()
     textStream << fileText;
     file.close();
 
+    newexodialog = new NewExoDialog(this,fileName,metas);
+    newexodialog->show();
+    newexodialog->activateWindow();
 }
 
 void MainWindow::createDb()
