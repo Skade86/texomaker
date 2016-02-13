@@ -295,6 +295,7 @@ void MainWindow::createMenus()
     toolMenu->addAction(updateAct);
     toolMenu->addAction(propertiesAct);
     toolMenu->addAction(editExoAct);
+    toolMenu->addAction(newExoAct);
     menuBar()->addSeparator();
     toolMenu->addAction(createSheetAct);
 
@@ -315,6 +316,7 @@ void MainWindow::createToolBars()
     fileToolBar->addAction(createSheetAct);
     fileToolBar->addAction(propertiesAct);
     fileToolBar->addAction(editExoAct);
+    fileToolBar->addAction(newExoAct);
     fileToolBar->addAction(settingsAct);
     fileToolBar->addSeparator();
     fileToolBar->addAction(generalSettingsAct);
@@ -798,6 +800,7 @@ void MainWindow::editExo()
 void MainWindow::createExo()
 {
     QStringList metas = Preferences::p_getMetaToView();
+    qDebug() << metas;
 
 }
 
