@@ -52,6 +52,7 @@ MainWindow::MainWindow()
     updateAct->setEnabled(false);
     removeExoAct->setEnabled(false);
     createSheetAct->setEnabled(false);
+    newExoAct->setEnabled(false);
     
     // Si on trouve une DB valide récente (et que l'option "open at Launch" est activée)
     bool test;
@@ -78,6 +79,7 @@ MainWindow::MainWindow()
         removeExoAct->setEnabled(true);
         createSheetAct->setEnabled(true);
         editExoAct->setEnabled(true);
+        newExoAct->setEnabled(true);
 
     }
 
@@ -245,6 +247,9 @@ void MainWindow::createActions()
     editExoAct->setShortcut(tr("Ctrl+E"));
     editExoAct->setStatusTip(tr("Edit the current exercise in an external editor."));
     connect(editExoAct, SIGNAL(triggered()), this, SLOT(editExo()));
+
+    newExoAct = new QAction(QIcon(":/images/newExo.png"),tr("Create new exercise"), this);
+    connect(newExoAct, SIGNAL(triggered()), this, SLOT(createExo()));
 
     loadDbAct = new QAction(QIcon(":/images/load.png"),tr("&Load datafile"), this);
     loadDbAct->setStatusTip(tr("Load an existing TeXoMaker datafile"));
@@ -790,6 +795,11 @@ void MainWindow::editExo()
     QDesktopServices::openUrl(QUrl(urlStr));
 }
 
+void MainWindow::createExo()
+{
+    QStringList metas = Preferences::p_getMetaToView();
+
+}
 
 void MainWindow::createDb()
 {

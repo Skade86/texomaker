@@ -136,6 +136,8 @@ private slots:
     //! Met à jour le système MV (lors d'un changement de base par exemple)
     void initializeModelView();
 
+     //! Créer un nouvel exercice
+    void createExo();
 
     void updateReplyFinished(QNetworkReply* reply);
 
@@ -248,6 +250,7 @@ private:
     QAction *saveBaseAct;
     QAction *importBaseAct;
     QAction *checkUpdateAct;
+    QAction *newExoAct;
     
     //! Lecture des préférences du programme (taille et positionnement de la fenêtre, ...
     void readSettings();
