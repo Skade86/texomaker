@@ -18,6 +18,7 @@
 #include "propertydialog.h"
 #include "version.h"
 #include "advancedfilter.h"
+#include "Qsci/qsciscintilla.h"
 
 MainWindow::MainWindow()
 {	
