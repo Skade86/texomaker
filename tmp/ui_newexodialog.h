@@ -16,12 +16,15 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QVBoxLayout>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_NewExoDialog
 {
 public:
+    QVBoxLayout *verticalLayout_2;
+    QVBoxLayout *verticalLayout;
     QDialogButtonBox *buttonBox;
 
     void setupUi(QDialog *NewExoDialog)
@@ -29,11 +32,20 @@ public:
         if (NewExoDialog->objectName().isEmpty())
             NewExoDialog->setObjectName(QStringLiteral("NewExoDialog"));
         NewExoDialog->resize(400, 300);
+        verticalLayout_2 = new QVBoxLayout(NewExoDialog);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+
+        verticalLayout_2->addLayout(verticalLayout);
+
         buttonBox = new QDialogButtonBox(NewExoDialog);
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
-        buttonBox->setGeometry(QRect(30, 240, 341, 32));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+
+        verticalLayout_2->addWidget(buttonBox);
+
 
         retranslateUi(NewExoDialog);
         QObject::connect(buttonBox, SIGNAL(accepted()), NewExoDialog, SLOT(accept()));

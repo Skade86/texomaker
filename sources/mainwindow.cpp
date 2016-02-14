@@ -807,28 +807,11 @@ void MainWindow::createExo()
     metas.removeOne("figure");
     metas.removeOne("metapost");
 
-    // Texte de l'entête
-    QString fileText = "";
-    for (int i=0;i<metas.size();i++) {
-        fileText += "%@ "+metas.at(i)+": \n";
-    }
-
     // On fait choisir un nom et emplacement de fichier
     QString fileName = QFileDialog::getSaveFileName(this, tr("Choose a file name"),
                                                     QDir::homePath()+QDir::separator()+"untittled.tex","tex Files (*.tex)");
 
     if (fileName.isEmpty()) return;
-
-    // On le crée (en ouvrant un fichier qui n'existe pas cela le crée)
-    QFile file(fileName);
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
-    return;
-    QTextStream textStream(&file);
-    textStream.flush();
-    bool useIso = Preferences::p_getUseIso();
-    if (useIso) textStream.setCodec("ISO 8859-15");
-    textStream << fileText;
-    file.close();
 
     newexodialog = new NewExoDialog(this,fileName,metas);
     newexodialog->show();

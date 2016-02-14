@@ -2,6 +2,9 @@
 #define NEWEXODIALOG_H
 
 #include <QDialog>
+#include <QLabel>
+#include <QLineEdit>
+#include <QHBoxLayout>
 
 namespace Ui {
 class NewExoDialog;
@@ -19,6 +22,12 @@ private:
     Ui::NewExoDialog *ui;
     QString fileName_m;
     QStringList metas_m;
+    QList<QLabel *> labelList;
+    QList<QLineEdit * >  lineList;
+    QList<QHBoxLayout *> hLayoutList;
+
+private slots:
+    void create();
 };
 
 #endif // NEWEXODIALOG_H
