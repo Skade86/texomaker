@@ -9,7 +9,7 @@ TARGET = texomaker
 macx:ICON = TeXoMaker.icns
 win32:RC_FILE += ressources.rc
 TEMPLATE = app
-CONFIG += app_bundle thread x86_64
+CONFIG += app_bundle thread x86_64 qscintilla2
 
 # Librairies et Headers
 

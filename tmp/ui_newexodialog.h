@@ -13,8 +13,11 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
+#include <QtWidgets/QFrame>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QVBoxLayout>
 
@@ -23,8 +26,11 @@ QT_BEGIN_NAMESPACE
 class Ui_NewExoDialog
 {
 public:
-    QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout;
+    QFrame *frame;
+    QVBoxLayout *verticalLayout_2;
+    QGridLayout *gridLayout;
+    QCheckBox *editCheckBox;
     QDialogButtonBox *buttonBox;
 
     void setupUi(QDialog *NewExoDialog)
@@ -32,19 +38,33 @@ public:
         if (NewExoDialog->objectName().isEmpty())
             NewExoDialog->setObjectName(QStringLiteral("NewExoDialog"));
         NewExoDialog->resize(400, 300);
-        verticalLayout_2 = new QVBoxLayout(NewExoDialog);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        verticalLayout = new QVBoxLayout();
+        verticalLayout = new QVBoxLayout(NewExoDialog);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        frame = new QFrame(NewExoDialog);
+        frame->setObjectName(QStringLiteral("frame"));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        verticalLayout_2 = new QVBoxLayout(frame);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        gridLayout = new QGridLayout();
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
 
-        verticalLayout_2->addLayout(verticalLayout);
+        verticalLayout_2->addLayout(gridLayout);
+
+
+        verticalLayout->addWidget(frame);
+
+        editCheckBox = new QCheckBox(NewExoDialog);
+        editCheckBox->setObjectName(QStringLiteral("editCheckBox"));
+
+        verticalLayout->addWidget(editCheckBox);
 
         buttonBox = new QDialogButtonBox(NewExoDialog);
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
 
-        verticalLayout_2->addWidget(buttonBox);
+        verticalLayout->addWidget(buttonBox);
 
 
         retranslateUi(NewExoDialog);
@@ -57,6 +77,7 @@ public:
     void retranslateUi(QDialog *NewExoDialog)
     {
         NewExoDialog->setWindowTitle(QApplication::translate("NewExoDialog", "Dialog", 0));
+        editCheckBox->setText(QApplication::translate("NewExoDialog", "Edit file when done", 0));
     } // retranslateUi
 
 };

@@ -20,13 +20,11 @@ NewExoDialog::NewExoDialog(QWidget *parent,QString fileName,QStringList metas) :
     for (int i=0;i<metas.size();i++) {
         QLabel * label = new QLabel(metas.at(i),this);
         QLineEdit * line = new QLineEdit(this);
-        QHBoxLayout * hlayout = new QHBoxLayout();
         labelList.append(label);
         lineList.append(line);
         labelList.at(i)->setBuddy(lineList.at(i));
-        hlayout->addWidget(labelList.at(i));
-        hlayout->addWidget(lineList.at(i));
-        ui->verticalLayout->addLayout(hlayout);
+        ui->gridLayout->addWidget(labelList.at(i),i,0);
+        ui->gridLayout->addWidget(lineList.at(i),i,1);
     }
 }
 
@@ -48,6 +46,11 @@ void NewExoDialog::create() {
     if (useIso) textStream.setCodec("ISO 8859-15");
     textStream << fileText;
     file.close();
+
+    if (ui->editCheckBox->isChecked()) {
+        QString urlStr = "file:///"+fileName_m;
+        QDesktopServices::openUrl(QUrl(urlStr));
+    }
 }
 
 NewExoDialog::~NewExoDialog()
