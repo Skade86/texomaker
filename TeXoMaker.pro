@@ -12,7 +12,6 @@ TEMPLATE = app
 CONFIG += app_bundle thread x86_64 qscintilla2
 
 macx {
-    QT += macextras
     QMAKE_POST_LINK = install_name_tool -change libqscintilla2.12.dylib $$[QT_INSTALL_LIBS]/libqscintilla2.12.dylib $(TARGET)
 }
 
@@ -55,7 +54,8 @@ HEADERS =  include/xmldomhandler.h \
     include/generalsettingsdialog.h \
     include/advancedfilter.h \
     include/viewer.h \
-    include/newexodialog.h
+    include/newexodialog.h \
+    include/editwindow.h
 SOURCES =  sources/xmldomhandler.cpp \
     sources/tableview.cpp \
     sources/propertydialog.cpp \
@@ -73,7 +73,8 @@ SOURCES =  sources/xmldomhandler.cpp \
     sources/generalsettingsdialog.cpp \
     sources/advancedfilter.cpp \
     sources/viewer.cpp \
-    sources/newexodialog.cpp
+    sources/newexodialog.cpp \
+    sources/editwindow.cpp
 RESOURCES = ressources.qrc
 TRANSLATIONS += translations/texomaker_fr.ts
 FORMS += ui/dirprefdialog.ui \
@@ -84,7 +85,8 @@ FORMS += ui/dirprefdialog.ui \
     ui/generalsettingsdialog.ui \
     ui/advancedfilter.ui \
     ui/viewer.ui \
-    ui/newexodialog.ui
+    ui/newexodialog.ui \
+    ui/editwindow.ui
 
 unix:!macx{
 include(install.pri)

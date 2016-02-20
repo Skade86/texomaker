@@ -18,7 +18,8 @@
 #include "propertydialog.h"
 #include "version.h"
 #include "advancedfilter.h"
-//#include <Qsci/qsciscintilla.h>
+#include "editwindow.h"
+
 
 MainWindow::MainWindow()
 {	
@@ -799,8 +800,17 @@ void MainWindow::editExo()
     QDesktopServices::openUrl(QUrl(urlStr));
 }
 
+void MainWindow::openEditor()
+{
+    editWindow = new EditWindow(this);
+    editWindow->show();
+    editWindow->activateWindow();
+}
+
 void MainWindow::createExo()
 {
+    openEditor();
+    /*
     // Récupération des métadonnées
     QStringList metas = Preferences::p_getMetaList();
     metas.removeOne("filepath");
@@ -814,9 +824,11 @@ void MainWindow::createExo()
 
     if (fileName.isEmpty()) return;
 
+
     newexodialog = new NewExoDialog(this,fileName,metas);
     newexodialog->show();
     newexodialog->activateWindow();
+*/
 }
 
 void MainWindow::createDb()

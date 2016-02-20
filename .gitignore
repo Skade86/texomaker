@@ -207,3 +207,5 @@ bin/TeXoMaker.app/Contents/Resources/ltx2pdf
 bin/.log
 
 TeXoMaker.pro.user.ef17b5e
+tmp/ui_editwindow.h
+tmp/moc_editwindow.cpp

@@ -28,6 +28,7 @@ class NewExoDialog;
 class QNetworkReply;
 class QPushButton;
 class AdvancedFilter;
+class EditWindow;
 
 //! Classe de la fenêtre principale
 
@@ -140,6 +141,9 @@ private slots:
      //! Créer un nouvel exercice
     void createExo();
 
+    //! Open internal Editor
+    void openEditor();
+
     void updateReplyFinished(QNetworkReply* reply);
 
 
@@ -188,6 +192,8 @@ private:
     PropertyDialog *propertyDialog;
 
     AdvancedFilter *advancedFilterWidget;
+
+    EditWindow *editWindow;
 
     //! Vérification de la base au démarrage
     void checkDB();
