@@ -11,6 +11,11 @@ win32:RC_FILE += ressources.rc
 TEMPLATE = app
 CONFIG += app_bundle thread x86_64 qscintilla2
 
+macx {
+    QT += macextras
+    QMAKE_POST_LINK = install_name_tool -change libqscintilla2.12.dylib $$[QT_INSTALL_LIBS]/libqscintilla2.12.dylib $(TARGET)
+}
+
 # Librairies et Headers
 
 INCLUDEPATH = include
