@@ -9,11 +9,7 @@ TARGET = texomaker
 macx:ICON = TeXoMaker.icns
 win32:RC_FILE += ressources.rc
 TEMPLATE = app
-CONFIG += app_bundle thread x86_64 qscintilla2
-
-macx {
-    QMAKE_POST_LINK = install_name_tool -change libqscintilla2.12.dylib $$[QT_INSTALL_LIBS]/libqscintilla2.12.dylib $(TARGET)
-}
+CONFIG += app_bundle thread x86_64
 
 # Librairies et Headers
 

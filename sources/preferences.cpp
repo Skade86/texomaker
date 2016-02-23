@@ -15,6 +15,7 @@ QString Preferences::beginDoc=QString();
 QString Preferences::endDoc=QString();
 bool Preferences::openAtLaunch=true;
 bool Preferences::useIso=false;
+bool Preferences::internEditor=false;
 QString Preferences::compilationOptions=QString();
 QStringList Preferences::metaList=QStringList();
 QStringList Preferences::metaToView=QStringList();

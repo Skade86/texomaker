@@ -14,6 +14,8 @@ public:
 
 private:
     void testBin(QString bin);
+    QButtonGroup *encodingGroup;
+    QButtonGroup *editorGroup;
 
 private slots:
 

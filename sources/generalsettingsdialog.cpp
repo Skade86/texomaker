@@ -6,6 +6,17 @@ GeneralSettingsDialog::GeneralSettingsDialog(QWidget *parent) :
 {
     setupUi(this);
 
+    editorGroup = new QButtonGroup(programGroupBox);
+    encodingGroup = new QButtonGroup(programGroupBox);
+
+    editorGroup->addButton(editorDefaultRadio);
+    editorGroup->addButton(editorInternalRadio);
+    encodingGroup->addButton(isoRadio);
+    encodingGroup->addButton(utf8Radio);
+    encodingGroup->setExclusive(true);
+    editorGroup->setExclusive(true);
+
+
         if (Preferences::p_getOpenAtLaunch()==true) {
         launchRadio->setChecked(true); }
     else launchRadio->setChecked(false);
@@ -16,6 +27,14 @@ GeneralSettingsDialog::GeneralSettingsDialog(QWidget *parent) :
     else {
             isoRadio->setChecked(false);
             utf8Radio->setChecked(true);
+        }
+
+        if (Preferences::p_getInternEditor()==true) {
+        editorInternalRadio->setChecked(true);
+        editorDefaultRadio->setChecked(false);}
+    else {
+            editorInternalRadio->setChecked(false);
+            editorDefaultRadio->setChecked(true);
         }
 
 	testBin("pdflatex");
@@ -127,6 +146,11 @@ void GeneralSettingsDialog::on_okButton_clicked()
     }
     else Preferences::p_setUseIso(false);
 
+    if (editorDefaultRadio->isChecked())
+    {
+        Preferences::p_setInternEditor(false);
+    }
+    else Preferences::p_setInternEditor(true);
 
     close();
 }

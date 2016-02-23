@@ -65,7 +65,11 @@ class Preferences
         //! Liste des dossiers favoris de feuilles d'exos
         static QStringList sheetBookmarks;
 
+        //! Booléen indiquant l'encodage iso (ou utf8 du coup)
         static bool useIso;
+
+        //! Booléen indiquant l'utilisation de l'editeur interne
+        static bool internEditor;
 		
 	public:
 		
@@ -80,6 +84,12 @@ class Preferences
 
         //! Fixe useIso
         static void p_setUseIso(bool iso) { useIso=iso; }
+
+        //! Récupère internEditor
+        static bool p_getInternEditor() { return internEditor; }
+
+        //! Fixe internEditor
+        static void p_setInternEditor(bool intern) { internEditor=intern; }
 		
 		//! Emplacement de la vase d'échange SqLite
 		static QString sqliteDbPath;

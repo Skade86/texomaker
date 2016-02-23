@@ -248,7 +248,7 @@ void MainWindow::createActions()
 
     editExoAct = new QAction(QIcon(":/images/edit.png"),tr("Edit exercise"), this);
     editExoAct->setShortcut(tr("Ctrl+E"));
-    editExoAct->setStatusTip(tr("Edit the current exercise in an external editor."));
+    editExoAct->setStatusTip(tr("Edit the current exercise."));
     connect(editExoAct, SIGNAL(triggered()), this, SLOT(editExo()));
 
     newExoAct = new QAction(QIcon(":/images/newExo.png"),tr("Create new exercise"), this);
@@ -796,21 +796,24 @@ void MainWindow::editExo()
 
     QModelIndex fileIndex = filterModel->index(curRow, pathCol, QModelIndex());
 
-    QString urlStr = "file:///"+fileIndex.data().toString();
-    QDesktopServices::openUrl(QUrl(urlStr));
+    QString filePath = fileIndex.data().toString();
+    if (Preferences::p_getInternEditor()) {
+        openEditor(filePath);
+    }
+    else QDesktopServices::openUrl(QUrl("file:///"+filePath));
 }
 
-void MainWindow::openEditor()
+void MainWindow::openEditor(QString m_filePath)
 {
-    editWindow = new EditWindow(this);
+    qDebug() << m_filePath;
+    editWindow = new EditWindow(this,m_filePath);
     editWindow->show();
     editWindow->activateWindow();
 }
 
 void MainWindow::createExo()
 {
-    openEditor();
-    /*
+
     // Récupération des métadonnées
     QStringList metas = Preferences::p_getMetaList();
     metas.removeOne("filepath");
@@ -828,7 +831,7 @@ void MainWindow::createExo()
     newexodialog = new NewExoDialog(this,fileName,metas);
     newexodialog->show();
     newexodialog->activateWindow();
-*/
+
 }
 
 void MainWindow::createDb()
@@ -1034,9 +1037,9 @@ void MainWindow::readSettings()
  //   setGeometry(geom);
     restoreState(state);
     mainSplitter->restoreState(settings.value("mainSplitter").toByteArray());
-    leftSplitter->restoreState(
-            settings.value("leftSplitter").toByteArray());
+    leftSplitter->restoreState(settings.value("leftSplitter").toByteArray());
     Preferences::p_setUseIso(settings.value("useIso").toBool());
+    Preferences::p_setInternEditor(settings.value("internEditor").toBool());
 }
 
 void MainWindow::writeSettings()
@@ -1055,6 +1058,7 @@ void MainWindow::writeSettings()
     settings.setValue("openAtLaunch",Preferences::p_getOpenAtLaunch());
     settings.setValue("dbfile",Preferences::p_getDbfile());
     settings.setValue("useIso",Preferences::p_getUseIso());
+    settings.setValue("internEditor",Preferences::p_getInternEditor());
     settings.setValue("currentImportPath",currentImportPath);
     settings.setValue("currentDBPath",currentDBPath);
     settings.setValue("pdflatex",Preferences::p_getBin("pdflatex"));
