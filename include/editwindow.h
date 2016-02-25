@@ -17,7 +17,7 @@ public:
 
 private:
     Ui::EditWindow *ui;
-    void readFile();
+    bool readFile();
     QString filePath;
 
     QAction * saveAct;
@@ -25,10 +25,15 @@ private:
     QToolBar * toolBar;
     void createActions();
     void createToolBar();
+    bool maybeSave();
+    void closeEvent(QCloseEvent *e);
 
 private slots:
     bool fileSave();
     bool fileUpdate();
+
+signals:
+    void updated();
 
 };
 

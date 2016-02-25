@@ -8,7 +8,7 @@ ExosModel::ExosModel(const QList<QMap<QString,QString> > & exos, QObject * paren
 	QStringList headerList = Preferences::p_getMetaToView();
 	
 	QStringList tempList = Preferences::p_getMetaList();
-	
+
 	for (int i=0;i<tempList.size();i++)
 	{
 		if (!headerList.contains(tempList.at(i))) headerList << tempList.at(i);
@@ -23,12 +23,14 @@ ExosModel::ExosModel(const QList<QMap<QString,QString> > & exos, QObject * paren
 	// On crée la QList 
 	for (int i=0;i<exos.size();i++)		// On itère sur les exos
 		{
+
 			exoMap=exos.at(i);
+
 			QMapIterator<QString, QString> j(exoMap);
 			j.toFront();
-			
+
 			while (j.hasNext())
-			{
+            {
 				j.next();
 				if (curList.at(headerList.indexOf(j.key())).isEmpty())
 				{
@@ -36,11 +38,12 @@ ExosModel::ExosModel(const QList<QMap<QString,QString> > & exos, QObject * paren
 				}
 				else curList.replace(headerList.indexOf(j.key()),curList.at(headerList.indexOf(j.key()))+";"+j.value());
 			}
-			
+
 			exosList.append(curList);
 			curList=emptyList; 
 			exoMap.clear();
 		}
+
 }
 
 int ExosModel::rowCount(const QModelIndex& parent) const

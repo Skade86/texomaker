@@ -346,7 +346,6 @@ void MainWindow::createStatusBar(bool test)
 
 void MainWindow::createModelView()
 {	
-
     model = new ExosModel(exos,this);
     filterModel = new QSortFilterProxyModel(this);
     selectionModel = new QItemSelectionModel(filterModel);
@@ -807,6 +806,7 @@ void MainWindow::openEditor(QString m_filePath)
 {
     qDebug() << m_filePath;
     editWindow = new EditWindow(this,m_filePath);
+    connect(editWindow,SIGNAL(updated()),this,SLOT(updateFile()));
     editWindow->show();
     editWindow->activateWindow();
 }
@@ -856,6 +856,7 @@ void MainWindow::createDb()
                              tr("Cannot create file %1:\n%2.")
                              .arg(fileName)
                              .arg(file.errorString()));
+
         return;
     }
 
@@ -885,7 +886,6 @@ void MainWindow::createDb()
 
     writeMetaDb();
     statusLabel->setText(tr("Aucun exercice dans la base"));
-    creation = false;
 
     DirPrefDialog *metaPref= new DirPrefDialog(this,0,0,true);
 
@@ -897,6 +897,7 @@ void MainWindow::createDb()
 
 void MainWindow::setDbCfg()
 {
+    creation = false;
     writeMetaDb();
     initializeModelView();
 }

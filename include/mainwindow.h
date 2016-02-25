@@ -44,6 +44,9 @@ public slots:
 
     //! Ecriture des préférences du programme (taille et positionnement de la fenêtre, ...
     void writeSettings();
+
+    //! Mets à jour l'exercice sélectionné
+    void updateFile();
     
 protected:
     //!	Evénement de fermeture de fenêtre
@@ -62,9 +65,6 @@ private slots:
 
     //! Slot appelé quand le widget de filtre avancé est fermé
     void onAdvancedClosed();
-
-    //! Mets à jour l'exercice sélectionné
-    void updateFile();
 
     //! Mets à jour la barre de statut
     void updateStatusBar();

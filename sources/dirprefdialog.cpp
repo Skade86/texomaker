@@ -9,6 +9,8 @@ DirPrefDialog::DirPrefDialog(QWidget * parent,XmlDomHandler * domHandler,int row
 {
     setupUi(this);
 
+    if (creation) pushButton->setVisible(false);
+
     QTabBar* curTab = new QTabBar();
     curTab = prefTab->tabBar();
     curTab -> moveTab(0,2);
