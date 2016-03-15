@@ -51,7 +51,8 @@ HEADERS =  include/xmldomhandler.h \
     include/advancedfilter.h \
     include/viewer.h \
     include/newexodialog.h \
-    include/editwindow.h
+    include/editwindow.h \
+    include/highlighter.h
 SOURCES =  sources/xmldomhandler.cpp \
     sources/tableview.cpp \
     sources/propertydialog.cpp \
@@ -70,7 +71,8 @@ SOURCES =  sources/xmldomhandler.cpp \
     sources/advancedfilter.cpp \
     sources/viewer.cpp \
     sources/newexodialog.cpp \
-    sources/editwindow.cpp
+    sources/editwindow.cpp \
+    sources/highlighter.cpp
 RESOURCES = ressources.qrc
 TRANSLATIONS += translations/texomaker_fr.ts
 FORMS += ui/dirprefdialog.ui \

@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+class Highlighter;
+
 namespace Ui {
 class EditWindow;
 }
@@ -19,7 +21,7 @@ private:
     Ui::EditWindow *ui;
     bool readFile();
     QString filePath;
-
+    Highlighter * highlighter;
     QAction * saveAct;
     QAction * updateAct;
     QToolBar * toolBar;
@@ -27,6 +29,7 @@ private:
     void createToolBar();
     bool maybeSave();
     void closeEvent(QCloseEvent *e);
+
 
 private slots:
     bool fileSave();

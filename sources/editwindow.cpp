@@ -1,5 +1,6 @@
 #include "preferences.h"
 #include "editwindow.h"
+#include "highlighter.h"
 #include "ui_editwindow.h"
 
 EditWindow::EditWindow(QWidget *parent,QString m_filePath) :
@@ -15,8 +16,9 @@ EditWindow::EditWindow(QWidget *parent,QString m_filePath) :
     textFont.setStyleHint(QFont::SansSerif);
     ui->textEdit->setFont(textFont);
     ui->textEdit->setTabStopWidth(20);
-
+    highlighter = new Highlighter(ui->textEdit->document());
     readFile();
+    highlighter->rehighlight();
 }
 
 void EditWindow::createActions()

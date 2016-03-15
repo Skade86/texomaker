@@ -209,3 +209,4 @@ bin/.log
 TeXoMaker.pro.user.ef17b5e
 tmp/ui_editwindow.h
 tmp/moc_editwindow.cpp
+tmp/moc_highlighter.cpp
