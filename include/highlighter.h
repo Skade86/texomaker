@@ -24,6 +24,7 @@ private:
 
     QRegExp mathStartExpression;
     QRegExp mathEndExpression;
+    QRegExp inlineMathLimit;
 
     QTextCharFormat keywordFormat;
     QTextCharFormat inlineMathFormat;
@@ -31,6 +32,8 @@ private:
     QTextCharFormat multiLineMathFormat;
     QTextCharFormat quotationFormat;
     QTextCharFormat functionFormat;
+
+    int previousIndex;
 };
 
 #endif // HIGHLIGHTER_H

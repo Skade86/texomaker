@@ -23,9 +23,11 @@ Highlighter::Highlighter(QTextDocument *parent)
     }
 
     inlineMathFormat.setForeground(colorMath);
-    rule.pattern = QRegExp("\\$(.*)\\$");
-    rule.format = inlineMathFormat;
-    highlightingRules.append(rule);
+    //rule.pattern = QRegExp("\\$(.*)\\$");
+    //rule.format = inlineMathFormat;
+    //highlightingRules.append(rule);
+    inlineMathLimit = QRegExp("\\$");
+    //inlineMathLimit = QRegExp("\\$(.*)\\$");
 
     multiLineMathFormat.setForeground(colorMath);
     mathStartExpression = QRegExp("\\\\(\\[)");
@@ -43,6 +45,20 @@ void Highlighter::highlightBlock(const QString &text)
                 index = expression.indexIn(text, index + length);
             }
     }
+
+    int index = inlineMathLimit.indexIn(text);
+    while (index >= 0) {
+        int stopIndex = inlineMathLimit.indexIn(text, index+1);
+        int length;
+        if (stopIndex == -1) {
+            length = text.length() - index;
+        }
+        else length = stopIndex - index+1;
+
+        setFormat(index, length, inlineMathFormat);
+        index = inlineMathLimit.indexIn(text, index + length + 1);
+    }
+
 
     setCurrentBlockState(0);
 
