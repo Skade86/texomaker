@@ -15,6 +15,11 @@ NewExoDialog::NewExoDialog(QWidget *parent,QString fileName,QStringList metas) :
     fileName_m = fileName;
     setWindowTitle(QFileInfo(fileName).fileName());
 
+    editorGroup = new QButtonGroup;
+    editorGroup->addButton(ui->editCheckBox);
+    editorGroup->addButton(ui->editCheckBoxSystem);
+    editorGroup->setExclusive(true);
+
     // Create layout objets
 
     for (int i=0;i<metas.size();i++) {
@@ -47,9 +52,13 @@ void NewExoDialog::create() {
     textStream << fileText;
     file.close();
 
-    if (ui->editCheckBox->isChecked()) {
+    if (ui->editCheckBoxSystem->isChecked()) {
         QString urlStr = "file:///"+fileName_m;
         QDesktopServices::openUrl(QUrl(urlStr));
+    }
+
+    if (ui->editCheckBox->isChecked()) {
+        emit exoToEdit(fileName_m,true);
     }
 }
 

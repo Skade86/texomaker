@@ -14,13 +14,14 @@ class EditWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit EditWindow(QWidget *parent = 0,QString filePath = QString());
+    explicit EditWindow(QWidget *parent = 0,QString filePath = QString(),bool m_creation=false);
     ~EditWindow();
 
 private:
     Ui::EditWindow *ui;
     bool readFile();
     QString filePath;
+    bool creation;
     Highlighter * highlighter;
     QAction * saveAct;
     QAction * updateAct;
@@ -37,6 +38,7 @@ private slots:
 
 signals:
     void updated();
+    void created(const QString & path);
 
 };
 

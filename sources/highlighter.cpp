@@ -7,6 +7,9 @@ Highlighter::Highlighter(QTextDocument *parent)
 {
     QColor colorMath = QColor(0x00,0x80, 0x00);
     QColor ColorKeyword=QColor(0x00, 0x00, 0xCC);
+    QColor colorOther=QColor(0x60, 0x44, 0xA7);
+    QColor colorComment=QColor(0xA8,0x30,0x06);
+    QColor colorItem=QColor(0x82,0x00,0x81);
     HighlightingRule rule;
 
     keywordFormat.setForeground(ColorKeyword);
@@ -14,20 +17,36 @@ Highlighter::Highlighter(QTextDocument *parent)
     QStringList keywordPatterns;
     keywordPatterns= QString("section,subsection,subsubsection,chapter,part,paragraph,subparagraph,section\\*,subsection\\*,subsubsection\\*,chapter\\*,part\\*,paragraph\\*,subparagraph\\*,label,includegraphics,includegraphics\\*,include,input,begin,end").split(",");
 
-    //keywordPatterns << "\\]";
-    //keywordPatterns << "\\{\\w+";
+    otherFormat.setForeground(colorOther);
+    otherFormat.setFontWeight(QFont::Bold);
+    QStringList otherPatterns;
+    otherPatterns << "text" << "textit" << "textbf" << "textrm" << "emph" << "underline";
+
+
     foreach (const QString &pattern, keywordPatterns) {
         rule.pattern = QRegExp("\\\\("+pattern+")");
         rule.format = keywordFormat;
         highlightingRules.append(rule);
     }
 
+    foreach (const QString &pattern, otherPatterns) {
+        rule.pattern = QRegExp("\\\\("+pattern+")");
+        rule.format = otherFormat;
+        highlightingRules.append(rule);
+    }
+
+    itemFormat.setForeground(colorItem);
+    rule.pattern = QRegExp("\\\\item");
+    rule.format = itemFormat;
+    highlightingRules.append(rule);
+
+    commentFormat.setForeground(colorComment);
+    rule.pattern = QRegExp("\\%[^\n]*");
+    rule.format = commentFormat;
+    highlightingRules.append(rule);
+
     inlineMathFormat.setForeground(colorMath);
-    //rule.pattern = QRegExp("\\$(.*)\\$");
-    //rule.format = inlineMathFormat;
-    //highlightingRules.append(rule);
     inlineMathLimit = QRegExp("\\$");
-    //inlineMathLimit = QRegExp("\\$(.*)\\$");
 
     multiLineMathFormat.setForeground(colorMath);
     mathStartExpression = QRegExp("\\\\(\\[)");
@@ -36,6 +55,7 @@ Highlighter::Highlighter(QTextDocument *parent)
 
 void Highlighter::highlightBlock(const QString &text)
 {
+    // Toutes les règles simples
     foreach (const HighlightingRule &rule, highlightingRules) {
             QRegExp expression(rule.pattern);
             int index = expression.indexIn(text);
@@ -46,6 +66,7 @@ void Highlighter::highlightBlock(const QString &text)
             }
     }
 
+    // Les math inline
     int index = inlineMathLimit.indexIn(text);
     while (index >= 0) {
         int stopIndex = inlineMathLimit.indexIn(text, index+1);
@@ -60,6 +81,7 @@ void Highlighter::highlightBlock(const QString &text)
     }
 
 
+    // Les blocs de math
     setCurrentBlockState(0);
 
     int startIndex = 0;

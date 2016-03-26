@@ -27,10 +27,11 @@ private:
     QRegExp inlineMathLimit;
 
     QTextCharFormat keywordFormat;
+    QTextCharFormat otherFormat;
     QTextCharFormat inlineMathFormat;
-    QTextCharFormat singleLineCommentFormat;
+    QTextCharFormat commentFormat;
     QTextCharFormat multiLineMathFormat;
-    QTextCharFormat quotationFormat;
+    QTextCharFormat itemFormat;
     QTextCharFormat functionFormat;
 
     int previousIndex;

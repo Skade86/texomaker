@@ -3,12 +3,13 @@
 #include "highlighter.h"
 #include "ui_editwindow.h"
 
-EditWindow::EditWindow(QWidget *parent,QString m_filePath) :
+EditWindow::EditWindow(QWidget *parent,QString m_filePath,bool m_creation) :
     QMainWindow(parent),
     ui(new Ui::EditWindow)
 {
     ui->setupUi(this);
     filePath = m_filePath;
+    creation = m_creation;
     setWindowTitle(tr("TeXoMaker editor - %1").arg(QFileInfo(filePath).fileName()));
     createActions();
     createToolBar();
@@ -95,7 +96,12 @@ bool EditWindow::fileSave()
 bool EditWindow::fileUpdate()
 {
     fileSave();
-    emit updated();
+    if (creation) {
+        emit created(filePath);
+        creation = false;
+    }
+        else emit updated();
+    return true;
 }
 
 void EditWindow::closeEvent(QCloseEvent *e)

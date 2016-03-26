@@ -1,7 +1,7 @@
 # Numéros de version
 DEFINES += MAJOR=3
-DEFINES += MINOR=1
-DEFINES += SUBMINOR=1
+DEFINES += MINOR=2
+DEFINES += SUBMINOR=0
 
 equals(DEBPACKING,"No") {
 !win32 {

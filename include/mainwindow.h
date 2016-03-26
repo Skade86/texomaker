@@ -142,7 +142,9 @@ private slots:
     void createExo();
 
     //! Open internal Editor
-    void openEditor(QString m_filePath);
+    void openEditor(QString m_filePath,bool creation=false);
+
+    void importFromEditor(QString filePath) ;
 
     void updateReplyFinished(QNetworkReply* reply);
 

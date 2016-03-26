@@ -201,14 +201,59 @@ p, li { white-space: pre-wrap; }
         <translation>Préambule LaTeX :</translation>
     </message>
     <message>
-        <location filename="../sources/dirprefdialog.cpp" line="281"/>
+        <location filename="../sources/dirprefdialog.cpp" line="283"/>
         <source>Choose a file to add</source>
         <translation>Choisissez un fichier à ajouter</translation>
     </message>
     <message>
-        <location filename="../sources/dirprefdialog.cpp" line="282"/>
+        <location filename="../sources/dirprefdialog.cpp" line="284"/>
         <source>Latex files (*.*)</source>
         <translation>Fichiers latex (*.*)</translation>
+    </message>
+</context>
+<context>
+    <name>EditWindow</name>
+    <message>
+        <location filename="../ui/editwindow.ui" line="17"/>
+        <source>TeXoMaker Editor</source>
+        <translation>Editeur de TeXoMaker</translation>
+    </message>
+    <message>
+        <location filename="../sources/editwindow.cpp" line="13"/>
+        <source>TeXoMaker editor - %1</source>
+        <translation>Editeur de TeXoMaker - %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/editwindow.cpp" line="34"/>
+        <source>&amp;Update</source>
+        <translation>&amp;Mettre à jour ou importer</translation>
+    </message>
+    <message>
+        <location filename="../sources/editwindow.cpp" line="35"/>
+        <source>Ctrl+U</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../sources/editwindow.cpp" line="36"/>
+        <source>Update current file in database</source>
+        <translation>Mettre à jour l&apos;exercice ou importer un nouvel exercice</translation>
+    </message>
+    <message>
+        <location filename="../sources/editwindow.cpp" line="42"/>
+        <source>Tools</source>
+        <translation>Outils</translation>
+    </message>
+    <message>
+        <location filename="../sources/editwindow.cpp" line="74"/>
+        <source>Application</source>
+        <translation>Application</translation>
+    </message>
+    <message>
+        <location filename="../sources/editwindow.cpp" line="75"/>
+        <source>The document has been modified.
+Do you want to save your changes?</source>
+        <translation>Le document a été modifé.
+Voulez-vous sauvegarder les changements ?</translation>
     </message>
 </context>
 <context>
@@ -429,72 +474,87 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/generalsettingsdialog.ui" line="88"/>
+        <location filename="../ui/generalsettingsdialog.ui" line="91"/>
         <source>Latin-9 (ISO 8859-15)</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../ui/generalsettingsdialog.ui" line="118"/>
+        <source>LaTeX editor :</source>
+        <translation>Editeur LaTeX :</translation>
+    </message>
+    <message>
+        <location filename="../ui/generalsettingsdialog.ui" line="125"/>
+        <source>OS default</source>
+        <translation>Editeur système</translation>
+    </message>
+    <message>
+        <location filename="../ui/generalsettingsdialog.ui" line="138"/>
+        <source>Internal (minimal editor)</source>
+        <translation>Interne (minimal)</translation>
+    </message>
+    <message>
+        <location filename="../ui/generalsettingsdialog.ui" line="158"/>
         <source>Places</source>
         <translation>Emplacements des exécutables</translation>
     </message>
     <message>
-        <location filename="../ui/generalsettingsdialog.ui" line="124"/>
+        <location filename="../ui/generalsettingsdialog.ui" line="164"/>
         <source>pdflatex</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/generalsettingsdialog.ui" line="144"/>
-        <location filename="../ui/generalsettingsdialog.ui" line="171"/>
-        <location filename="../ui/generalsettingsdialog.ui" line="198"/>
-        <location filename="../ui/generalsettingsdialog.ui" line="225"/>
-        <location filename="../ui/generalsettingsdialog.ui" line="252"/>
-        <location filename="../ui/generalsettingsdialog.ui" line="279"/>
+        <location filename="../ui/generalsettingsdialog.ui" line="184"/>
+        <location filename="../ui/generalsettingsdialog.ui" line="211"/>
+        <location filename="../ui/generalsettingsdialog.ui" line="238"/>
+        <location filename="../ui/generalsettingsdialog.ui" line="265"/>
+        <location filename="../ui/generalsettingsdialog.ui" line="292"/>
+        <location filename="../ui/generalsettingsdialog.ui" line="319"/>
         <source>Browse...</source>
         <translation>Parcourir...</translation>
     </message>
     <message>
-        <location filename="../ui/generalsettingsdialog.ui" line="151"/>
+        <location filename="../ui/generalsettingsdialog.ui" line="191"/>
         <source>latex/tex</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/generalsettingsdialog.ui" line="178"/>
+        <location filename="../ui/generalsettingsdialog.ui" line="218"/>
         <source>lualatex</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/generalsettingsdialog.ui" line="205"/>
+        <location filename="../ui/generalsettingsdialog.ui" line="245"/>
         <source>dvips</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/generalsettingsdialog.ui" line="232"/>
+        <location filename="../ui/generalsettingsdialog.ui" line="272"/>
         <source>ps2pdf</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/generalsettingsdialog.ui" line="259"/>
+        <location filename="../ui/generalsettingsdialog.ui" line="299"/>
         <source>mpost</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/generalsettingsdialog.ui" line="304"/>
+        <location filename="../ui/generalsettingsdialog.ui" line="344"/>
         <source>Ok</source>
         <translation>Ok</translation>
     </message>
     <message>
-        <location filename="../ui/generalsettingsdialog.ui" line="311"/>
+        <location filename="../ui/generalsettingsdialog.ui" line="351"/>
         <source>Annuler</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../sources/generalsettingsdialog.cpp" line="69"/>
-        <location filename="../sources/generalsettingsdialog.cpp" line="76"/>
-        <location filename="../sources/generalsettingsdialog.cpp" line="83"/>
-        <location filename="../sources/generalsettingsdialog.cpp" line="90"/>
-        <location filename="../sources/generalsettingsdialog.cpp" line="97"/>
-        <location filename="../sources/generalsettingsdialog.cpp" line="104"/>
+        <location filename="../sources/generalsettingsdialog.cpp" line="88"/>
+        <location filename="../sources/generalsettingsdialog.cpp" line="95"/>
+        <location filename="../sources/generalsettingsdialog.cpp" line="102"/>
+        <location filename="../sources/generalsettingsdialog.cpp" line="109"/>
+        <location filename="../sources/generalsettingsdialog.cpp" line="116"/>
+        <location filename="../sources/generalsettingsdialog.cpp" line="123"/>
         <source>Choose file</source>
         <translation>Choisir un fichier</translation>
     </message>
@@ -574,258 +634,286 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="227"/>
+        <location filename="../sources/mainwindow.cpp" line="233"/>
         <source>E&amp;xit</source>
         <translation>&amp;Quitter</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="228"/>
+        <location filename="../sources/mainwindow.cpp" line="234"/>
         <source>Ctrl+Q</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="229"/>
+        <location filename="../sources/mainwindow.cpp" line="235"/>
         <source>Exit the application</source>
         <translation>Quitter l&apos;application</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="239"/>
+        <location filename="../sources/mainwindow.cpp" line="245"/>
         <source>Open the general settings box</source>
         <translation>Ouvrir les réglages généraux</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="256"/>
+        <location filename="../sources/mainwindow.cpp" line="265"/>
         <source>&amp;About</source>
         <translation>&amp;À propos</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="257"/>
+        <location filename="../sources/mainwindow.cpp" line="266"/>
         <source>Show the application&apos;s About box</source>
         <translation>Montre la boîte A propos de l&apos;application</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="264"/>
+        <location filename="../sources/mainwindow.cpp" line="273"/>
         <source>About &amp;Qt</source>
         <translation>À propos de &amp;Qt</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="265"/>
+        <location filename="../sources/mainwindow.cpp" line="274"/>
         <source>Show the Qt library&apos;s About box</source>
         <translation>Montre la boîte A propos de la librairie Qt</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="295"/>
+        <location filename="../sources/mainwindow.cpp" line="305"/>
         <source>&amp;Help</source>
         <translation>&amp;Aide</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="196"/>
+        <location filename="../sources/mainwindow.cpp" line="202"/>
         <source>Ctrl+I</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="234"/>
+        <location filename="../sources/mainwindow.cpp" line="240"/>
         <source>Open the settings box</source>
         <translation>Ouvrir la boîte des réglages</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="130"/>
+        <location filename="../sources/mainwindow.cpp" line="136"/>
         <source>Filter :</source>
         <translation>Filtre :</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="219"/>
+        <location filename="../sources/mainwindow.cpp" line="225"/>
         <source>Ctrl+D</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="223"/>
+        <location filename="../sources/mainwindow.cpp" line="229"/>
         <source>&amp;Create sheet..</source>
         <translation>&amp;Créer une feuille d&apos;exercices..</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="224"/>
+        <location filename="../sources/mainwindow.cpp" line="230"/>
         <source>Create a new exercises sheet</source>
         <translation>Créer une feuille d&apos;exercices</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="304"/>
+        <location filename="../sources/mainwindow.cpp" line="314"/>
         <source>Tools</source>
         <translation>Outils</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="729"/>
+        <location filename="../sources/mainwindow.cpp" line="771"/>
         <source>About TeXoMaker</source>
         <translation>À propos de TeXoMaker</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="260"/>
+        <location filename="../sources/mainwindow.cpp" line="269"/>
         <source>&amp;Manual</source>
         <translation>&amp;Manuel</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="261"/>
+        <location filename="../sources/mainwindow.cpp" line="270"/>
         <source>Launch the manual navigation</source>
         <translation>Lance le manuel d&apos;utilisation dans un navigateur</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="215"/>
+        <location filename="../sources/mainwindow.cpp" line="221"/>
         <source>Update current exercise</source>
         <translation>Mettre à jour l&apos;exercice courant</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="441"/>
+        <location filename="../sources/mainwindow.cpp" line="457"/>
         <source>Do you confirm this action ?</source>
         <translation>Vous confirmez ?</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="233"/>
+        <location filename="../sources/mainwindow.cpp" line="239"/>
         <source>Ctrl+S</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="383"/>
+        <location filename="../sources/mainwindow.cpp" line="393"/>
         <source>Database name : %1</source>
         <translation>Fichier de données : %1</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="248"/>
+        <location filename="../sources/mainwindow.cpp" line="257"/>
         <source>&amp;Load datafile</source>
-        <translation>&amp;Charger un fichier de données</translation>
+        <translation>&amp;Ouvrir une base existante</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="197"/>
+        <location filename="../sources/mainwindow.cpp" line="203"/>
         <source>Add new exercises</source>
         <translation>Ajouter de nouveaux exercices</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="200"/>
+        <location filename="../sources/mainwindow.cpp" line="206"/>
         <source>&amp;Save base...</source>
         <translation>&amp;Sauvegarder la base...</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="201"/>
+        <location filename="../sources/mainwindow.cpp" line="207"/>
         <source>Save current database in a single folder.</source>
         <translation>Sauvegarde la base courante dans un répertoire unique.</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="204"/>
+        <location filename="../sources/mainwindow.cpp" line="210"/>
         <source>&amp;Import base...</source>
         <translation>&amp;Importer une base...</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="205"/>
+        <location filename="../sources/mainwindow.cpp" line="211"/>
         <source>Import a previously saved base</source>
         <translation>Importe une base précédemment sauvegardée</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="208"/>
+        <location filename="../sources/mainwindow.cpp" line="214"/>
         <source>&amp;Properties of the exercise</source>
         <translation>&amp;Propriétés de l&apos;exercice</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="213"/>
+        <location filename="../sources/mainwindow.cpp" line="219"/>
         <source>&amp;Update exercise</source>
         <translation>&amp;Mettre à jour l&apos;exercice</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="214"/>
+        <location filename="../sources/mainwindow.cpp" line="220"/>
         <source>Ctrl+U</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="218"/>
+        <location filename="../sources/mainwindow.cpp" line="224"/>
         <source>&amp;Remove exercises</source>
         <translation>&amp;Supprimer des exercices</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="220"/>
+        <location filename="../sources/mainwindow.cpp" line="226"/>
         <source>Remove exercises from database</source>
         <translation>Supprimer des exercices de la base</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="232"/>
+        <location filename="../sources/mainwindow.cpp" line="238"/>
         <source>Current base settings</source>
         <translation>Préférences de la base courante</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="237"/>
+        <location filename="../sources/mainwindow.cpp" line="243"/>
         <source>General Settings</source>
         <translation>Réglages généraux</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="238"/>
+        <location filename="../sources/mainwindow.cpp" line="244"/>
         <source>Ctrl+G</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="249"/>
+        <location filename="../sources/mainwindow.cpp" line="251"/>
+        <source>Edit the current exercise.</source>
+        <translation>Editer l&apos;exercice.</translation>
+    </message>
+    <message>
+        <location filename="../sources/mainwindow.cpp" line="254"/>
+        <source>Create new exercise</source>
+        <translation>Créer un nouvel exercice</translation>
+    </message>
+    <message>
+        <location filename="../sources/mainwindow.cpp" line="258"/>
         <source>Load an existing TeXoMaker datafile</source>
         <translation>Charge un fichier de données TeXoMaker existant</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="252"/>
+        <location filename="../sources/mainwindow.cpp" line="261"/>
         <source>&amp;Create datafile</source>
-        <translation>&amp;Créer un fichier de données</translation>
+        <translation type="unfinished">&amp;Créer une nouvelle base</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="253"/>
+        <location filename="../sources/mainwindow.cpp" line="262"/>
         <source>Create a new TeXoMaker datafile</source>
-        <translation>Crée un nouveau fichier de données TeXoMaker</translation>
+        <translation>Crée une nouvelle base TeXoMaker</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="268"/>
+        <location filename="../sources/mainwindow.cpp" line="277"/>
         <source>Check TeXoMaker updates</source>
         <translation>Vérifier les mises à jour</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="275"/>
+        <location filename="../sources/mainwindow.cpp" line="284"/>
         <source>Application</source>
         <translation>Application</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="285"/>
+        <location filename="../sources/mainwindow.cpp" line="294"/>
         <source>&amp;Base</source>
         <translation>&amp;Base</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="324"/>
+        <location filename="../sources/mainwindow.cpp" line="335"/>
         <source>No database loaded</source>
         <translation>Aucune base ouverte</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="329"/>
-        <location filename="../sources/mainwindow.cpp" line="393"/>
+        <location filename="../sources/mainwindow.cpp" line="340"/>
+        <location filename="../sources/mainwindow.cpp" line="403"/>
         <source>%1 exercices dans la base</source>
         <translation>%1 exercices dans la base</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="414"/>
+        <location filename="../sources/mainwindow.cpp" line="424"/>
         <source>%1.%2.%3</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="438"/>
+        <location filename="../sources/mainwindow.cpp" line="441"/>
+        <location filename="../sources/mainwindow.cpp" line="558"/>
+        <location filename="../sources/mainwindow.cpp" line="629"/>
+        <location filename="../sources/mainwindow.cpp" line="688"/>
+        <location filename="../sources/mainwindow.cpp" line="786"/>
+        <source>Warning</source>
+        <translation>Attention</translation>
+    </message>
+    <message>
+        <location filename="../sources/mainwindow.cpp" line="442"/>
+        <location filename="../sources/mainwindow.cpp" line="559"/>
+        <location filename="../sources/mainwindow.cpp" line="630"/>
+        <location filename="../sources/mainwindow.cpp" line="689"/>
+        <location filename="../sources/mainwindow.cpp" line="787"/>
+        <source>The database contains no exercise !</source>
+        <translation>La base ne contient aucun exercice !</translation>
+    </message>
+    <message>
+        <location filename="../sources/mainwindow.cpp" line="454"/>
         <source>%1 exercises are going to be removed from the database !</source>
         <translation>%1 exercices vont être supprimés de la base !</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="439"/>
+        <location filename="../sources/mainwindow.cpp" line="455"/>
         <source>%1 exercise is going to be removed from the database !</source>
         <translation>%1 exercice va être supprimé de la base !</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="728"/>
+        <location filename="../sources/mainwindow.cpp" line="770"/>
         <source>%1.%2.%3 build %4</source>
         <translation>%1.%2.%3 build %4</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="730"/>
+        <location filename="../sources/mainwindow.cpp" line="772"/>
         <source>&lt;center&gt;This is &lt;b&gt;TeXoMaker&lt;/b&gt; version %3&lt;br&gt;Builded : %1&lt;br&gt;&lt;b&gt;TeXoMaker&lt;/b&gt; has been developped by &lt;br&gt;&lt;a href=&apos;mailto:texomaker@freebyte.fr&apos;&gt;Gwena&amp;euml;l Cl&amp;eacute;on&lt;/a&gt;&lt;br&gt;using &lt;b&gt;Qt version %2&lt;/b&gt;&lt;br&gt;&lt;/center&gt;</source>
         <translation>&lt;center&gt;&lt;b&gt;TeXoMaker&lt;/b&gt; version %3&lt;br&gt;Compilé le : %1&lt;br&gt;&lt;b&gt;TeXoMaker&lt;/b&gt; est développé par &lt;br&gt;&lt;a href=&apos;mailto:texomaker@freebyte.fr&apos;&gt;Gwena&amp;euml;l Cl&amp;eacute;on&lt;/a&gt;&lt;br&gt; avec la bibliothèque &lt;b&gt;Qt version %2&lt;/b&gt;&lt;br&gt;&lt;/center&gt;</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="1147"/>
+        <location filename="../sources/mainwindow.cpp" line="1232"/>
         <source>The current database will be saved. 
  It means that all exercises (including figures) will be copied in a single directory.
  The XML database file will be also copied.
@@ -836,120 +924,121 @@ Les fichiers d&apos;entête personnels choisis dans les Préférences seront sau
 Ce répertoire sera prêt à être à nouveau importé (sur une autre machine par exemple).</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="1148"/>
+        <location filename="../sources/mainwindow.cpp" line="1233"/>
         <source>Click Ok to choose the directory where you want to save the database.</source>
         <translation>Choisir le répertoire où sauvegarder la base courante.</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="1156"/>
+        <location filename="../sources/mainwindow.cpp" line="1241"/>
         <source>Choose a directory</source>
         <translation>Choisir un répertoire</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="1174"/>
+        <location filename="../sources/mainwindow.cpp" line="1259"/>
         <source>Base successfully saved</source>
         <translation>Base sauvegardée avec succès</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="1274"/>
+        <location filename="../sources/mainwindow.cpp" line="1359"/>
         <source>Choose a TeXoMaker directory</source>
         <translation>Choisissez un répertoire de sauvegarde TeXoMaker</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="1285"/>
+        <location filename="../sources/mainwindow.cpp" line="1370"/>
         <source>The directory name has probably been changed .
  The directory must contain an xml file which must have the same name than the directory.</source>
         <translation>Le nom du répertoire  probablement du changer.
 Le répertoire doit contenir un fichier xml dont le nom doit être le même que celui du répertoire.</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="769"/>
+        <location filename="../sources/mainwindow.cpp" line="833"/>
+        <location filename="../sources/mainwindow.cpp" line="851"/>
         <source>Choose a file name</source>
         <translation>Choisir un nom de fichier</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="195"/>
+        <location filename="../sources/mainwindow.cpp" line="201"/>
         <source>&amp;Add an exercise</source>
         <translation>&amp;Ajouter des exercices</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="774"/>
+        <location filename="../sources/mainwindow.cpp" line="856"/>
+        <location filename="../sources/mainwindow.cpp" line="897"/>
         <source>Aucun exercice dans la base</source>
         <translation>Aucun exercice dans la base</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="782"/>
         <location filename="../sources/mainwindow.cpp" line="864"/>
+        <location filename="../sources/mainwindow.cpp" line="947"/>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="783"/>
+        <location filename="../sources/mainwindow.cpp" line="865"/>
         <source>Cannot create file %1:
 %2.</source>
         <translation>Impossible de créer le fichier  %1:%2.</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="841"/>
+        <location filename="../sources/mainwindow.cpp" line="924"/>
         <source>Open TeXoMaker database file</source>
         <translation>Ouvrir un fichier de donnée TeXoMaker</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="841"/>
+        <location filename="../sources/mainwindow.cpp" line="924"/>
         <source>TeXoMaker files (*.xml)</source>
         <translation>Fichiers TeXoMaker (*.xml)</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="865"/>
+        <location filename="../sources/mainwindow.cpp" line="948"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Impossible de lire le fichier %1 :
 %2.</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="1119"/>
+        <location filename="../sources/mainwindow.cpp" line="1204"/>
         <source>The exercise database has the following problems : &lt;ul&gt;</source>
         <translation>La base de donnée a rencontré le problème suivant : &lt;ul&gt;</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="1126"/>
+        <location filename="../sources/mainwindow.cpp" line="1211"/>
         <source>&lt;li&gt;Exercise &lt;b&gt;%1&lt;/b&gt; has no preview, please update the exercise by clicking the &lt;i&gt;Update the exercise&lt;/i&gt; button.&lt;/li&gt;</source>
         <translation>&lt;li&gt;L&apos;exercice &lt;b&gt;%1&lt;/b&gt; n&apos;a pas d&apos;aperçu, mettez à jour l&apos;exercice en cliquant sur le bouton &lt;i&gt;Mettre à jour l&apos;exercice.&lt;/i&gt;&lt;/li&gt;</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="1127"/>
+        <location filename="../sources/mainwindow.cpp" line="1212"/>
         <source>&lt;li&gt;Exercise &lt;b&gt;%1&lt;/b&gt; has moved. Please put the latex file in the original directory, or remove it and reimport it elsewhere.&lt;/li&gt;</source>
         <translation>&lt;li&gt;L&apos;exercice &lt;b&gt;%1&lt;/b&gt; n&apos;a pas été trouvé. Si le fichier a été déplacé, replacez-le à sa place originale; dans les autre cas, supprimez-le de la base, et réimportez-le éventuellement.&lt;/li&gt;</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="1130"/>
+        <location filename="../sources/mainwindow.cpp" line="1215"/>
         <source>&lt;/ul&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="209"/>
+        <location filename="../sources/mainwindow.cpp" line="215"/>
         <source>Ctrl+P</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="210"/>
+        <location filename="../sources/mainwindow.cpp" line="216"/>
         <source>Edit current exercise properties</source>
         <translation>Editer les propriétés de l&apos;exercice</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="243"/>
+        <location filename="../sources/mainwindow.cpp" line="249"/>
         <source>Edit exercise</source>
         <translation>Editer l&apos;exercice</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="244"/>
+        <location filename="../sources/mainwindow.cpp" line="250"/>
         <source>Ctrl+E</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="245"/>
         <source>Edit the current exercise in an external editor.</source>
-        <translation>Editer l&apos;exercice sélectionné dans un éditeur externe.</translation>
+        <translation type="vanished">Editer l&apos;exercice sélectionné dans un éditeur externe.</translation>
     </message>
 </context>
 <context>
@@ -958,6 +1047,28 @@ Le répertoire doit contenir un fichier xml dont le nom doit être le même que 
         <location filename="../sources/mpthread.cpp" line="66"/>
         <source>The required metapost file %1 doesn&apos;t exists !</source>
         <translation>Le fichier metapost %1 n&apos;existe pas !</translation>
+    </message>
+</context>
+<context>
+    <name>NewExoDialog</name>
+    <message>
+        <source>Dialog</source>
+        <translation type="vanished">Dialogue</translation>
+    </message>
+    <message>
+        <location filename="../ui/newexodialog.ui" line="14"/>
+        <source>New exercise</source>
+        <translation>Nouvel exercice</translation>
+    </message>
+    <message>
+        <location filename="../ui/newexodialog.ui" line="35"/>
+        <source>Edit in internal editor and import</source>
+        <translation>Utiliser l&apos;éditeur interne puis importer</translation>
+    </message>
+    <message>
+        <location filename="../ui/newexodialog.ui" line="45"/>
+        <source>Edit in system editor and import manually</source>
+        <translation>Utiliser l&apos;éditeur par défaut et importer manuellement</translation>
     </message>
 </context>
 <context>
@@ -1064,24 +1175,24 @@ p, li { white-space: pre-wrap; }
         <translation>Choisissez au moins un exercice (en double-cliquant dans la liste de gauche) !</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="461"/>
+        <location filename="../sources/mainwindow.cpp" line="477"/>
         <source>Please select at least an exercise to remove !</source>
         <translation>Vous n&apos;avez sélectionné aucun exercice à supprimer !</translation>
     </message>
     <message>
-        <location filename="../sources/dirprefdialog.cpp" line="295"/>
-        <location filename="../sources/dirprefdialog.cpp" line="375"/>
+        <location filename="../sources/dirprefdialog.cpp" line="297"/>
+        <location filename="../sources/dirprefdialog.cpp" line="377"/>
         <location filename="../sources/exosheet.cpp" line="217"/>
         <location filename="../sources/exosheet.cpp" line="238"/>
         <location filename="../sources/exosheet.cpp" line="246"/>
-        <location filename="../sources/mainwindow.cpp" line="461"/>
-        <location filename="../sources/mainwindow.cpp" line="625"/>
-        <location filename="../sources/mainwindow.cpp" line="1131"/>
+        <location filename="../sources/mainwindow.cpp" line="477"/>
+        <location filename="../sources/mainwindow.cpp" line="661"/>
+        <location filename="../sources/mainwindow.cpp" line="1216"/>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
     <message>
-        <location filename="../sources/dirprefdialog.cpp" line="295"/>
+        <location filename="../sources/dirprefdialog.cpp" line="297"/>
         <source>No file was selected to remove.</source>
         <translation>Aucun fichier à supprimer n&apos;a été sélectionné.</translation>
     </message>
@@ -1104,7 +1215,7 @@ p, li { white-space: pre-wrap; }
         <translation>Erreur de lecture du fichier de données à la ligne %1, colonne %2:%3</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="625"/>
+        <location filename="../sources/mainwindow.cpp" line="661"/>
         <source>Please select a file to update !</source>
         <translation>Sélectionner un exercice à mettre à jour !</translation>
     </message>
@@ -1114,39 +1225,39 @@ p, li { white-space: pre-wrap; }
         <translation>Sélectionner un exercice à supprimer de la feuille !</translation>
     </message>
     <message>
-        <location filename="../sources/dirprefdialog.cpp" line="375"/>
+        <location filename="../sources/dirprefdialog.cpp" line="377"/>
         <source>There is a problem with the order of the metadatas you have choosen : probably two differents metadatas associated to the same value.
 Please correct this before clicking &quot;Ok&quot;.</source>
         <translation>Il y a un problème avec l&apos;ordre des métadonnées choisies : il y a probablement deux métadonnées différentes associées au même chiffre.
 S&apos;il vous plaît corrigez cela avant de cliquer à nouveau sur &quot;Accepter&quot;.</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="419"/>
+        <location filename="../sources/mainwindow.cpp" line="429"/>
         <source>New version of TeXoMaker</source>
         <translation>Nouvelle version de TeXoMaker</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="420"/>
+        <location filename="../sources/mainwindow.cpp" line="430"/>
         <source>&lt;center&gt;Version %1 of TeXoMaker is available.&lt;br&gt;&lt;br&gt;You can download it on the &lt;a href=&apos;https://github.com/Domlol/texomaker/releases/latest&apos;&gt;TeXoMaker website&lt;/a&gt;&lt;center&gt;</source>
         <translation>&lt;center&gt;La version %1 de TeXoMaker est disponible.&lt;br&gt;&lt;br&gt;Vous pouvez la télécharger sur le &lt;a href=&apos;https://github.com/Domlol/texomaker/releases/latest&apos;&gt;site de TeXoMaker&lt;/a&gt;&lt;center&gt;</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="542"/>
+        <location filename="../sources/mainwindow.cpp" line="564"/>
         <source>Warning</source>
         <translation>Attention</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="542"/>
+        <location filename="../sources/mainwindow.cpp" line="564"/>
         <source>Please load a database first !</source>
         <translation>Charger une base de donnée !</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="1174"/>
+        <location filename="../sources/mainwindow.cpp" line="1259"/>
         <source>Information</source>
         <translation>Information</translation>
     </message>
     <message>
-        <location filename="../sources/mainwindow.cpp" line="1285"/>
+        <location filename="../sources/mainwindow.cpp" line="1370"/>
         <source>Import failed</source>
         <translation>L&apos;importation a échouée</translation>
     </message>

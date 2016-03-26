@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>New exercise</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -32,7 +32,17 @@
    <item>
     <widget class="QCheckBox" name="editCheckBox">
      <property name="text">
-      <string>Edit file when done</string>
+      <string>Edit in internal editor and import</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="editCheckBoxSystem">
+     <property name="text">
+      <string>Edit in system editor and import manually</string>
      </property>
     </widget>
    </item>

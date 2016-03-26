@@ -615,6 +615,14 @@ void MainWindow::updateImported(const QString & fileName)
     updateStatusBar();
 }
 
+void MainWindow::importFromEditor(QString filePath)
+{
+    QStringList files = QStringList(filePath);
+    importObject = new Importer(files,Preferences::p_getUseIso(),&xmlDom,model,viewer,false);
+    connect(importObject,SIGNAL(fileImported(const QString &)),this,SLOT(updateImported(const QString &)));
+    importObject->importFiles();
+}
+
 void MainWindow::updateFile()
 {
     if (model->rowCount(QModelIndex())==0) {
@@ -802,11 +810,11 @@ void MainWindow::editExo()
     else QDesktopServices::openUrl(QUrl("file:///"+filePath));
 }
 
-void MainWindow::openEditor(QString m_filePath)
+void MainWindow::openEditor(QString m_filePath,bool creation)
 {
-    qDebug() << m_filePath;
-    editWindow = new EditWindow(this,m_filePath);
+    editWindow = new EditWindow(this,m_filePath,creation);
     connect(editWindow,SIGNAL(updated()),this,SLOT(updateFile()));
+    if (creation) connect(editWindow,SIGNAL(created(const QString &)),this,SLOT(importFromEditor(const QString &)));
     editWindow->show();
     editWindow->activateWindow();
 }
@@ -829,6 +837,7 @@ void MainWindow::createExo()
 
 
     newexodialog = new NewExoDialog(this,fileName,metas);
+    connect(newexodialog,SIGNAL(exoToEdit(const QString &,const bool &)),this,SLOT(openEditor(const QString &,const bool &)));
     newexodialog->show();
     newexodialog->activateWindow();
 

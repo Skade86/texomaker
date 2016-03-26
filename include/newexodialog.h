@@ -5,6 +5,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QHBoxLayout>
+#include <QButtonGroup>
 
 namespace Ui {
 class NewExoDialog;
@@ -25,9 +26,14 @@ private:
     QList<QLabel *> labelList;
     QList<QLineEdit * >  lineList;
     QList<QHBoxLayout *> hLayoutList;
+    QButtonGroup *editorGroup;
 
 private slots:
     void create();
+
+signals:
+
+    void exoToEdit(const QString &filePath,const bool &creation);
 };
 
 #endif // NEWEXODIALOG_H
