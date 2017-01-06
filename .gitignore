@@ -211,3 +211,11 @@ tmp/ui_editwindow.h
 tmp/moc_editwindow.cpp
 tmp/moc_highlighter.cpp
 tmp/ui_newexodialog.h
+
+tmp/moc_newexodialog.cpp
+/doc/.DS_Store
+/include/.DS_Store
+/bin/.DS_Store
+/ui/.DS_Store
+/.DS_Store
+/images/.DS_Store
