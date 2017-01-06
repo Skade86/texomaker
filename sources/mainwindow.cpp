@@ -407,6 +407,7 @@ void MainWindow::updateStatusBar()
 void MainWindow::checkUpdate()
 {
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
+    manager->connectToHostEncrypted("http://www.freebyte.fr/version.txt");
     connect(manager, SIGNAL(finished(QNetworkReply*)),
             this, SLOT(updateReplyFinished(QNetworkReply*)));
     manager->get(QNetworkRequest(QUrl("http://www.freebyte.fr/version.txt")));
@@ -415,6 +416,7 @@ void MainWindow::checkUpdate()
 
 void MainWindow::updateReplyFinished(QNetworkReply* reply)
 {
+    reply->ignoreSslErrors();
     QByteArray bytes = reply->readAll();  // bytes
     bytes=bytes.trimmed();
     QString lastVersion(bytes);
@@ -767,11 +769,12 @@ void MainWindow::about()
     int version_minor = MINOR;
     int version_subminor = SUBMINOR;
     int version_build = BUILD;
+    QString poppler_version = POPPLER_VERSION;
     QString version_no = tr("%1.%2.%3 build %4").arg(version_major).arg(version_minor).arg(version_subminor).arg(version_build);
     QMessageBox::about(this, tr("About TeXoMaker"),
                         tr("<center>This is <b>TeXoMaker</b> version %3<br>"
                           "Builded : %1<br>"
-                          "<b>TeXoMaker</b> has been developped by <br><a href='mailto:texomaker@freebyte.fr'>Gwena&euml;l Cl&eacute;on</a><br>using <b>Qt version %2</b><br></center>").arg(QDate::currentDate().toString("d MMMM yyyy")).arg(qVersion()).arg(version_no));
+                          "<b>TeXoMaker</b> has been developped by <br><a href='mailto:texomaker@freebyte.fr'>Gwena&euml;l Cl&eacute;on</a><br>using <b>Qt version %2</b><br> and <b>Poppler version %4</b><br></center>").arg(QDate::currentDate().toString("d MMMM yyyy")).arg(qVersion()).arg(version_no).arg(poppler_version));
 }
 
 void MainWindow::manualCalled()

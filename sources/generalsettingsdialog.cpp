@@ -67,8 +67,8 @@ void GeneralSettingsDialog::testBin(QString bin)
         {
             Preferences::p_setBin(bin,"/usr/local/bin/"+bin);
         }
-        else if (QFile(QString("/usr/texbin/"+bin)).exists()) {
-            Preferences::p_setBin(bin,"/usr/texbin/"+bin);  }
+        else if (QFile(QString("/Library/TeX/texbin/"+bin)).exists()) {
+            Preferences::p_setBin(bin,"/Library/TeX/texbin/"+bin);  }
 #endif
 
 #ifdef Q_OS_LINUX

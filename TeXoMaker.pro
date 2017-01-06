@@ -1,7 +1,7 @@
 # Variable indiquant un empaquetage .deb ou pas : Yes ou No
 
 DEBPACKING = No
-
+QMAKE_MAC_SDK = macosx10.12
 # Configuration générale
 QT += widgets xml network
 DESTDIR = bin
