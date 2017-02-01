@@ -1,4 +1,5 @@
 #include <QtWidgets>
+#include <QDebug>
 #include "tableview.h"
 
 TableView::TableView(QWidget *parent) : QTableView(parent)
@@ -7,14 +8,20 @@ TableView::TableView(QWidget *parent) : QTableView(parent)
 void TableView::contextMenuEvent(QContextMenuEvent * e)
 {
 	Q_UNUSED(e);
-/*	
-	QMenu *menu = new QMenu(this);
-	QModelIndex index = indexAt(e->pos());
-	if (index.isValid())
-		menu->addAction(QString("Row %1 - Col %2 was clicked on").arg(index.row()).arg(index.column()));
-	else
-		menu->addAction("No item was clicked on");
-	
-	menu->exec(QCursor::pos());
- */
+}
+
+
+void TableView::wheelEvent ( QWheelEvent * event )
+{
+  if (event->modifiers() & Qt::ControlModifier ) {
+      int currentFontSize = this->font().pointSize();
+      if ((event->delta()>0) && (currentFontSize<=30))
+          this->setFont(QFont("calibri",currentFontSize + 1));
+      else if ((event->delta()<0) && (currentFontSize>=6))
+          this->setFont(QFont("calibri",currentFontSize - 1));
+      this->resizeRowsToContents();
+  }
+  else QTableView::wheelEvent(event);
+
+  event->accept();
 }
