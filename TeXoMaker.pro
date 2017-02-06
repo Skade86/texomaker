@@ -5,7 +5,7 @@ QMAKE_MAC_SDK = macosx10.12
 # Configuration générale
 QT += widgets xml network
 DESTDIR = bin
-TARGET = texomaker
+TARGET = TeXoMaker
 macx:ICON = TeXoMaker.icns
 win32:RC_FILE += ressources.rc
 TEMPLATE = app
