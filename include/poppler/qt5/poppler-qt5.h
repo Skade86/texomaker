@@ -1,7 +1,7 @@
 /* poppler-qt.h: qt interface to poppler
  * Copyright (C) 2005, Net Integration Technologies, Inc.
  * Copyright (C) 2005, 2007, Brad Hards <bradh@frogmouth.net>
- * Copyright (C) 2005-2013, Albert Astals Cid <aacid@kde.org>
+ * Copyright (C) 2005-2015, Albert Astals Cid <aacid@kde.org>
  * Copyright (C) 2005, Stefan Kebekus <stefan.kebekus@math.uni-koeln.de>
  * Copyright (C) 2006-2011, Pino Toscano <pino@kde.org>
  * Copyright (C) 2009 Shawn Rutledge <shawn.t.rutledge@gmail.com>
@@ -12,9 +12,10 @@
  * Copyright (C) 2012, Guillermo A. Amaral B. <gamaral@kde.org>
  * Copyright (C) 2012, Fabio D'Urso <fabiodurso@hotmail.it>
  * Copyright (C) 2012, Tobias Koenig <tobias.koenig@kdab.com>
- * Copyright (C) 2012 Adam Reichold <adamreichold@myopera.com>
+ * Copyright (C) 2012, 2014, 2015 Adam Reichold <adamreichold@myopera.com>
  * Copyright (C) 2012, 2013 Thomas Freitag <Thomas.Freitag@alfa.de>
  * Copyright (C) 2013 Anthony Granger <grangeranthony@gmail.com>
+ * Copyright (C) 2016 Jakub Alba <jakubalba@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -580,6 +581,16 @@ delete it;
 	enum SearchMode { CaseSensitive,   ///< Case differences cause no match in searching
 			  CaseInsensitive  ///< Case differences are ignored in matching
 	};
+
+        /**
+           Flags to modify the search behaviour \since 0.31
+        */
+        enum SearchFlag
+        {
+            IgnoreCase = 0x00000001,    ///< Case differences are ignored
+            WholeWords = 0x00000002    ///< Only whole words are matched
+        };
+        Q_DECLARE_FLAGS( SearchFlags, SearchFlag )
 	
 	/**
 	   Returns true if the specified text was found.
@@ -592,8 +603,22 @@ delete it;
 	   \param rotate the rotation to apply for the search order
 	   \since 0.14
 	**/
-	bool search(const QString &text, double &rectLeft, double &rectTop, double &rectRight, double &rectBottom, SearchDirection direction, SearchMode caseSensitive, Rotation rotate = Rotate0) const;
-	
+        Q_DECL_DEPRECATED bool search(const QString &text, double &rectLeft, double &rectTop, double &rectRight, double &rectBottom, SearchDirection direction, SearchMode caseSensitive, Rotation rotate = Rotate0) const;
+
+        /**
+           Returns true if the specified text was found.
+
+           \param text the text the search
+           \param rectXXX in all directions is used to return where the text was found, for NextResult and PreviousResult
+                       indicates where to continue searching for
+           \param direction in which direction do the search
+           \param flags the flags to consider during matching
+           \param rotate the rotation to apply for the search order
+
+           \since 0.31
+        **/
+        bool search(const QString &text, double &rectLeft, double &rectTop, double &rectRight, double &rectBottom, SearchDirection direction, SearchFlags flags = 0, Rotation rotate = Rotate0) const;
+
 	/**
 	   Returns a list of all occurrences of the specified text on the page.
 	   
@@ -605,7 +630,20 @@ delete it;
 	   
 	   \since 0.22
 	**/
-	QList<QRectF> search(const QString &text, SearchMode caseSensitive, Rotation rotate = Rotate0) const;
+        Q_DECL_DEPRECATED QList<QRectF> search(const QString &text, SearchMode caseSensitive, Rotation rotate = Rotate0) const;
+
+        /**
+           Returns a list of all occurrences of the specified text on the page.
+
+           \param text the text to search
+           \param flags the flags to consider during matching
+           \param rotate the rotation to apply for the search order
+
+           \warning Do not use the returned QRectF as arguments of another search call because of truncation issues if qreal is defined as float.
+
+           \since 0.31
+        **/
+        QList<QRectF> search(const QString &text, SearchFlags flags = 0, Rotation rotate = Rotate0) const;
 
 	/**
 	   Returns a list of text of the page
@@ -688,6 +726,21 @@ delete it;
 	       when no longer required.
 	*/
 	QList<Annotation*> annotations() const;
+
+
+	/**
+		Returns the annotations of the page
+
+		\param subtypes the subtypes of annotations you are interested in
+
+		\note If you call this method twice, you get different objects
+		      pointing to the same annotations (see Annotation).
+		      The caller owns the returned objects and they should be deleted
+		      when no longer required.
+
+		\since 0.28
+	*/
+	QList<Annotation*> annotations(const QSet<Annotation::SubType> &subtypes) const;
 
 	/**
 	 Adds an annotation to the page
@@ -839,7 +892,8 @@ delete it;
 	    TextSlightHinting = 0x00000008, ///< Lighter hinting for text when combined with TextHinting \since 0.18
 	    OverprintPreview = 0x00000010,  ///< Overprint preview \since 0.22
 	    ThinLineSolid = 0x00000020,     ///< Enhance thin lines solid \since 0.24
-	    ThinLineShape = 0x00000040      ///< Enhance thin lines shape. Wins over ThinLineSolid \since 0.24
+	    ThinLineShape = 0x00000040,     ///< Enhance thin lines shape. Wins over ThinLineSolid \since 0.24
+	    IgnorePaperColor = 0x00000080   ///< Do not compose with the paper color \since 0.35
 	};
 	Q_DECLARE_FLAGS( RenderHints, RenderHint )
 
@@ -979,6 +1033,14 @@ delete it;
 	PageLayout pageLayout() const;
 
 	/**
+	   The predominant reading order for text as supplied by
+	   the document's viewer preferences.
+
+	   \since 0.26
+	*/
+	Qt::LayoutDirection textDirection() const;
+
+	/**
 	   Provide the passwords required to unlock the document
 
 	   \param ownerPassword the Latin1-encoded owner password to use in
@@ -1011,6 +1073,37 @@ QDateTime modified = m_doc->date("ModDate");
 	QDateTime date( const QString & data ) const;
 
 	/**
+	   Set the Info dict date entry specified by \param key to \param val
+
+	   \returns true on success, false on failure
+	*/
+	bool setDate( const QString & key, const QDateTime & val );
+
+	/**
+	   The date of the creation of the document
+	*/
+	QDateTime creationDate() const;
+
+	/**
+	   Set the creation date of the document to \param val
+
+	   \returns true on success, false on failure
+	*/
+	bool setCreationDate( const QDateTime & val );
+
+	/**
+	   The date of the last change in the document
+	*/
+	QDateTime modificationDate() const;
+
+	/**
+	   Set the modification date of the document to \param val
+
+	   \returns true on success, false on failure
+	*/
+	bool setModificationDate( const QDateTime & val );
+
+	/**
 	   Get specified information associated with the document
 
 	   You would use this method with something like:
@@ -1027,6 +1120,92 @@ QString subject = m_doc->info("Subject");
 	   \sa infoKeys() to get a list of the available keys
 	*/
 	QString info( const QString & data ) const;
+
+	/**
+	   Set the value of the document's Info dictionary entry specified by \param key to \param val
+
+	   \returns true on success, false on failure
+	*/
+	bool setInfo( const QString & key, const QString & val );
+
+	/**
+	   The title of the document
+	*/
+	QString title() const;
+
+	/**
+	   Set the title of the document to \param val
+
+	   \returns true on success, false on failure
+	*/
+	bool setTitle( const QString & val );
+
+	/**
+	   The author of the document
+	*/
+	QString author() const;
+
+	/**
+	   Set the author of the document to \param val
+
+	   \returns true on success, false on failure
+	*/
+	bool setAuthor( const QString & val );
+
+	/**
+	   The subject of the document
+	*/
+	QString subject() const;
+
+	/**
+	   Set the subject of the document to \param val
+
+	   \returns true on success, false on failure
+	*/
+	bool setSubject( const QString & val );
+
+	/**
+	   The keywords of the document
+	*/
+	QString keywords() const;
+
+	/**
+	   Set the keywords of the document to \param val
+
+	   \returns true on success, false on failure
+	*/
+	bool setKeywords( const QString & val );
+
+	/**
+	   The creator of the document
+	*/
+	QString creator() const;
+
+	/**
+	   Set the creator of the document to \param val
+
+	   \returns true on success, false on failure
+	*/
+	bool setCreator( const QString & val );
+
+	/**
+	   The producer of the document
+	*/
+	QString producer() const;
+
+	/**
+	   Set the producer of the document to \param val
+
+	   \returns true on success, false on failure
+	*/
+	bool setProducer( const QString & val );
+
+	/**
+	   Remove the document's Info dictionary
+
+	   \returns true on success, false on failure
+	*/
+	bool removeInfo();
 
 	/**
 	   Obtain a list of the available string information keys.
@@ -1764,6 +1943,7 @@ height = dummy.height();
 }
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(Poppler::Page::PainterFlags)
+Q_DECLARE_OPERATORS_FOR_FLAGS(Poppler::Page::SearchFlags)
 Q_DECLARE_OPERATORS_FOR_FLAGS(Poppler::Document::RenderHints)
 Q_DECLARE_OPERATORS_FOR_FLAGS(Poppler::PDFConverter::PDFOptions)
 Q_DECLARE_OPERATORS_FOR_FLAGS(Poppler::PSConverter::PSOptions)

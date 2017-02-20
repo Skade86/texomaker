@@ -27,7 +27,7 @@ LIBS+= -lpoppler-qt5
 
 win32:{
 INCLUDEPATH += include/poppler/qt5
-LIBS += "$$_PRO_FILE_PWD_/lib/libpoppler-qt5.dll"
+LIBS += "$$_PRO_FILE_PWD_/lib/libpoppler-qt5.lib"
 }
 
 include(version.pri)
