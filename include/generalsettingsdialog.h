@@ -2,6 +2,7 @@
 #define GENERALSETTINGSDIALOG_H
 
 #include <QDialog>
+#include <QStandardPaths>
 #include "ui_generalsettingsdialog.h"
 
 

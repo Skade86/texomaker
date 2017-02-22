@@ -60,25 +60,11 @@ GeneralSettingsDialog::GeneralSettingsDialog(QWidget *parent) :
 
 void GeneralSettingsDialog::testBin(QString bin)
 {
-    if (Preferences::p_getBin(bin).isEmpty())
+    if ((Preferences::p_getBin(bin).isEmpty()) || (!QFile(Preferences::p_getBin(bin)).exists()))
     {
-#ifdef Q_OS_MAC
-        if ((bin == "ps2pdf")&&(QFile(QString("/usr/local/bin/"+bin)).exists()))
-        {
-            Preferences::p_setBin(bin,"/usr/local/bin/"+bin);
-        }
-        else if (QFile(QString("/Library/TeX/texbin/"+bin)).exists()) {
-            Preferences::p_setBin(bin,"/Library/TeX/texbin/"+bin);  }
-#endif
+        QString binPath = QStandardPaths::findExecutable(bin);
+        if (!binPath.isEmpty()) Preferences::p_setBin(bin,binPath);
 
-#ifdef Q_OS_LINUX
-        if (QFile(QString("/usr/bin/"+bin)).exists()) {
-            Preferences::p_setBin(bin,"/usr/bin/"+bin); }
-#endif
-
-#ifdef Q_OS_WIN
-        Preferences::p_setBin(bin,bin);
-#endif
     }
 }
 
