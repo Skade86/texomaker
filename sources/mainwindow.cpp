@@ -425,15 +425,27 @@ void MainWindow::updateReplyFinished(QNetworkReply* reply)
     int version_subminor = SUBMINOR;
     QString curVersion = tr("%1.%2.%3").arg(version_major).arg(version_minor).arg(version_subminor);
 
-    if (lastVersion.isEmpty()) return;
-    if ((lastVersion==curVersion)) return;
+    if (lastVersion.isEmpty()) {
+        reply->deleteLater();
+        return;
+    }
 
+    if ((lastVersion==curVersion)) {
+        QMessageBox::information(this, QObject::tr("Last version of TeXoMaker"),
+                                     QObject::tr("<center>Version %1 of TeXoMaker is already the newest version.<br><br>"
+                                                 "</a><center>").arg(lastVersion));
+        reply->deleteLater();
+        return;
+    }
+        else {
     QMessageBox::information(this, QObject::tr("New version of TeXoMaker"),
                                  QObject::tr("<center>Version %1 of TeXoMaker is available.<br><br>"
                                              "You can download it on the <a href='https://github.com/Domlol/texomaker/releases/latest'>"
                                              "TeXoMaker website"
                                              "</a><center>").arg(lastVersion));
     reply->deleteLater();
+    return;
+   }
 }
 
 
