@@ -6,3 +6,4 @@ tmp/moc_advancedfilter.cpp
 *.Release
 *.stash
 bin/TeXoMaker.exe
+.DS_Store
