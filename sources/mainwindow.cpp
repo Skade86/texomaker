@@ -189,7 +189,7 @@ void MainWindow::createLayout()
 #ifdef Q_OS_MAC
     setUnifiedTitleAndToolBarOnMac(true);
 #endif
-    setWindowIcon(QIcon(":/images/TeXoMaker.png"));
+    setWindowIcon(QIcon(":/images/texomaker.png"));
     setFocusPolicy(Qt::StrongFocus);
 }
 
