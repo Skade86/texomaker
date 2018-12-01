@@ -1,34 +1,21 @@
 # Variable indiquant un empaquetage .deb ou pas : Yes ou No
 
 DEBPACKING = No
-QMAKE_MAC_SDK = macosx10.12
+
 # Configuration générale
-QT += widgets xml network
+
+QT += core gui widgets xml network webenginewidgets
+
 DESTDIR = bin
 TARGET = texomaker
 macx:ICON = TeXoMaker.icns
 win32:RC_FILE += ressources.rc
 TEMPLATE = app
-CONFIG += app_bundle thread x86_64
-
+CONFIG += sdk_no_version_check
+CONFIG += warn_off
 # Librairies et Headers
 
 INCLUDEPATH = include
-
-macx:{
-INCLUDEPATH += /usr/local/include/poppler/qt5
-LIBS +=  -L/usr/local/lib/ -lpoppler-qt5
-}
-
-unix:!macx{
-INCLUDEPATH += /usr/include/poppler/qt5
-LIBS+= -lpoppler-qt5
-}
-
-win32:{
-INCLUDEPATH += include/poppler/qt5
-LIBS += "$$_PRO_FILE_PWD_/lib/libpoppler-qt5.lib"
-}
 
 include(version.pri)
 

@@ -781,12 +781,11 @@ void MainWindow::about()
     int version_minor = MINOR;
     int version_subminor = SUBMINOR;
     int version_build = BUILD;
-    QString poppler_version = POPPLER_VERSION;
     QString version_no = tr("%1.%2.%3 build %4").arg(version_major).arg(version_minor).arg(version_subminor).arg(version_build);
     QMessageBox::about(this, tr("About TeXoMaker"),
                         tr("<center>This is <b>TeXoMaker</b> version %3<br>"
                           "Builded : %1<br>"
-                          "<b>TeXoMaker</b> has been developped by <br><a href='mailto:texomaker@freebyte.fr'>Gwena&euml;l Cl&eacute;on</a><br>using <b>Qt version %2</b><br> and <b>Poppler version %4</b><br></center>").arg(QDate::currentDate().toString("d MMMM yyyy")).arg(qVersion()).arg(version_no).arg(poppler_version));
+                          "<b>TeXoMaker</b> has been developped by <br><a href='mailto:texomaker@freebyte.fr'>Gwena&euml;l Cl&eacute;on</a><br>using <b>Qt version %2</b><br></center>").arg(QDate::currentDate().toString("d MMMM yyyy")).arg(qVersion()).arg(version_no));
 }
 
 void MainWindow::manualCalled()
@@ -1011,8 +1010,6 @@ void MainWindow::initializeModelView()
     editExoAct->setEnabled(true);
     newExoAct->setEnabled(true);
 
-    viewer->onButtonFitClicked();
-
     return;
 }
 
@@ -1037,6 +1034,7 @@ void MainWindow::readSettings()
 {	
     //	Récupère des valeurs de variables enregistrés à  chaque fermeture du programme
     QSettings settings("Domlol","TeXoMaker");
+    //settings.clear();
     // Position et taille de la fenêtre
 //    QPoint pos = settings.value("pos", QPoint(200, 200)).toPoint();
 //    QSize size = settings.value("size", QSize(400, 400)).toSize();

@@ -2,13 +2,8 @@
 #define VIEWER_H
 
 #include <QWidget>
-
-#include <QDebug>
+#include <QtWebEngineWidgets/QWebEngineView>
 #include "ui_viewer.h"
-#include "poppler-qt5.h"
-
-class QGraphicsPixmapItem;
-
 
 //! Classe héritant de \a QWidget et de \a Ui::Viewer (ui créée dans Designer)
 /*!
@@ -25,7 +20,7 @@ class Viewer : public QWidget {
     Q_OBJECT
 
 public:
-    explicit Viewer(QWidget *parent = 0);
+    explicit Viewer(QWidget *parent = nullptr);
     ~Viewer();
 
     //! Méthode affiche sur le QLabel du Widget, le preview de l'exercice passé en argument
@@ -35,32 +30,7 @@ public:
     
 private:
     Ui::Viewer *ui;
-    QImage image;
-    qreal scaleFact;
-    Poppler::Document* document;
-    Poppler::Page* pdfPage;
-    QGraphicsPixmapItem* myItem;
-    QGraphicsScene* scene;
-    int currentPage;
-    int numPages;
-
-    // Gestion de l'affichage des boutons de pages
-    // suivant le nombre de pages du document
-    void updatePagesButtons();
-
-private slots:
-
-    void onButtonInClicked();
-    void onButtonOutClicked();
-    void nextPageClicked();
-    void previousPageClicked();
-
-public slots:
-
-    void onButtonFitClicked();
-
-protected:
-    virtual void resizeEvent(QResizeEvent * event);
+    QWebEngineView *webView;
 };
 
 #endif // VIEWER_H

@@ -19,7 +19,7 @@ void XmlDomHandler::createDomDocument()
 	if (!doc->setContent(&file, true, &errorStr, &errorLine,
                         &errorColumn)) 
 	 {
-        QMessageBox::warning(0, QObject::tr("DOM Parser"),
+        QMessageBox::warning(nullptr, QObject::tr("DOM Parser"),
                              QObject::tr("Parse error at line %1, "
                                          "column %2:\n%3")
                              .arg(errorLine)

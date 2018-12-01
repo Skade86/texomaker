@@ -70,11 +70,14 @@ class Preferences
 
         //! Booléen indiquant l'utilisation de l'editeur interne
         static bool internEditor;
+
+        //! Répertoire de pdf.js
+        static QString pdfJSDir;
 		
 	public:
 		
 		//! Constructeur vide (aucun objet n'aura besoin d'être créé)
-		Preferences() { };
+        Preferences() { }
 		
 		//! Version actuelle
 		static  QString curVersion;
@@ -198,5 +201,11 @@ class Preferences
 
         //! Donne la valeur str à sheetBookmarks
         static void p_setSheetBookmarks(QStringList strLst) { sheetBookmarks=strLst;	}
+
+        //! Récupère pdfJSDir
+        static QString p_getPdfJSDir() { return pdfJSDir; }
+
+        //! Donne la valeur str à pdfJSDir
+        static void p_setPdfJSDir(QString str) { pdfJSDir=str;	}
 	};
 #endif

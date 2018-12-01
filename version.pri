@@ -1,8 +1,7 @@
 # Numéros de version
-DEFINES += MAJOR=3
-DEFINES += MINOR=3
+DEFINES += MAJOR=4
+DEFINES += MINOR=0
 DEFINES += SUBMINOR=0
-DEFINES += POPPLER_VERSION=\\\"0.51.0\\\"
 
 equals(DEBPACKING,"No") {
 !win32 {

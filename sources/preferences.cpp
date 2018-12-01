@@ -21,3 +21,4 @@ QStringList Preferences::metaList=QStringList();
 QStringList Preferences::metaToView=QStringList();
 QStringList Preferences::sheetBookmarks=QStringList();
 QMap<QString, QString> Preferences::binMap;
+QString Preferences::pdfJSDir = QString();
