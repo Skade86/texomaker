@@ -43,6 +43,12 @@ int main(int argc, char *argv[])
     Preferences::p_setPdfJSDir(copyPDFJS(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)));
 #endif // Q_OS_OSX
 
+
+#ifdef Q_OS_LINUX
+    // Copie du répertoire pdf.js des ressources
+    Preferences::p_setPdfJSDir(copyPDFJS(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)));
+#endif // Q_OS_OSX
+
 #ifdef Q_OS_WIN
 // Copie du répertoire pdf.js des ressources
     Preferences::p_setPdfJSDir(copyPDFJS(QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation)));

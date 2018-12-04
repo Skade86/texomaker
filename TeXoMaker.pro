@@ -13,7 +13,11 @@ win32:RC_FILE += ressources.rc
 TEMPLATE = app
 CONFIG += sdk_no_version_check
 CONFIG += warn_off
-# Librairies et Headers
+
+
+unix:!macx{
+CONFIG += qtc_runnable
+}
 
 INCLUDEPATH = include
 
