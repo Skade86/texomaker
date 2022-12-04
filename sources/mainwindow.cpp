@@ -16,10 +16,8 @@
 #include "exosheet.h"
 #include "preferences.h"
 #include "propertydialog.h"
-#include "version.h"
 #include "advancedfilter.h"
 #include "editwindow.h"
-
 
 MainWindow::MainWindow()
 {	
@@ -780,8 +778,8 @@ void MainWindow::about()
     int version_major = MAJOR;
     int version_minor = MINOR;
     int version_subminor = SUBMINOR;
-    int version_build = BUILD;
-    QString version_no = tr("%1.%2.%3 build %4").arg(version_major).arg(version_minor).arg(version_subminor).arg(version_build);
+
+    QString version_no = tr("%1.%2.%3 build %4").arg(version_major).arg(version_minor).arg(version_subminor);
     QMessageBox::about(this, tr("About TeXoMaker"),
                         tr("<center>This is <b>TeXoMaker</b> version %3<br>"
                           "Builded : %1<br>"
